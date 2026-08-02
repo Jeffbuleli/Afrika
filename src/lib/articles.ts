@@ -88,7 +88,10 @@ export async function getFeaturedArticle(locale: Locale) {
     .innerJoin(categories, eq(categories.id, articles.categoryId))
     .innerJoin(authors, eq(authors.id, articles.authorId))
     .where(and(eq(articles.status, "published"), eq(articles.featured, true)))
-    .orderBy(desc(articles.publishedAt))
+    .orderBy(
+      sql`case ${articles.country} when 'DRC' then 0 when 'RWANDA' then 1 when 'UGANDA' then 2 else 3 end`,
+      desc(articles.publishedAt),
+    )
     .limit(1);
 
   if (featured[0]) return featured[0];
