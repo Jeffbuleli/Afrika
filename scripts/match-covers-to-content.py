@@ -331,19 +331,63 @@ CATALOG: list[dict] = [
     },
 ]
 
+
+def load_catalog() -> list[dict]:
+    """Merge static catalog with downloaded DRC extras."""
+    by_path: dict[str, dict] = {}
+    for item in CATALOG:
+        entry = {
+            "path": item["path"],
+            "country": item["country"],
+            "tags": set(item["tags"]),
+        }
+        by_path[entry["path"]] = entry
+
+    extra_path = ROOT / "content" / "drc-extra-covers.json"
+    if extra_path.exists():
+        for item in json.loads(extra_path.read_text()):
+            path = item.get("path")
+            if not path:
+                continue
+            if not (ROOT / "public" / path.lstrip("/")).exists():
+                continue
+            tags = set(item.get("tags") or [])
+            if path in by_path:
+                by_path[path]["tags"] |= tags
+            else:
+                by_path[path] = {
+                    "path": path,
+                    "country": item.get("country") or "DRC",
+                    "tags": tags,
+                }
+    return list(by_path.values())
+
+
 # Patterns that extract article themes from text (ordered; weight applied when matched)
 THEME_RULES: list[tuple[str, list[str], int]] = [
-    ("tshisekedi", [r"\btshisekedi\b", r"\bfélix\b", r"\bfelix\b"], 12),
+    ("tshisekedi", [r"\btshisekedi\b"], 14),
+    ("kabila", [r"\bkabila\b"], 12),
+    ("mukwege", [r"\bmukwege\b"], 12),
     ("kagame", [r"\bkagame\b"], 12),
     ("museveni", [r"\bmuseveni\b"], 12),
     ("burhan", [r"\bburhan\b", r"\bal-burhan\b"], 12),
-    ("mining", [r"\bmin(e|ing|es|iers?)\b", r"\bminerals?\b", r"\bminérales?\b", r"\bcoltan\b", r"\bgold\b", r"\bcobalt\b", r"\brubaya\b", r"\bsites? mini"], 10),
+    ("mining", [r"\bmin(e|ing|es|iers?)\b", r"\bminerals?\b", r"\bminérales?\b", r"\bcoltan\b", r"\bgold\b", r"\bcobalt\b", r"\brubaya\b", r"\bkolwezi\b", r"\bsites? mini"], 10),
     ("m23", [r"\bm23\b", r"\bwazalendo\b", r"\bafc/?m23\b", r"\bafc\b"], 10),
-    ("adf", [r"\badf\b", r"\bbeni\b"], 9),
-    ("goma", [r"\bgoma\b", r"\bnord[- ]?kivu\b", r"\bnorth kivu\b", r"\bruashi\b"], 10),
-    ("uvira", [r"\buvira\b", r"\bsud[- ]?kivu\b", r"\bsouth kivu\b", r"\bbukavu\b"], 8),
-    ("kivu", [r"\bkivu\b", r"\beastern (drc|congo)\b", r"\best (de la )?(rdc|congo)\b"], 7),
-    ("kinshasa", [r"\bkinshasa\b"], 9),
+    ("adf", [r"\badf\b"], 10),
+    ("beni", [r"\bbeni\b", r"\bbutembo\b"], 10),
+    ("goma", [r"\bgoma\b", r"\bsak[eé]\b"], 11),
+    ("bukavu", [r"\bbukavu\b"], 11),
+    ("uvira", [r"\buvira\b"], 10),
+    ("masisi", [r"\bmasisi\b", r"\brutshuru\b", r"\bwalikale\b"], 10),
+    ("ituri", [r"\bituri\b", r"\bbunia\b"], 10),
+    ("lubumbashi", [r"\blubumbashi\b", r"\bkatanga\b", r"\bhaut[- ]?katanga\b"], 10),
+    ("kisangani", [r"\bkisangani\b", r"\btshopo\b"], 10),
+    ("matadi", [r"\bmatadi\b", r"\bkongo[- ]?central\b"], 9),
+    ("kolwezi", [r"\bkolwezi\b", r"\blualaba\b"], 9),
+    ("kivu", [r"\bkivu\b", r"\beastern (drc|congo)\b", r"\best (de la )?(rdc|congo)\b", r"\bnord[- ]?kivu\b", r"\bnorth kivu\b", r"\bsud[- ]?kivu\b", r"\bsouth kivu\b"], 6),
+    ("kinshasa", [r"\bkinshasa\b", r"\bgombe\b"], 9),
+    ("fardc", [r"\bfardc\b"], 9),
+    ("monusco", [r"\bmonusco\b"], 9),
     ("kigali", [r"\bkigali\b"], 9),
     ("kampala", [r"\bkampala\b", r"\blukwago\b"], 9),
     ("bamako", [r"\bbamako\b"], 9),
@@ -356,14 +400,15 @@ THEME_RULES: list[tuple[str, list[str], int]] = [
     ("port", [r"\bport of djibouti\b", r"\bmaritime\b", r"\bshipping\b", r"\bshipyard\b", r"\bcoast guard\b"], 8),
     ("jnih", [r"\bjnim\b", r"\bjnih\b", r"\bjama'?at nusrat\b"], 8),
     ("rsf", [r"\brsf\b", r"\bhemetti\b", r"\bdagalo\b", r"\bdarfur\b", r"\bdarfou\b"], 9),
-    ("armee", [r"\barmy\b", r"\barm[eé]e\b", r"\bfardc\b", r"\bmilitary\b", r"\bclashes?\b", r"\battacks?\b"], 5),
+    ("armee", [r"\barmy\b", r"\barm[eé]e\b", r"\bmilitary\b", r"\bclashes?\b", r"\battacks?\b", r"\barmed group"], 5),
     ("diplomacy", [r"\bdiplomat", r"\bambassador", r"\bsummit\b", r"\btalks?\b", r"\bcooperation\b"], 5),
-    ("un", [r"\bunited nations\b", r"\bonu\b", r"\bmonusco\b", r"\bminusma\b", r"\bun (report|experts?|warns?|says)\b"], 7),
+    ("un", [r"\bunited nations\b", r"\bonu\b", r"\bun (report|experts?|warns?|says)\b"], 7),
     ("investissement", [r"\binvest", r"\bprivate sector\b", r"\bjobs?\b", r"\bemploi"], 6),
     ("energie", [r"\benergy\b", r"\bénergie\b", r"\boil\b", r"\bpetroleum\b", r"\belectric"], 6),
     ("justice", [r"\bcourt\b", r"\btribunal\b", r"\bjustice\b", r"\btrial\b", r"\bsentenc"], 5),
     ("culture", [r"\bculture\b", r"\bheritage\b", r"\bmosque\b", r"\bfestival\b"], 5),
     ("assal", [r"\bassal\b"], 8),
+    ("gouvernement", [r"\bgovernment\b", r"\bgouvernement\b", r"\bcabinet\b", r"\bparlement\b", r"\bassembly\b"], 4),
     ("president", [r"\bpresident\b", r"\bprésident\b"], 3),
 ]
 
@@ -474,9 +519,30 @@ def score_cover(cover: dict, themes: dict[str, int], country: str, category: str
     else:
         score -= 12  # hard prefer same country
     tags = cover["tags"]
+    # Theme aliases help city/context images match neighboring places
+    aliases = {
+        "uvira": {"uvira", "bukavu", "sud-kivu"},
+        "bukavu": {"bukavu", "uvira", "sud-kivu"},
+        "masisi": {"masisi", "rutshuru", "m23", "goma", "nord-kivu"},
+        "beni": {"beni", "adf", "nord-kivu", "butembo"},
+        "ituri": {"ituri", "bunia"},
+        "kolwezi": {"kolwezi", "mining", "katanga", "lubumbashi"},
+        "lubumbashi": {"lubumbashi", "katanga", "kolwezi"},
+        "fardc": {"fardc", "armee", "securite"},
+        "monusco": {"monusco", "un", "securite"},
+        "adf": {"adf", "beni"},
+        "m23": {"m23", "goma", "rutshuru", "masisi", "est"},
+        "mining": {"mining", "kolwezi", "ressources", "gold", "coltan"},
+        "gouvernement": {"gouvernement", "kinshasa", "politique"},
+    }
     for tag, w in themes.items():
         if tag in tags:
             score += w
+            continue
+        for alt in aliases.get(tag, ()):
+            if alt in tags:
+                score += max(1, w - 2)
+                break
     # Category soft boost
     if category and category in tags:
         score += 3
@@ -491,6 +557,14 @@ def score_cover(cover: dict, themes: dict[str, int], country: str, category: str
         score -= 6
     if "Ange_Kagame" in cover["path"]:
         score -= 25
+    # If article is about Tshisekedi, strongly prefer his portraits
+    if themes.get("tshisekedi", 0) >= 12:
+        if "tshisekedi" in tags:
+            score += 14
+        elif "kinshasa" in tags and "politique" in tags:
+            score += 2
+        else:
+            score -= 8
     return score
 
 
@@ -500,25 +574,33 @@ def pick_cover(
     country: str,
     usage: dict[str, int],
     recent: list[str],
+    catalog: list[dict],
 ) -> str:
     category = article.get("category") or ""
     ranked = []
-    for cover in CATALOG:
+    for cover in catalog:
         path = cover["path"]
         if not (ROOT / "public" / path.lstrip("/")).exists():
             continue
         s = score_cover(cover, themes, country, category)
-        # diversify: penalize heavy reuse and immediate repeats
-        s -= usage.get(path, 0) // 3
-        if path in recent[-8:]:
-            s -= 4
+        # diversify: stronger penalty for heavy reuse
+        s -= usage.get(path, 0) * 2
+        if path in recent[-12:]:
+            s -= 6
         ranked.append((s, path))
     ranked.sort(key=lambda x: (-x[0], x[1]))
     if not ranked:
         return article.get("image") or "/covers/Lake_Kivu.jpg"
-    # stable tie-break by slug hash among top near-equals
     top = ranked[0][0]
-    candidates = [p for s, p in ranked if s >= top - 2][:6]
+    # wider candidate window for Tshisekedi/DRC variety
+    window = 5 if country == "DRC" else 2
+    if themes.get("tshisekedi", 0) >= 12:
+        # rotate among Tshisekedi portraits first
+        portraits = [p for s, p in ranked if "Tshisekedi" in p or "tshisekedi" in p.lower() or "F_lix" in p]
+        if portraits:
+            h = int(hashlib.md5((article.get("slug") or "").encode()).hexdigest(), 16)
+            return portraits[h % min(len(portraits), 8)]
+    candidates = [p for s, p in ranked if s >= top - window][:12]
     h = int(hashlib.md5((article.get("slug") or "").encode()).hexdigest(), 16)
     return candidates[h % len(candidates)]
 
@@ -533,6 +615,8 @@ def alt_for(path: str, locale: str, title: str) -> str:
 
 def main() -> None:
     arts = json.loads(SEED.read_text())
+    catalog = load_catalog()
+    print(f"catalog size {len(catalog)}")
     usage: dict[str, int] = defaultdict(int)
     recent: list[str] = []
     changed = 0
@@ -546,7 +630,7 @@ def main() -> None:
     for idx, article in indexed:
         themes = extract_themes(article)
         country = inferred_country(article, themes)
-        path = pick_cover(article, themes, country, usage, recent)
+        path = pick_cover(article, themes, country, usage, recent, catalog)
         new_images[idx] = (path, themes, country)
         usage[path] += 1
         recent.append(path)
@@ -578,7 +662,8 @@ def main() -> None:
     report = {
         "articles": len(arts),
         "changed": changed,
-        "usage_top": sorted(usage.items(), key=lambda x: -x[1])[:20],
+        "catalog": len(catalog),
+        "usage_top": sorted(usage.items(), key=lambda x: -x[1])[:25],
         "samples": samples,
     }
     (ROOT / "content" / "cover-match-report.json").write_text(
