@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { ArticleCardData } from "@/components/HeroFeatured";
 import { CoverPhoto } from "@/components/CoverPhoto";
 import { PaginationControls } from "@/components/Pagination";
+import { categoryBlurb } from "@/lib/category-blurbs";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
 type CategoryInfo = {
@@ -94,8 +95,8 @@ function CategorySectionCard({
           >
             {label}
           </h2>
-          <p className="mt-0.5 text-[0.65rem] uppercase tracking-[0.14em] text-paper/70">
-            {items.length} {copy.articlesCount}
+          <p className="mt-1 max-w-md text-[0.75rem] leading-snug text-paper/70">
+            {categoryBlurb(category.slug, locale)}
           </p>
         </div>
         <Link
@@ -171,7 +172,6 @@ function CategorySectionCard({
           locale={locale}
           page={safePage}
           totalPages={totalPages}
-          totalItems={items.length}
           onChange={setPage}
           className="mt-5 border-t border-line pt-4"
         />

@@ -13,7 +13,6 @@ export function Pagination({
   locale,
   page,
   totalPages,
-  totalItems,
   hrefForPage,
   className = "",
 }: {
@@ -38,12 +37,6 @@ export function Pagination({
     >
       <p className="text-xs text-ink-soft">
         {copy.page} {page} {copy.of} {totalPages}
-        {typeof totalItems === "number" ? (
-          <span>
-            {" "}
-            · {totalItems} {copy.articlesCount}
-          </span>
-        ) : null}
       </p>
       <div className="flex flex-wrap items-center gap-1.5">
         {prev ? (
@@ -124,7 +117,6 @@ export function PaginationControls({
   locale,
   page,
   totalPages,
-  totalItems,
   onChange,
   className = "",
 }: {
@@ -149,12 +141,6 @@ export function PaginationControls({
     >
       <p className="text-xs text-ink-soft">
         {copy.page} {page} {copy.of} {totalPages}
-        {typeof totalItems === "number" ? (
-          <span>
-            {" "}
-            · {totalItems} {copy.articlesCount}
-          </span>
-        ) : null}
       </p>
       <div className="flex flex-wrap items-center gap-1.5">
         <button

@@ -8,6 +8,7 @@ import {
   getArticlesByCategory,
   getCategoryBySlug,
 } from "@/lib/articles";
+import { categoryBlurb } from "@/lib/category-blurbs";
 import { isLocale, t, type Locale } from "@/lib/i18n";
 
 const PAGE_SIZE = 12;
@@ -56,10 +57,8 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.035em] text-gold-deep">
         {label}
       </h1>
-      <p className="mt-4 max-w-2xl text-ink-soft">
-        {locale === "fr"
-          ? `${total} articles dans la rubrique ${label} - janvier à juillet 2026.`
-          : `${total} articles in ${label} - January to July 2026.`}
+      <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+        {categoryBlurb(slug, locale)}
       </p>
       <div className="mt-10 border-t site-rule">
         <ArticleList articles={articles} locale={locale} />
@@ -68,7 +67,6 @@ export default async function CategoryPage({ params, searchParams }: Props) {
         locale={locale}
         page={page}
         totalPages={totalPages}
-        totalItems={total}
         hrefForPage={(p) =>
           p <= 1 ? `/${locale}/${slug}` : `/${locale}/${slug}?page=${p}`
         }
