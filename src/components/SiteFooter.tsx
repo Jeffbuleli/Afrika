@@ -12,7 +12,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="max-w-xl">
           <div className="relative h-12 w-[168px]">
             <Image
-              src="/logo-africa-insight.png"
+              src="/logo-africa-insight-mark.png"
               alt="Africa Insight"
               fill
               className="object-contain object-left"

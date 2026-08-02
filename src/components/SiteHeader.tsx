@@ -27,7 +27,7 @@ export function SiteHeader({ locale, categories }: Props) {
             aria-label="Africa Insight"
           >
             <Image
-              src="/logo-africa-insight.png"
+              src="/logo-africa-insight-mark.png"
               alt="Africa Insight"
               fill
               priority
