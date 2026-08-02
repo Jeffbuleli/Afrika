@@ -5,9 +5,11 @@ import type { Category } from "@/db/schema";
 import { categoryLabel, coverAlt } from "@/lib/articles";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
+const FALLBACK_IMG =
+  "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lake_Kivu.jpg";
+
 /**
- * Rubriques bas de page - inspiration Radio Okapi :
- * titre de section coloré, article phare + liste datée.
+ * Rubriques bas de page - titre de section, article phare + liste avec images.
  */
 export function CategorySections({
   categories,
@@ -29,9 +31,7 @@ export function CategorySections({
             const items = byCategory[category.slug] || [];
             const [lead, ...rest] = items;
             const label = categoryLabel(category, locale);
-            const img =
-              lead.coverImageUrl ||
-              "https://upload.wikimedia.org/wikipedia/commons/a/ad/Lake_Kivu.jpg";
+            const leadImg = lead.coverImageUrl || FALLBACK_IMG;
 
             return (
               <section
@@ -56,7 +56,7 @@ export function CategorySections({
                     className="group grid gap-4 sm:grid-cols-[150px_1fr]"
                   >
                     <CoverPhoto
-                      src={img}
+                      src={leadImg}
                       alt={coverAlt(lead, locale)}
                       fit="contain"
                       className="aspect-[4/3] border border-line"
@@ -79,23 +79,35 @@ export function CategorySections({
 
                   {rest.length > 0 ? (
                     <ul className="mt-5 divide-y divide-line border-t border-line">
-                      {rest.slice(0, 4).map((article) => (
-                        <li key={article.slug}>
-                          <Link
-                            href={`/${locale}/article/${article.slug}`}
-                            className="block py-3 group"
-                          >
-                            <p className="text-sm font-medium leading-snug text-navy group-hover:text-gold-deep transition-colors">
-                              {article.title}
-                            </p>
-                            {article.publishedAt ? (
-                              <p className="mt-1 text-[0.7rem] text-ink-soft">
-                                {formatDate(article.publishedAt, locale)}
-                              </p>
-                            ) : null}
-                          </Link>
-                        </li>
-                      ))}
+                      {rest.slice(0, 4).map((article) => {
+                        const img = article.coverImageUrl || FALLBACK_IMG;
+                        return (
+                          <li key={article.slug}>
+                            <Link
+                              href={`/${locale}/article/${article.slug}`}
+                              className="group grid grid-cols-[72px_1fr] gap-3 py-3 sm:grid-cols-[88px_1fr]"
+                            >
+                              <CoverPhoto
+                                src={img}
+                                alt={coverAlt(article, locale)}
+                                fit="contain"
+                                className="aspect-[4/3] border border-line"
+                                sizes="88px"
+                              />
+                              <div className="min-w-0 self-center">
+                                <p className="text-sm font-medium leading-snug text-navy group-hover:text-gold-deep transition-colors">
+                                  {article.title}
+                                </p>
+                                {article.publishedAt ? (
+                                  <p className="mt-1 text-[0.7rem] text-ink-soft">
+                                    {formatDate(article.publishedAt, locale)}
+                                  </p>
+                                ) : null}
+                              </div>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : null}
                 </div>
