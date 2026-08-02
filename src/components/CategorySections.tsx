@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { ArticleCardData } from "@/components/HeroFeatured";
 import { CoverPhoto } from "@/components/CoverPhoto";
@@ -34,10 +34,14 @@ function CategorySectionCard({
   category,
   items,
   locale,
+  active,
+  onActive,
 }: {
   category: CategoryInfo;
   items: ArticleCardData[];
   locale: Locale;
+  active: boolean;
+  onActive: (slug: string) => void;
 }) {
   const copy = t(locale);
   const label = labelFor(category, locale);
@@ -50,15 +54,44 @@ function CategorySectionCard({
     return items.slice(start, start + PAGE_SIZE);
   }, [items, safePage]);
 
+  useEffect(() => {
+    const el = document.getElementById(`section-${category.slug}`);
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) onActive(category.slug);
+      },
+      {
+        rootMargin: "-20% 0px -45% 0px",
+        threshold: 0.15,
+      },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [category.slug, onActive]);
+
   const [lead, ...rest] = pageItems;
   if (!lead) return null;
   const leadImg = lead.coverImageUrl || FALLBACK_IMG;
 
   return (
-    <section className="border border-line bg-paper/40">
-      <div className="flex items-center justify-between gap-3 border-b-4 border-gold bg-navy px-4 py-3">
+    <section
+      id={`section-${category.slug}`}
+      className="scroll-mt-40 border border-line bg-paper/40"
+    >
+      <div
+        className={`flex items-center justify-between gap-3 border-b-4 bg-navy px-4 py-3 transition-colors ${
+          active ? "border-gold" : "border-gold/50"
+        }`}
+      >
         <div className="min-w-0">
-          <h2 className="text-base sm:text-lg font-semibold tracking-[-0.02em] text-paper">
+          <h2
+            className={`text-base sm:text-lg font-semibold tracking-[-0.02em] transition-colors ${
+              active ? "text-gold" : "text-paper"
+            }`}
+          >
             {label}
           </h2>
           <p className="mt-0.5 text-[0.65rem] uppercase tracking-[0.14em] text-paper/70">
@@ -160,6 +193,7 @@ export function CategorySections({
   locale: Locale;
 }) {
   const active = categories.filter((c) => (byCategory[c.slug] || []).length > 0);
+  const [activeSlug, setActiveSlug] = useState(active[0]?.slug ?? "");
 
   return (
     <section className="border-t site-rule bg-white">
@@ -171,6 +205,8 @@ export function CategorySections({
               category={category}
               items={byCategory[category.slug] || []}
               locale={locale}
+              active={activeSlug === category.slug}
+              onActive={setActiveSlug}
             />
           ))}
         </div>

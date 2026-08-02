@@ -53,7 +53,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <p className="text-xs uppercase tracking-[0.2em] text-ink-soft">
         {copy.categories}
       </p>
-      <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.035em]">
+      <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-[-0.035em] text-gold-deep">
         {label}
       </h1>
       <p className="mt-4 max-w-2xl text-ink-soft">

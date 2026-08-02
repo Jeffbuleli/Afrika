@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import type { Category } from "@/db/schema";
+import { CategoryNav } from "@/components/CategoryNav";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { categoryLabel } from "@/lib/articles";
 import { t, type Locale } from "@/lib/i18n";
 
 type Props = {
@@ -15,7 +15,10 @@ export function SiteHeader({ locale, categories }: Props) {
   const copy = t(locale);
 
   return (
-    <header className="border-b site-rule bg-paper/95 backdrop-blur-sm sticky top-0 z-40">
+    <header
+      data-site-header
+      className="border-b site-rule bg-paper/95 backdrop-blur-sm sticky top-0 z-40"
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 py-3 sm:py-4">
           <Link
@@ -52,26 +55,7 @@ export function SiteHeader({ locale, categories }: Props) {
           </div>
         </div>
 
-        <nav
-          className="flex gap-4 overflow-x-auto pb-3 -mx-1 px-1 text-sm font-bold text-navy"
-          aria-label={copy.categories}
-        >
-          <Link
-            href={`/${locale}`}
-            className="whitespace-nowrap hover:text-gold-deep transition-colors"
-          >
-            {copy.home}
-          </Link>
-          {categories.map((category) => (
-            <Link
-              key={category.id}
-              href={`/${locale}/${category.slug}`}
-              className="whitespace-nowrap hover:text-gold-deep transition-colors"
-            >
-              {categoryLabel(category, locale)}
-            </Link>
-          ))}
-        </nav>
+        <CategoryNav locale={locale} categories={categories} />
       </div>
     </header>
   );
