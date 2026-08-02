@@ -1,0 +1,78 @@
+import Image from "next/image";
+import Link from "next/link";
+import { Suspense } from "react";
+import type { Category } from "@/db/schema";
+import { LanguageSwitch } from "@/components/LanguageSwitch";
+import { categoryLabel } from "@/lib/articles";
+import { t, type Locale } from "@/lib/i18n";
+
+type Props = {
+  locale: Locale;
+  categories: Category[];
+};
+
+export function SiteHeader({ locale, categories }: Props) {
+  const copy = t(locale);
+
+  return (
+    <header className="border-b site-rule bg-paper/95 backdrop-blur-sm sticky top-0 z-40">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex items-center justify-between gap-4 py-3 sm:py-4">
+          <Link
+            href={`/${locale}`}
+            className="relative block h-11 w-[148px] sm:h-12 sm:w-[168px] shrink-0"
+            aria-label="Africa Insight"
+          >
+            <Image
+              src="/logo-africa-insight.png"
+              alt="Africa Insight"
+              fill
+              priority
+              className="object-contain object-left"
+              sizes="168px"
+            />
+          </Link>
+
+          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+            <Link
+              href={`/${locale}/search`}
+              className="text-sm text-ink-soft hover:text-ink transition-colors"
+            >
+              {copy.search}
+            </Link>
+            <Suspense
+              fallback={
+                <span className="text-sm font-medium text-accent-deep">
+                  {copy.switchTo}
+                </span>
+              }
+            >
+              <LanguageSwitch locale={locale} />
+            </Suspense>
+          </div>
+        </div>
+
+        <nav
+          className="flex gap-4 overflow-x-auto pb-3 -mx-1 px-1 text-sm font-bold text-navy"
+          aria-label={copy.categories}
+        >
+          <Link
+            href={`/${locale}`}
+            className="whitespace-nowrap hover:text-gold-deep transition-colors"
+          >
+            {copy.home}
+          </Link>
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              href={`/${locale}/${category.slug}`}
+              className="whitespace-nowrap hover:text-gold-deep transition-colors"
+            >
+              {categoryLabel(category, locale)}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}

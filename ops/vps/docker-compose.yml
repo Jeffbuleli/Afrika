@@ -1,0 +1,35 @@
+# Africa Insight — VPS stack (Next.js + SQLite volume)
+# Usage (from ops/vps):
+#   cp .env.example .env   # fill secrets
+#   docker compose up -d --build
+
+name: africa-insight
+
+services:
+  web:
+    build:
+      context: ../..
+      dockerfile: ops/vps/Dockerfile
+      args:
+        NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-https://africa.mcbuleli.org}
+        ADMIN_EMAIL: ${ADMIN_EMAIL:-editor@africa.mcbuleli.org}
+        ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
+        AUTH_SECRET: ${AUTH_SECRET:?set AUTH_SECRET}
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: file:./data/africa-insight.db
+      PORT: "3000"
+      HOSTNAME: "0.0.0.0"
+      NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-https://africa.mcbuleli.org}
+      STORAGE_DRIVER: ${STORAGE_DRIVER:-local}
+    ports:
+      - "127.0.0.1:3002:3000"
+    volumes:
+      - africa_data:/app/data
+      - africa_uploads:/app/public/uploads
+
+volumes:
+  africa_data:
+  africa_uploads:

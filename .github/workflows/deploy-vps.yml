@@ -1,0 +1,44 @@
+name: Deploy VPS (from GitHub)
+
+# Prod deploys ONLY from GitHub main — not from laptop rsync.
+# Secrets (Settings → Secrets → Actions):
+#   VPS_HOST          e.g. 162.35.181.98
+#   VPS_USER          e.g. root
+#   VPS_SSH_KEY       private key with deploy access
+# Optional:
+#   VPS_REPO_DIR      default /opt/africa-insight
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: africa-insight-deploy-vps
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Deploy via SSH (git pull + docker compose)
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          script_stop: true
+          command_timeout: 30m
+          script: |
+            set -euo pipefail
+            REPO="${{ secrets.VPS_REPO_DIR }}"
+            REPO="${REPO:-/opt/africa-insight}"
+            if [[ ! -d "$REPO/.git" ]]; then
+              echo "ERROR: $REPO missing — bootstrap clone first" >&2
+              exit 1
+            fi
+            if [[ ! -x "$REPO/ops/vps/deploy.sh" ]]; then
+              chmod +x "$REPO/ops/vps/deploy.sh" || true
+            fi
+            bash "$REPO/ops/vps/deploy.sh"

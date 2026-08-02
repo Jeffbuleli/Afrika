@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f4ee;
+  --paper-deep: #ebe6db;
+  --ink: #1a1714;
+  --ink-soft: #4a4238;
+  --line: #d4c8b5;
+  --navy: #1a2b48;
+  --gold: #c59b2e;
+  --gold-deep: #a37f22;
+  --accent: var(--gold);
+  --accent-deep: var(--gold-deep);
+  --hero-overlay: rgba(18, 14, 10, 0.52);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --font-sans: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 28%, transparent);
+}
+
+.site-rule {
+  border-color: var(--line);
+}
+
+.prose-article {
+  max-width: 68ch;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.prose-article p {
+  margin: 0 0 1.25rem;
+}
+
+.prose-article h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 2rem 0 0.85rem;
+  letter-spacing: -0.02em;
+}
+
+.prose-article h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.6rem 0 0.7rem;
+}
+
+.prose-article a {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-article ul,
+.prose-article ol {
+  margin: 0 0 1.25rem 1.25rem;
+}
+
+.prose-article li {
+  margin-bottom: 0.4rem;
+}
+
+.prose-article blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay {
+  animation: fade-up 0.8s ease-out 0.12s both;
+}
+
+.article-row {
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.article-row:hover {
+  color: var(--accent-deep);
+  padding-left: 0.25rem;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  width: max-content;
+  animation: ticker-scroll 95s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
