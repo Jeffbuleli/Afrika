@@ -1,161 +1,200 @@
 {
-  "articles": 1720,
-  "changed": 1330,
+  "articles": 2271,
+  "changed": 1908,
   "catalog": 108,
   "usage_top": [
     [
       "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg",
-      27
+      33
     ],
     [
       "/covers/Timbuktu_Mosque_Sankore.jpg",
-      26
+      31
     ],
     [
       "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg",
-      26
-    ],
-    [
-      "/covers/1280px-Kigali_skyline.jpg",
-      24
-    ],
-    [
-      "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
-      24
-    ],
-    [
-      "/covers/1280px-Kigali.jpg",
-      23
-    ],
-    [
-      "/covers/Great_Mosque_of_Djenn__1.jpg",
-      23
-    ],
-    [
-      "/covers/1280px-Kigali_convention_centre_338aa44a.jpg",
-      23
-    ],
-    [
-      "/covers/1280px-Kigali_Convention_Center_outside_parking_and_compound.jpg",
-      23
-    ],
-    [
-      "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
-      22
-    ],
-    [
-      "/covers/1280px-Paul_Kagame_MSC_2017.jpg",
-      22
+      31
     ],
     [
       "/covers/Great_Mosque_of_Djenn__3.jpg",
-      22
+      28
     ],
     [
-      "/covers/Djenn__Moschee.jpg",
-      21
+      "/covers/1280px-Paul_Kagame_MSC_2017.jpg",
+      28
     ],
     [
-      "/covers/1280px-MaliDjenn_Mosqu_e.JPG",
-      21
-    ],
-    [
-      "/covers/1280px-Paul_Kagame_2014.jpg",
-      21
-    ],
-    [
-      "/covers/Kigali-Skyline-NP-480.jpg",
-      21
-    ],
-    [
-      "/covers/Goma__Lake_Kivu__DRC__Zaire_-_Congo__Photo_by_Sascha_Grabow.jpg",
-      21
-    ],
-    [
-      "/covers/1280px-Djenn__Moschee_Dach_1990.jpg",
-      21
+      "/covers/1280px-Kigali_skyline.jpg",
+      28
     ],
     [
       "/covers/1280px-Kigali_Convention_Centre.jpg",
-      21
+      28
+    ],
+    [
+      "/covers/1280px-Kigali_convention_centre_338aa44a.jpg",
+      28
     ],
     [
       "/covers/1280px-View_on_Kigali__02_.jpg",
-      21
+      28
     ],
     [
-      "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg",
-      20
+      "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
+      27
     ],
     [
-      "/covers/Bukavu__DR_congo.jpg",
-      20
+      "/covers/1280px-MaliDjenn_Mosqu_e.JPG",
+      27
+    ],
+    [
+      "/covers/1280px-Djenn__Moschee_Dach_1990.jpg",
+      27
+    ],
+    [
+      "/covers/Great_Mosque_of_Djenn__1.jpg",
+      27
+    ],
+    [
+      "/covers/Djenn__Moschee.jpg",
+      27
+    ],
+    [
+      "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
+      26
+    ],
+    [
+      "/covers/Kigali-Skyline-NP-480.jpg",
+      26
+    ],
+    [
+      "/covers/1280px-Paul_Kagame_2014.jpg",
+      26
+    ],
+    [
+      "/covers/1280px-Kigali.jpg",
+      26
+    ],
+    [
+      "/covers/1280px-Kigali_Convention_Center_outside_parking_and_compound.jpg",
+      26
+    ],
+    [
+      "/covers/Goma__Lake_Kivu__DRC__Zaire_-_Congo__Photo_by_Sascha_Grabow.jpg",
+      26
+    ],
+    [
+      "/covers/3_d_cembre_2014._Beni__Nord-Kivu__RD_Congo._Des_policie_760bce00.jpg",
+      25
     ],
     [
       "/covers/International_Displaced_Persons_leaving_Rutshuru_1.jpg",
-      19
+      24
     ],
     [
       "/covers/LAC_VERT_MUGUNGA.jpg",
-      19
+      24
     ],
     [
-      "/covers/Lac_Kivu_2.jpg",
-      19
+      "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg",
+      24
+    ],
+    [
+      "/covers/Bukavu__DR_congo__2021.jpg",
+      24
     ]
   ],
   "samples": [
     {
-      "slug": "museveni-industrie-marches-locaux",
-      "country": "UGANDA",
-      "category": "economie",
-      "title": "Museveni Links Uganda’s Industrial Growth to Reliable Markets and Local Producti",
+      "slug": "drc-prepares-to-hand-un-security-council-presidency-to-denmark",
+      "country": "DRC",
+      "category": "securite",
+      "title": "DRC Prepares to Hand UN Security Council Presidency to Denmark",
       "themes": [
         [
-          "museveni",
-          12
+          "kinshasa",
+          9
         ],
         [
-          "economie",
+          "securite",
           4
-        ],
-        [
-          "president",
-          3
         ]
       ],
-      "image": "/covers/Yoweri_Museveni_September_2015.jpg"
+      "image": "/covers/MONUSCO_police_during_peace_day_march_in_Kinshasa__2019_9f0584cf.jpg"
     },
     {
-      "slug": "ouganda-energie-vision-500-milliards",
-      "country": "UGANDA",
-      "category": "economie",
-      "title": "Uganda Energy Ministry Launches Reforms to Drive $500 Billion Economy Vision by ",
+      "slug": "yale-documented-darfur-arson-and-famine-risk-keep-western-sudan-in-focus",
+      "country": "SUDAN",
+      "category": "securite",
+      "title": "Yale-Documented Darfur Arson and Famine Risk Keep Western Sudan in Focus",
       "themes": [
         [
-          "mining",
-          10
+          "rsf",
+          9
         ],
+        [
+          "securite",
+          4
+        ]
+      ],
+      "image": "/covers/Khartoum.jpg"
+    },
+    {
+      "slug": "aid-operations-face-drones-extortion-funding-gaps-and-rainy-season-colla",
+      "country": "SUDAN",
+      "category": "securite",
+      "title": "Aid Operations Face Drones, Extortion, Funding Gaps and Rainy-Season Collapse",
+      "themes": [
+        [
+          "khartoum",
+          9
+        ],
+        [
+          "securite",
+          4
+        ]
+      ],
+      "image": "/covers/1280px-The_Blue_Nile_in_Khartoum.jpg"
+    },
+    {
+      "slug": "mps-probe-shs25-billion-uganda-railways-training-spend",
+      "country": "UGANDA",
+      "category": "securite",
+      "title": "MPs Probe Shs25 Billion Uganda Railways Training Spend",
+      "themes": [
         [
           "kampala",
           9
         ],
         [
-          "investissement",
-          6
-        ],
-        [
-          "energie",
-          6
+          "securite",
+          4
         ]
       ],
-      "image": "/covers/1280px-Kampala_skyline.jpg"
+      "image": "/covers/1280px-View_of_Victoria_Lake_in_Uganda.jpg"
     },
     {
-      "slug": "erias-lukwago-haute-cour-trahison",
+      "slug": "government-opens-hoima-centre-for-migrant-workers",
       "country": "UGANDA",
       "category": "politique",
-      "title": "High Court Orders Production of Erias Lukwago for Treason-Related Trial",
+      "title": "Government Opens Hoima Centre for Migrant Workers",
+      "themes": [
+        [
+          "gouvernement",
+          4
+        ],
+        [
+          "politique",
+          4
+        ]
+      ],
+      "image": "/covers/KampalaSkyline.jpg"
+    },
+    {
+      "slug": "eron-kiiza-says-besigye-trial-is-null-and-void-over-imposed-lawyers",
+      "country": "UGANDA",
+      "category": "justice",
+      "title": "Eron Kiiza Says Besigye Trial Is Null and Void Over Imposed Lawyers",
       "themes": [
         [
           "kampala",
@@ -163,20 +202,16 @@
         ],
         [
           "justice",
-          5
-        ],
-        [
-          "politique",
-          4
+          9
         ]
       ],
-      "image": "/covers/1280px-Skyline_of_Kampala.jpg"
+      "image": "/covers/1280px-Kampala_skyline.jpg"
     },
     {
-      "slug": "attaque-adf-beni-sept-morts",
+      "slug": "researcher-says-congo-lost-time-grasping-adf-s-jihadist-mutation",
       "country": "DRC",
       "category": "securite",
-      "title": "Seven Killed in Suspected ADF Attack on Outskirts of Beni",
+      "title": "Researcher Says Congo “Lost Time” Grasping ADF’s Jihadist Mutation",
       "themes": [
         [
           "adf",
@@ -187,8 +222,8 @@
           10
         ],
         [
-          "kivu",
-          6
+          "kinshasa",
+          9
         ],
         [
           "armee",
@@ -198,200 +233,101 @@
       "image": "/covers/703A2617_MONUSCO_peacekeepers_in_Beni_during_General_Ma_9047ce6d.jpg"
     },
     {
-      "slug": "tshisekedi-armee-sites-miniers",
-      "country": "DRC",
-      "category": "politique",
-      "title": "Tshisekedi Orders End to Illegal Military Presence at Mining Sites to Strengthen",
+      "slug": "kayes-police-arrest-fuel-traffickers-amid-supply-crackdown",
+      "country": "MALI",
+      "category": "justice",
+      "title": "Kayes Police Arrest Fuel Traffickers Amid Supply Crackdown",
       "themes": [
         [
-          "tshisekedi",
-          14
-        ],
-        [
-          "mining",
-          10
-        ],
-        [
-          "kinshasa",
-          9
-        ],
-        [
-          "armee",
-          5
-        ]
-      ],
-      "image": "/covers/1280px-F_lix_Tshisekedi___Denis_Sassou-Nguesso.jpg"
-    },
-    {
-      "slug": "hemetti-condamne-mort-par-contumace",
-      "country": "SUDAN",
-      "category": "securite",
-      "title": "Sudan Court Sentences RSF Leader Hemetti to Death in Absentia Over Darfur Atroci",
-      "themes": [
-        [
-          "khartoum",
-          9
-        ],
-        [
-          "rsf",
+          "bamako",
           9
         ],
         [
           "justice",
-          5
-        ],
-        [
-          "securite",
-          4
+          9
         ]
       ],
-      "image": "/covers/Khartoum.jpg"
+      "image": "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg"
     },
     {
-      "slug": "rwanda-8-milliards-investissements",
-      "country": "RWANDA",
-      "category": "economie",
-      "title": "Rwanda Attracts $8 Billion in Private Investment, Expected to Create 118,000 Job",
-      "themes": [
-        [
-          "kigali",
-          9
-        ],
-        [
-          "investissement",
-          6
-        ],
-        [
-          "economie",
-          4
-        ]
-      ],
-      "image": "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg"
-    },
-    {
-      "slug": "saf-reprend-kurmuk-nil-bleu",
-      "country": "SUDAN",
-      "category": "securite",
-      "title": "Sudanese Army Retakes Strategic Border Town of Kurmuk in Blue Nile",
-      "themes": [
-        [
-          "blue-nile",
-          9
-        ],
-        [
-          "rsf",
-          9
-        ],
-        [
-          "armee",
-          5
-        ],
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/1280px-A_boat_on_the_Blue_Nile.jpg"
-    },
-    {
-      "slug": "kagame-commission-onu-ia",
-      "country": "RWANDA",
-      "category": "afrique",
-      "title": "President Kagame Named Chair of UN Global Commission on Artificial Intelligence",
-      "themes": [
-        [
-          "kagame",
-          12
-        ],
-        [
-          "kigali",
-          9
-        ],
-        [
-          "un",
-          7
-        ],
-        [
-          "afrique",
-          4
-        ]
-      ],
-      "image": "/covers/1280px-Paul_Kagame_MSC_2017.jpg"
-    },
-    {
-      "slug": "fdlr-integres-wazalendo-est-rdc",
+      "slug": "muyaya-says-court-ruling-validates-referendum-framework-without-launchin",
       "country": "DRC",
-      "category": "securite",
-      "title": "UN Report Says FDLR Fighters Integrated into Wazalendo Coalition in Eastern DRC",
+      "category": "justice",
+      "title": "Muyaya Says Court Ruling Validates Referendum Framework Without Launching a Vote",
       "themes": [
-        [
-          "m23",
-          10
-        ],
         [
           "kinshasa",
           9
         ],
         [
-          "un",
-          7
+          "justice",
+          9
         ],
         [
-          "kivu",
-          6
+          "gouvernement",
+          4
         ]
       ],
-      "image": "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg"
+      "image": "/covers/Denis_Mukwege_2018.jpg"
     },
     {
-      "slug": "el-obeid-risque-siege-crise-humanitaire",
-      "country": "SUDAN",
-      "category": "societe",
-      "title": "UN Warns El Obeid Could Face Siege as Humanitarian Crisis Deepens",
+      "slug": "kwango-maintains-297-kilometres-of-rural-roads-to-link-farms-and-markets",
+      "country": "DRC",
+      "category": "securite",
+      "title": "Kwango Maintains 297 Kilometres of Rural Roads to Link Farms and Markets",
       "themes": [
         [
-          "khartoum",
-          9
-        ],
+          "securite",
+          4
+        ]
+      ],
+      "image": "/covers/Bunia__Ituri_Province__DR_Congo-_MONUSCO_Guatemala_and__7c9f93dd.jpg"
+    },
+    {
+      "slug": "china-reaffirms-strategic-partnership-through-ambassador-li-xiang-s-outr",
+      "country": "MALI",
+      "category": "securite",
+      "title": "China Reaffirms Strategic Partnership Through Ambassador Li Xiang’s Outreach",
+      "themes": [
         [
-          "rsf",
+          "bamako",
           9
-        ],
-        [
-          "un",
-          7
         ],
         [
           "armee",
           5
-        ]
-      ],
-      "image": "/covers/1280px-The_Blue_Nile_in_Khartoum.jpg"
-    },
-    {
-      "slug": "ndayishimiye-opposition-c64-tshisekedi",
-      "country": "DRC",
-      "category": "politique",
-      "title": "Burundi’s Ndayishimiye Intervenes as Congolese Opposition Delays Anti-Tshisekedi",
-      "themes": [
-        [
-          "tshisekedi",
-          14
-        ],
-        [
-          "kinshasa",
-          9
         ],
         [
           "diplomacy",
           5
         ],
         [
-          "politique",
+          "securite",
           4
         ]
       ],
-      "image": "/covers/F_lix_Tshisekedi___Denis_Sassou-Nguesso.jpg"
+      "image": "/covers/Timbuktu_Mosque_Sankore.jpg"
+    },
+    {
+      "slug": "prime-minister-maiga-honours-malian-press-and-receives-appel-de-bamako",
+      "country": "MALI",
+      "category": "politique",
+      "title": "Prime Minister Maïga Honours Malian Press and Receives “Appel de Bamako”",
+      "themes": [
+        [
+          "bamako",
+          9
+        ],
+        [
+          "politique",
+          4
+        ],
+        [
+          "president",
+          3
+        ]
+      ],
+      "image": "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg"
     }
   ]
 }
