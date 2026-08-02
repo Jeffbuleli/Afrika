@@ -60,6 +60,7 @@ type SeedArticle = {
   author: string;
   coverImageAltFr: string;
   coverImageAltEn: string;
+  country?: string;
 };
 
 async function main() {
@@ -105,6 +106,7 @@ async function main() {
         categoryId: catMap[item.category],
         authorId: authorMap[item.author],
         status: "published",
+        country: item.country || null,
         coverImageUrl: item.image,
         coverImageAltFr: item.coverImageAltFr,
         coverImageAltEn: item.coverImageAltEn,

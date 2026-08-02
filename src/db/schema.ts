@@ -38,6 +38,7 @@ export const articles = sqliteTable("articles", {
   status: text("status", { enum: ["draft", "published"] })
     .notNull()
     .default("draft"),
+  country: text("country"),
   coverImageUrl: text("cover_image_url"),
   coverImageAltFr: text("cover_image_alt_fr"),
   coverImageAltEn: text("cover_image_alt_en"),

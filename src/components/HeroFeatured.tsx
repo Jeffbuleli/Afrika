@@ -6,6 +6,7 @@ import { formatDate, t, type Locale } from "@/lib/i18n";
 export type ArticleCardData = {
   id?: number;
   slug: string;
+  country?: string | null;
   title: string;
   excerpt: string;
   coverImageUrl: string | null;

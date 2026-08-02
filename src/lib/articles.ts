@@ -25,6 +25,7 @@ export async function getPublishedArticles(locale: Locale, limit = 20) {
     .select({
       id: articles.id,
       slug: articles.slug,
+      country: articles.country,
       coverImageUrl: articles.coverImageUrl,
       coverImageAltFr: articles.coverImageAltFr,
       coverImageAltEn: articles.coverImageAltEn,
@@ -61,6 +62,7 @@ export async function getFeaturedArticle(locale: Locale) {
     .select({
       id: articles.id,
       slug: articles.slug,
+      country: articles.country,
       coverImageUrl: articles.coverImageUrl,
       coverImageAltFr: articles.coverImageAltFr,
       coverImageAltEn: articles.coverImageAltEn,
@@ -103,6 +105,7 @@ export async function getArticlesByCategory(
     .select({
       id: articles.id,
       slug: articles.slug,
+      country: articles.country,
       coverImageUrl: articles.coverImageUrl,
       coverImageAltFr: articles.coverImageAltFr,
       coverImageAltEn: articles.coverImageAltEn,
@@ -139,6 +142,7 @@ export async function getArticleBySlug(locale: Locale, slug: string) {
     .select({
       id: articles.id,
       slug: articles.slug,
+      country: articles.country,
       coverImageUrl: articles.coverImageUrl,
       coverImageAltFr: articles.coverImageAltFr,
       coverImageAltEn: articles.coverImageAltEn,
@@ -190,6 +194,7 @@ export async function searchArticles(locale: Locale, query: string) {
     .select({
       id: articles.id,
       slug: articles.slug,
+      country: articles.country,
       coverImageUrl: articles.coverImageUrl,
       coverImageAltFr: articles.coverImageAltFr,
       coverImageAltEn: articles.coverImageAltEn,
