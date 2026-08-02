@@ -34,13 +34,18 @@ type Dictionary = {
   admin: string;
   notFound: string;
   backHome: string;
+  previous: string;
+  next: string;
+  page: string;
+  of: string;
+  articlesCount: string;
 };
 
 const fr: Dictionary = {
   brand: "Africa Insight",
   tagline: "L'Afrique expliquée - pas seulement racontée",
   read: "Lire",
-  readMore: "Lire la suite",
+  readMore: "Voir tout",
   featured: "À la une",
   latest: "Dernières publications",
   categories: "Rubriques",
@@ -61,6 +66,11 @@ const fr: Dictionary = {
   admin: "Rédaction",
   notFound: "Article introuvable",
   backHome: "Retour à l'accueil",
+  previous: "Précédent",
+  next: "Suivant",
+  page: "Page",
+  of: "sur",
+  articlesCount: "articles",
 };
 
 const en: Dictionary = {
@@ -88,6 +98,11 @@ const en: Dictionary = {
   admin: "Newsroom",
   notFound: "Article not found",
   backHome: "Back to home",
+  previous: "Previous",
+  next: "Next",
+  page: "Page",
+  of: "of",
+  articlesCount: "articles",
 };
 
 export function t(locale: Locale): Dictionary {

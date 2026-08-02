@@ -30,7 +30,7 @@ export default async function HomePage({
 
   const [featured, articles, categories] = await Promise.all([
     getFeaturedArticle(locale),
-    getPublishedArticles(locale, 120),
+    getPublishedArticles(locale, 0),
     getCategories(),
   ]);
 

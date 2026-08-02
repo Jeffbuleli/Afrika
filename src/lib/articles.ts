@@ -21,7 +21,7 @@ export async function getCategoryBySlug(slug: string) {
 }
 
 export async function getPublishedArticles(locale: Locale, limit = 20) {
-  const rows = await db
+  const query = db
     .select({
       id: articles.id,
       slug: articles.slug,
@@ -51,10 +51,12 @@ export async function getPublishedArticles(locale: Locale, limit = 20) {
     .innerJoin(categories, eq(categories.id, articles.categoryId))
     .innerJoin(authors, eq(authors.id, articles.authorId))
     .where(eq(articles.status, "published"))
-    .orderBy(desc(articles.publishedAt))
-    .limit(limit);
+    .orderBy(desc(articles.publishedAt));
 
-  return rows;
+  if (limit > 0) {
+    return query.limit(limit);
+  }
+  return query;
 }
 
 export async function getFeaturedArticle(locale: Locale) {
@@ -103,6 +105,7 @@ export async function getArticlesByCategory(
   locale: Locale,
   categorySlug: string,
   limit = 30,
+  offset = 0,
 ) {
   return db
     .select({
@@ -137,7 +140,19 @@ export async function getArticlesByCategory(
       and(eq(articles.status, "published"), eq(categories.slug, categorySlug)),
     )
     .orderBy(desc(articles.publishedAt))
-    .limit(limit);
+    .limit(limit)
+    .offset(offset);
+}
+
+export async function countArticlesByCategory(categorySlug: string) {
+  const rows = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(articles)
+    .innerJoin(categories, eq(categories.id, articles.categoryId))
+    .where(
+      and(eq(articles.status, "published"), eq(categories.slug, categorySlug)),
+    );
+  return Number(rows[0]?.count || 0);
 }
 
 export async function getArticleBySlug(locale: Locale, slug: string) {
