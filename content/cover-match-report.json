@@ -1,39 +1,47 @@
 {
-  "articles": 2271,
-  "changed": 1908,
+  "articles": 2430,
+  "changed": 2021,
   "catalog": 108,
   "usage_top": [
     [
       "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg",
-      33
-    ],
-    [
-      "/covers/Timbuktu_Mosque_Sankore.jpg",
-      31
+      35
     ],
     [
       "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg",
-      31
+      32
     ],
     [
-      "/covers/Great_Mosque_of_Djenn__3.jpg",
-      28
+      "/covers/Timbuktu_Mosque_Sankore.jpg",
+      32
     ],
     [
       "/covers/1280px-Paul_Kagame_MSC_2017.jpg",
-      28
+      32
+    ],
+    [
+      "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
+      31
     ],
     [
       "/covers/1280px-Kigali_skyline.jpg",
-      28
+      31
     ],
     [
-      "/covers/1280px-Kigali_Convention_Centre.jpg",
-      28
+      "/covers/1280px-Paul_Kagame_2014.jpg",
+      30
     ],
     [
-      "/covers/1280px-Kigali_convention_centre_338aa44a.jpg",
-      28
+      "/covers/Great_Mosque_of_Djenn__3.jpg",
+      29
+    ],
+    [
+      "/covers/1280px-Kigali.jpg",
+      29
+    ],
+    [
+      "/covers/Great_Mosque_of_Djenn__1.jpg",
+      29
     ],
     [
       "/covers/1280px-View_on_Kigali__02_.jpg",
@@ -41,10 +49,30 @@
     ],
     [
       "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
+      28
+    ],
+    [
+      "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
+      28
+    ],
+    [
+      "/covers/1280px-Kigali_Convention_Center_outside_parking_and_compound.jpg",
+      28
+    ],
+    [
+      "/covers/Djenn__Moschee.jpg",
+      28
+    ],
+    [
+      "/covers/Kigali-Skyline-NP-480.jpg",
       27
     ],
     [
-      "/covers/1280px-MaliDjenn_Mosqu_e.JPG",
+      "/covers/1280px-Kigali_convention_centre_338aa44a.jpg",
+      27
+    ],
+    [
+      "/covers/1280px-Kigali_Convention_Centre.jpg",
       27
     ],
     [
@@ -52,166 +80,36 @@
       27
     ],
     [
-      "/covers/Great_Mosque_of_Djenn__1.jpg",
+      "/covers/1280px-MaliDjenn_Mosqu_e.JPG",
       27
-    ],
-    [
-      "/covers/Djenn__Moschee.jpg",
-      27
-    ],
-    [
-      "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
-      26
-    ],
-    [
-      "/covers/Kigali-Skyline-NP-480.jpg",
-      26
-    ],
-    [
-      "/covers/1280px-Paul_Kagame_2014.jpg",
-      26
-    ],
-    [
-      "/covers/1280px-Kigali.jpg",
-      26
-    ],
-    [
-      "/covers/1280px-Kigali_Convention_Center_outside_parking_and_compound.jpg",
-      26
-    ],
-    [
-      "/covers/Goma__Lake_Kivu__DRC__Zaire_-_Congo__Photo_by_Sascha_Grabow.jpg",
-      26
-    ],
-    [
-      "/covers/3_d_cembre_2014._Beni__Nord-Kivu__RD_Congo._Des_policie_760bce00.jpg",
-      25
-    ],
-    [
-      "/covers/International_Displaced_Persons_leaving_Rutshuru_1.jpg",
-      24
-    ],
-    [
-      "/covers/LAC_VERT_MUGUNGA.jpg",
-      24
-    ],
-    [
-      "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg",
-      24
     ],
     [
       "/covers/Bukavu__DR_congo__2021.jpg",
+      26
+    ],
+    [
+      "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg",
+      26
+    ],
+    [
+      "/covers/Bukavu__DR_congo.jpg",
+      25
+    ],
+    [
+      "/covers/3_d_cembre_2014._Beni__Nord-Kivu__RD_Congo._Des_policie_760bce00.jpg",
+      24
+    ],
+    [
+      "/covers/International_Displaced_Persons_leaving_Rutshuru_1.jpg",
       24
     ]
   ],
   "samples": [
     {
-      "slug": "drc-prepares-to-hand-un-security-council-presidency-to-denmark",
+      "slug": "attaque-adf-beni-sept-morts",
       "country": "DRC",
       "category": "securite",
-      "title": "DRC Prepares to Hand UN Security Council Presidency to Denmark",
-      "themes": [
-        [
-          "kinshasa",
-          9
-        ],
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/MONUSCO_police_during_peace_day_march_in_Kinshasa__2019_9f0584cf.jpg"
-    },
-    {
-      "slug": "yale-documented-darfur-arson-and-famine-risk-keep-western-sudan-in-focus",
-      "country": "SUDAN",
-      "category": "securite",
-      "title": "Yale-Documented Darfur Arson and Famine Risk Keep Western Sudan in Focus",
-      "themes": [
-        [
-          "rsf",
-          9
-        ],
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/Khartoum.jpg"
-    },
-    {
-      "slug": "aid-operations-face-drones-extortion-funding-gaps-and-rainy-season-colla",
-      "country": "SUDAN",
-      "category": "securite",
-      "title": "Aid Operations Face Drones, Extortion, Funding Gaps and Rainy-Season Collapse",
-      "themes": [
-        [
-          "khartoum",
-          9
-        ],
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/1280px-The_Blue_Nile_in_Khartoum.jpg"
-    },
-    {
-      "slug": "mps-probe-shs25-billion-uganda-railways-training-spend",
-      "country": "UGANDA",
-      "category": "securite",
-      "title": "MPs Probe Shs25 Billion Uganda Railways Training Spend",
-      "themes": [
-        [
-          "kampala",
-          9
-        ],
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/1280px-View_of_Victoria_Lake_in_Uganda.jpg"
-    },
-    {
-      "slug": "government-opens-hoima-centre-for-migrant-workers",
-      "country": "UGANDA",
-      "category": "politique",
-      "title": "Government Opens Hoima Centre for Migrant Workers",
-      "themes": [
-        [
-          "gouvernement",
-          4
-        ],
-        [
-          "politique",
-          4
-        ]
-      ],
-      "image": "/covers/KampalaSkyline.jpg"
-    },
-    {
-      "slug": "eron-kiiza-says-besigye-trial-is-null-and-void-over-imposed-lawyers",
-      "country": "UGANDA",
-      "category": "justice",
-      "title": "Eron Kiiza Says Besigye Trial Is Null and Void Over Imposed Lawyers",
-      "themes": [
-        [
-          "kampala",
-          9
-        ],
-        [
-          "justice",
-          9
-        ]
-      ],
-      "image": "/covers/1280px-Kampala_skyline.jpg"
-    },
-    {
-      "slug": "researcher-says-congo-lost-time-grasping-adf-s-jihadist-mutation",
-      "country": "DRC",
-      "category": "securite",
-      "title": "Researcher Says Congo “Lost Time” Grasping ADF’s Jihadist Mutation",
+      "title": "Seven Killed in Suspected ADF Attack on Outskirts of Beni",
       "themes": [
         [
           "adf",
@@ -222,8 +120,8 @@
           10
         ],
         [
-          "kinshasa",
-          9
+          "kivu",
+          6
         ],
         [
           "armee",
@@ -233,64 +131,55 @@
       "image": "/covers/703A2617_MONUSCO_peacekeepers_in_Beni_during_General_Ma_9047ce6d.jpg"
     },
     {
-      "slug": "kayes-police-arrest-fuel-traffickers-amid-supply-crackdown",
-      "country": "MALI",
-      "category": "justice",
-      "title": "Kayes Police Arrest Fuel Traffickers Amid Supply Crackdown",
+      "slug": "walikale-civil-society-urges-immediate-fardc-deployment-after-afc-m23-wi",
+      "country": "DRC",
+      "category": "securite",
+      "title": "Walikale Civil Society Urges Immediate FARDC Deployment After AFC/M23 Withdrawal",
       "themes": [
         [
-          "bamako",
+          "m23",
+          10
+        ],
+        [
+          "masisi",
+          10
+        ],
+        [
+          "fardc",
           9
         ],
         [
-          "justice",
-          9
+          "kivu",
+          6
         ]
       ],
-      "image": "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg"
+      "image": "/covers/LAC_VERT_MUGUNGA.jpg"
     },
     {
-      "slug": "muyaya-says-court-ruling-validates-referendum-framework-without-launchin",
+      "slug": "uganda-breweries-contributes-shs1-127-trillion-to-national-economy",
+      "country": "UGANDA",
+      "category": "economie",
+      "title": "Uganda Breweries Contributes Shs1.127 Trillion to National Economy",
+      "themes": [
+        [
+          "kampala",
+          9
+        ],
+        [
+          "economie",
+          4
+        ]
+      ],
+      "image": "/covers/KampalaSkyline2.jpg"
+    },
+    {
+      "slug": "analyst-christian-moleka-says-military-performance-remains-drc-s-main-ch",
       "country": "DRC",
-      "category": "justice",
-      "title": "Muyaya Says Court Ruling Validates Referendum Framework Without Launching a Vote",
+      "category": "securite",
+      "title": "Analyst Christian Moleka Says Military Performance Remains DRC's Main Challenge",
       "themes": [
         [
           "kinshasa",
-          9
-        ],
-        [
-          "justice",
-          9
-        ],
-        [
-          "gouvernement",
-          4
-        ]
-      ],
-      "image": "/covers/Denis_Mukwege_2018.jpg"
-    },
-    {
-      "slug": "kwango-maintains-297-kilometres-of-rural-roads-to-link-farms-and-markets",
-      "country": "DRC",
-      "category": "securite",
-      "title": "Kwango Maintains 297 Kilometres of Rural Roads to Link Farms and Markets",
-      "themes": [
-        [
-          "securite",
-          4
-        ]
-      ],
-      "image": "/covers/Bunia__Ituri_Province__DR_Congo-_MONUSCO_Guatemala_and__7c9f93dd.jpg"
-    },
-    {
-      "slug": "china-reaffirms-strategic-partnership-through-ambassador-li-xiang-s-outr",
-      "country": "MALI",
-      "category": "securite",
-      "title": "China Reaffirms Strategic Partnership Through Ambassador Li Xiang’s Outreach",
-      "themes": [
-        [
-          "bamako",
           9
         ],
         [
@@ -306,28 +195,167 @@
           4
         ]
       ],
-      "image": "/covers/Timbuktu_Mosque_Sankore.jpg"
+      "image": "/covers/FARDC_Brig_Gen_Ychaligonza_Nduru_at_the_MONUSCO_Headqua_7b46a803.jpg"
     },
     {
-      "slug": "prime-minister-maiga-honours-malian-press-and-receives-appel-de-bamako",
-      "country": "MALI",
-      "category": "politique",
-      "title": "Prime Minister Maïga Honours Malian Press and Receives “Appel de Bamako”",
+      "slug": "stable-congolese-franc-offers-economic-relief-and-strengthens-confidence",
+      "country": "DRC",
+      "category": "economie",
+      "title": "Stable Congolese Franc Offers Economic Relief and Strengthens Confidence in Loca",
       "themes": [
         [
-          "bamako",
+          "kinshasa",
           9
         ],
         [
-          "politique",
+          "economie",
+          4
+        ]
+      ],
+      "image": "/covers/2010-03-07-Kinshasa_depuis_Brazzaville.jpg"
+    },
+    {
+      "slug": "drc-lawmaker-calls-for-greater-military-support-to-end-adf-violence-in-b",
+      "country": "DRC",
+      "category": "securite",
+      "title": "DRC Lawmaker Calls for Greater Military Support to End ADF Violence in Beni",
+      "themes": [
+        [
+          "adf",
+          10
+        ],
+        [
+          "beni",
+          10
+        ],
+        [
+          "kinshasa",
+          9
+        ],
+        [
+          "fardc",
+          9
+        ]
+      ],
+      "image": "/covers/703A2617_MONUSCO_peacekeepers_in_Beni_during_General_Ma_9047ce6d.jpg"
+    },
+    {
+      "slug": "universities-put-under-spotlight-as-uganda-steps-up-hiv-prevention-drive",
+      "country": "UGANDA",
+      "category": "societe",
+      "title": "Universities Put Under Spotlight as Uganda Steps Up HIV Prevention Drive Ahead o",
+      "themes": [
+        [
+          "kampala",
+          9
+        ],
+        [
+          "societe",
+          4
+        ]
+      ],
+      "image": "/covers/1280px-Kampala-Gaddafi_Mosque.jpg"
+    },
+    {
+      "slug": "mutamba-s-defense-challenges-trial-procedure-and-raises-rights-concerns",
+      "country": "DRC",
+      "category": "justice",
+      "title": "Mutamba’s Defense Challenges Trial Procedure and Raises Rights Concerns Before C",
+      "themes": [
+        [
+          "kinshasa",
+          9
+        ],
+        [
+          "justice",
+          9
+        ]
+      ],
+      "image": "/covers/1280px-La_Gombe__Kinshasa__RDC.jpg"
+    },
+    {
+      "slug": "kinshasa-deploys-officers-to-goma-to-support-ceasefire-monitoring-missio",
+      "country": "DRC",
+      "category": "securite",
+      "title": "Kinshasa Deploys Officers to Goma to Support Ceasefire Monitoring Mission",
+      "themes": [
+        [
+          "goma",
+          11
+        ],
+        [
+          "kinshasa",
+          9
+        ],
+        [
+          "armee",
+          5
+        ],
+        [
+          "gouvernement",
+          4
+        ]
+      ],
+      "image": "/covers/Chuduku_in_Goma.jpg"
+    },
+    {
+      "slug": "tanganyika-governor-pledges-tough-response-to-alleged-afc-m23-infiltrati",
+      "country": "DRC",
+      "category": "justice",
+      "title": "Tanganyika Governor Pledges Tough Response to Alleged AFC/M23 Infiltration",
+      "themes": [
+        [
+          "m23",
+          10
+        ],
+        [
+          "justice",
+          9
+        ],
+        [
+          "armee",
+          5
+        ]
+      ],
+      "image": "/covers/3_d_cembre_2014._Beni__Nord-Kivu__RD_Congo._Des_policie_760bce00.jpg"
+    },
+    {
+      "slug": "fama-destroy-alleged-terrorist-field-hospital-at-boulkessi",
+      "country": "MALI",
+      "category": "securite",
+      "title": "FAMa Destroy Alleged Terrorist Field Hospital at Boulkessi",
+      "themes": [
+        [
+          "armee",
+          5
+        ],
+        [
+          "securite",
+          4
+        ]
+      ],
+      "image": "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg"
+    },
+    {
+      "slug": "parliament-calls-for-review-of-university-district-quota-sponsorship-sch",
+      "country": "UGANDA",
+      "category": "societe",
+      "title": "Parliament Calls for Review of University District Quota Sponsorship Scheme",
+      "themes": [
+        [
+          "kampala",
+          9
+        ],
+        [
+          "gouvernement",
           4
         ],
         [
-          "president",
-          3
+          "societe",
+          4
         ]
       ],
-      "image": "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg"
+      "image": "/covers/KampalaSkyline.jpg"
     }
   ]
 }
