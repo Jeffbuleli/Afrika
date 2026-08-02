@@ -2,14 +2,23 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { Category } from "@/db/schema";
-import { categoryLabel } from "@/lib/articles";
 import { t, type Locale } from "@/lib/i18n";
+
+type NavCategory = {
+  id: number;
+  slug: string;
+  labelFr: string;
+  labelEn: string;
+};
 
 type Props = {
   locale: Locale;
-  categories: Category[];
+  categories: NavCategory[];
 };
+
+function labelFor(category: NavCategory, locale: Locale) {
+  return locale === "en" ? category.labelEn : category.labelFr;
+}
 
 export function CategoryNav({ locale, categories }: Props) {
   const pathname = usePathname();
@@ -48,7 +57,7 @@ export function CategoryNav({ locale, categories }: Props) {
             }
             aria-current={active ? "page" : undefined}
           >
-            {categoryLabel(category, locale)}
+            {labelFor(category, locale)}
           </Link>
         );
       })}
