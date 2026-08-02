@@ -12,7 +12,7 @@ export default async function AdminLayout({
   return (
     <div className="min-h-screen bg-paper">
       <header className="border-b border-line bg-paper-deep">
-        <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-4">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
           <div>
             <Link
               href="/admin"
@@ -25,6 +25,11 @@ export default async function AdminLayout({
             ) : null}
           </div>
           <div className="flex items-center gap-4 text-sm">
+            {session ? (
+              <Link href="/admin/logs" className="text-ink-soft hover:text-ink">
+                Logs
+              </Link>
+            ) : null}
             <Link href="/fr" className="text-ink-soft hover:text-ink">
               Voir le site
             </Link>
@@ -32,7 +37,7 @@ export default async function AdminLayout({
           </div>
         </div>
       </header>
-      <div className="mx-auto max-w-5xl px-4 py-8">{children}</div>
+      <div className="mx-auto max-w-6xl px-4 py-8">{children}</div>
     </div>
   );
 }

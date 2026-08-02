@@ -93,6 +93,46 @@ export const admins = sqliteTable("admins", {
     .default(sql`(datetime('now'))`),
 });
 
+/** Public page views — IP, where, when, browser. */
+export const visitLogs = sqliteTable("visit_logs", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  path: text("path").notNull(),
+  method: text("method").notNull().default("GET"),
+  ip: text("ip"),
+  country: text("country"),
+  region: text("region"),
+  city: text("city"),
+  userAgent: text("user_agent"),
+  browser: text("browser"),
+  os: text("os"),
+  device: text("device"),
+  referrer: text("referrer"),
+  locale: text("locale"),
+  createdAt: text("created_at")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
+/** Admin login attempts — success / fail, IP, where, browser. */
+export const adminAuthLogs = sqliteTable("admin_auth_logs", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  email: text("email").notNull(),
+  event: text("event", {
+    enum: ["login_success", "login_failure", "logout"],
+  }).notNull(),
+  ip: text("ip"),
+  country: text("country"),
+  region: text("region"),
+  city: text("city"),
+  userAgent: text("user_agent"),
+  browser: text("browser"),
+  os: text("os"),
+  device: text("device"),
+  createdAt: text("created_at")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
 export const authorsRelations = relations(authors, ({ many }) => ({
   articles: many(articles),
 }));

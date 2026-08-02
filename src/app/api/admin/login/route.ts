@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createSession, verifyAdminCredentials } from "@/lib/auth";
+import { recordAdminAuth } from "@/lib/analytics";
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -15,6 +16,15 @@ export async function POST(request: Request) {
 
   const admin = await verifyAdminCredentials(email, password);
   if (!admin) {
+    try {
+      await recordAdminAuth({
+        request,
+        email,
+        event: "login_failure",
+      });
+    } catch (err) {
+      console.error("auth log failed", err);
+    }
     return NextResponse.json(
       { error: "Identifiants invalides." },
       { status: 401 },
@@ -22,5 +32,14 @@ export async function POST(request: Request) {
   }
 
   await createSession(admin);
+  try {
+    await recordAdminAuth({
+      request,
+      email: admin.email,
+      event: "login_success",
+    });
+  } catch (err) {
+    console.error("auth log failed", err);
+  }
   return NextResponse.json({ ok: true });
 }
