@@ -1,14 +1,30 @@
 {
-  "articles": 2877,
-  "changed": 972,
+  "articles": 3186,
+  "changed": 302,
   "catalog": 108,
   "usage_top": [
     [
       "/covers/1280px-Bamako_ACI_2000_Aeriel.jpg",
-      40
+      44
     ],
     [
       "/covers/Timbuktu_Mosque_Sankore.jpg",
+      39
+    ],
+    [
+      "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg",
+      38
+    ],
+    [
+      "/covers/1280px-Kigali_skyline.jpg",
+      37
+    ],
+    [
+      "/covers/1280px-Paul_Kagame_2014.jpg",
+      37
+    ],
+    [
+      "/covers/1280px-View_on_Kigali__02_.jpg",
       36
     ],
     [
@@ -16,92 +32,76 @@
       36
     ],
     [
-      "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg",
-      35
-    ],
-    [
       "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
-      35
-    ],
-    [
-      "/covers/1280px-Kigali_skyline.jpg",
-      35
-    ],
-    [
-      "/covers/1280px-Paul_Kagame_2014.jpg",
-      34
+      36
     ],
     [
       "/covers/Great_Mosque_of_Djenn__1.jpg",
-      34
-    ],
-    [
-      "/covers/1280px-View_on_Kigali__02_.jpg",
-      32
-    ],
-    [
-      "/covers/Great_Mosque_of_Djenn__3.jpg",
-      32
-    ],
-    [
-      "/covers/1280px-Kigali_Convention_Centre.jpg",
-      32
-    ],
-    [
-      "/covers/1280px-Kigali.jpg",
-      32
-    ],
-    [
-      "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
-      32
-    ],
-    [
-      "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
-      32
+      36
     ],
     [
       "/covers/Kigali-Skyline-NP-480.jpg",
-      31
+      35
+    ],
+    [
+      "/covers/Great_Mosque_of_Djenn__3.jpg",
+      35
     ],
     [
       "/covers/1280px-Kigali_convention_centre_338aa44a.jpg",
-      31
+      35
+    ],
+    [
+      "/covers/1280px-Kigali_Convention_Centre.jpg",
+      35
+    ],
+    [
+      "/covers/1280px-Kigali.jpg",
+      35
+    ],
+    [
+      "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
+      35
     ],
     [
       "/covers/1280px-Kigali_Convention_Center_outside_parking_and_compound.jpg",
-      31
-    ],
-    [
-      "/covers/1280px-Djenn__Moschee_Dach_1990.jpg",
-      31
+      34
     ],
     [
       "/covers/Djenn__Moschee.jpg",
-      31
+      34
     ],
     [
       "/covers/1280px-MaliDjenn_Mosqu_e.JPG",
-      31
+      34
+    ],
+    [
+      "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
+      33
+    ],
+    [
+      "/covers/1280px-Djenn__Moschee_Dach_1990.jpg",
+      33
     ],
     [
       "/covers/F_lix_Tshisekedi_et_Stanis_Bujakera.jpg",
-      29
+      32
     ],
     [
-      "/covers/Kanyabayonga__Chefferie_de_Bwito__2011__Nord-Kivu.jpg",
-      29
+      "/covers/F_lix_Tshisekedi_-_2019.jpg",
+      32
+    ],
+    [
+      "/covers/F_lix_Tshisekedi___Denis_Sassou-Nguesso.jpg",
+      32
+    ],
+    [
+      "/covers/F_lix_Tshisekedi__september_2018_.jpg",
+      32
     ],
     [
       "/covers/LAC_VERT_MUGUNGA.jpg",
-      28
-    ],
-    [
-      "/covers/2010-03-07-Kinshasa_depuis_Brazzaville.jpg",
-      28
-    ],
-    [
-      "/covers/1280px-La_Gombe__Kinshasa__RDC.jpg",
-      28
+      31
     ]
   ],
   "samples": [
