@@ -35,8 +35,8 @@ export function ArticleList({
               <CoverPhoto
                 src={img}
                 alt={coverAlt(article, locale)}
-                fit="contain"
-                className="aspect-[4/3] border border-line"
+                fit="cover"
+                className="aspect-[4/3]"
                 sizes="(max-width: 640px) 96px, 140px"
               />
               <div className="min-w-0">

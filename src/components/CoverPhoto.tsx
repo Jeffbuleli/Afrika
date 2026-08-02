@@ -22,7 +22,7 @@ export function CoverPhoto({
   fit = "contain",
 }: Props) {
   return (
-    <div className={`relative overflow-hidden bg-paper-deep ${className}`}>
+    <div className={`relative overflow-hidden bg-ink/5 ${className}`}>
       <Image
         src={src}
         alt={alt}

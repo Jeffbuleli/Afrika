@@ -54,8 +54,8 @@ export default async function ArticlePage({ params }: Props) {
         src={image}
         alt={coverAlt(article, locale)}
         priority
-        fit="contain"
-        className="h-[42vh] min-h-[280px] w-full border-b border-line bg-ink"
+        fit="cover"
+        className="h-[42vh] min-h-[280px] w-full bg-ink"
         sizes="100vw"
       />
 

@@ -41,8 +41,8 @@ export function TopStoriesGrid({
               src={leadImage}
               alt={coverAlt(lead, locale)}
               priority
-              fit="contain"
-              className="aspect-[16/10] border border-line"
+              fit="cover"
+              className="aspect-[16/10]"
               sizes="(max-width: 1024px) 100vw, 55vw"
             />
             <p className="mt-4 text-xs uppercase tracking-[0.16em] text-accent-deep">
@@ -81,8 +81,8 @@ export function TopStoriesGrid({
                 <CoverPhoto
                   src={img}
                   alt={coverAlt(article, locale)}
-                  fit="contain"
-                  className="aspect-[4/3] border border-line"
+                  fit="cover"
+                  className="aspect-[4/3]"
                   sizes="132px"
                 />
                 <div className="min-w-0">
