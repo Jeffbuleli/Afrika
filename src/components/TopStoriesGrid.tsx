@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ArticleCardData } from "@/components/HeroFeatured";
 import { CoverPhoto } from "@/components/CoverPhoto";
 import { coverAlt } from "@/lib/articles";
+import { formatExcerpt } from "@/lib/excerpt";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
 export function TopStoriesGrid({
@@ -55,7 +56,7 @@ export function TopStoriesGrid({
               {lead.title}
             </h1>
             <p className="mt-3 text-base text-ink-soft leading-relaxed">
-              {lead.excerpt}
+              {formatExcerpt(lead.excerpt)}
             </p>
             <span className="mt-4 inline-block text-sm font-medium text-accent-deep">
               {copy.read} →
@@ -93,7 +94,7 @@ export function TopStoriesGrid({
                     {article.title}
                   </h3>
                   <p className="mt-1 line-clamp-2 text-sm text-ink-soft">
-                    {article.excerpt}
+                    {formatExcerpt(article.excerpt, 160)}
                   </p>
                 </div>
               </Link>

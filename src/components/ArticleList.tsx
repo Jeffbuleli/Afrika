@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ArticleCardData } from "@/components/HeroFeatured";
 import { CoverPhoto } from "@/components/CoverPhoto";
 import { coverAlt } from "@/lib/articles";
+import { formatExcerpt } from "@/lib/excerpt";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
 const FALLBACK_IMG =
@@ -50,7 +51,7 @@ export function ArticleList({
                   {article.title}
                 </h3>
                 <p className="mt-2 max-w-3xl text-sm sm:text-base text-ink-soft leading-relaxed line-clamp-2 sm:line-clamp-3">
-                  {article.excerpt}
+                  {formatExcerpt(article.excerpt)}
                 </p>
                 <p className="mt-3 text-xs text-ink-soft">
                   {copy.by} {article.authorName} - {article.readingTimeMinutes}{" "}

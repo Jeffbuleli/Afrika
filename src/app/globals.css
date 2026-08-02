@@ -61,6 +61,12 @@ body {
   margin: 0 0 1.25rem;
 }
 
+.prose-article > p:first-child {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
 .prose-article h2 {
   font-size: 1.35rem;
   font-weight: 600;

@@ -10,6 +10,7 @@ import {
 } from "@/lib/articles";
 import { categoryBlurb } from "@/lib/category-blurbs";
 import { isLocale, t, type Locale } from "@/lib/i18n";
+import { SITE_NAME, siteUrl } from "@/lib/site";
 
 const PAGE_SIZE = 12;
 
@@ -21,10 +22,32 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw, category: slug } = await params;
   if (!isLocale(raw)) return {};
+  const locale = raw as Locale;
   const category = await getCategoryBySlug(slug);
   if (!category) return {};
+  const title = categoryLabel(category, locale);
+  const description = categoryBlurb(slug, locale);
+  const url = `${siteUrl()}/${locale}/${slug}`;
+
   return {
-    title: categoryLabel(category, raw as Locale),
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      title: `${title} - ${SITE_NAME}`,
+      description,
+      url,
+      locale: locale === "en" ? "en_GB" : "fr_FR",
+      images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} - ${SITE_NAME}`,
+      description,
+      images: ["/og-default.jpg"],
+    },
   };
 }
 

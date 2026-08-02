@@ -6,6 +6,7 @@ import type { ArticleCardData } from "@/components/HeroFeatured";
 import { CoverPhoto } from "@/components/CoverPhoto";
 import { PaginationControls } from "@/components/Pagination";
 import { categoryBlurb } from "@/lib/category-blurbs";
+import { formatExcerpt } from "@/lib/excerpt";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
 type CategoryInfo = {
@@ -124,7 +125,7 @@ function CategorySectionCard({
               {lead.title}
             </h3>
             <p className="mt-2 line-clamp-2 text-sm text-ink-soft leading-relaxed">
-              {lead.excerpt}
+              {formatExcerpt(lead.excerpt, 180)}
             </p>
             {lead.publishedAt ? (
               <p className="mt-2 text-[0.7rem] text-ink-soft">

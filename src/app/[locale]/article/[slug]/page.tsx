@@ -11,6 +11,8 @@ import {
   getRelatedArticles,
 } from "@/lib/articles";
 import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
+import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
+import { formatExcerpt } from "@/lib/excerpt";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -19,11 +21,54 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale: raw, slug } = await params;
   if (!isLocale(raw)) return {};
-  const article = await getArticleBySlug(raw as Locale, slug);
+  const locale = raw as Locale;
+  const article = await getArticleBySlug(locale, slug);
   if (!article) return {};
+
+  const title = article.seoTitle || article.title;
+  const description = formatExcerpt(
+    article.seoDescription || article.excerpt || "",
+  );
+  const url = `${siteUrl()}/${locale}/article/${article.slug}`;
+  const image = absoluteUrl(article.coverImageUrl);
+  const imageAlt = coverAlt(article, locale) || title;
+
   return {
-    title: article.seoTitle || article.title,
-    description: article.seoDescription || article.excerpt,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        fr: `${siteUrl()}/fr/article/${article.slug}`,
+        en: `${siteUrl()}/en/article/${article.slug}`,
+      },
+    },
+    openGraph: {
+      type: "article",
+      siteName: SITE_NAME,
+      title,
+      description,
+      url,
+      locale: locale === "en" ? "en_GB" : "fr_FR",
+      publishedTime: article.publishedAt || undefined,
+      authors: article.authorName ? [article.authorName] : undefined,
+      section:
+        locale === "en" ? article.categoryLabelEn : article.categoryLabelFr,
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
@@ -75,9 +120,6 @@ export default async function ArticlePage({ params }: Props) {
           <h1 className="mt-4 text-3xl sm:text-5xl font-semibold tracking-[-0.035em] leading-[1.12]">
             {article.title}
           </h1>
-          <p className="mt-5 text-lg text-ink-soft leading-relaxed">
-            {article.excerpt}
-          </p>
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-soft border-t border-b site-rule py-4">
             <span>
               {copy.by}{" "}

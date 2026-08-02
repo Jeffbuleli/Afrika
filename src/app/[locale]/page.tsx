@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { CategorySections } from "@/components/CategorySections";
 import { NewsTicker } from "@/components/NewsTicker";
 import { TopStoriesGrid } from "@/components/TopStoriesGrid";
@@ -8,8 +9,47 @@ import {
   getPublishedArticles,
 } from "@/lib/articles";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
 
 const HOME_PRIORITY = new Set(["DRC", "RWANDA", "UGANDA"]);
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) return {};
+  const locale = raw as Locale;
+  const description = siteDescription(locale);
+  const url = `${siteUrl()}/${locale}`;
+
+  return {
+    title: SITE_NAME,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { fr: `${siteUrl()}/fr`, en: `${siteUrl()}/en` },
+    },
+    openGraph: {
+      type: "website",
+      siteName: SITE_NAME,
+      title: SITE_NAME,
+      description,
+      url,
+      locale: locale === "en" ? "en_GB" : "fr_FR",
+      images: [
+        { url: "/og-default.jpg", width: 1200, height: 630, alt: SITE_NAME },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: SITE_NAME,
+      description,
+      images: ["/og-default.jpg"],
+    },
+  };
+}
 
 function countryScore(country: string | null | undefined) {
   if (!country) return 2;

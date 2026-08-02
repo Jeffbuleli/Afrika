@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { coverAlt } from "@/lib/articles";
+import { formatExcerpt } from "@/lib/excerpt";
 import { formatDate, t, type Locale } from "@/lib/i18n";
 
 export type ArticleCardData = {
@@ -64,7 +65,7 @@ export function HeroFeatured({
           {article.title}
         </h1>
         <p className="animate-fade-up-delay mt-5 max-w-2xl text-base sm:text-lg text-paper/90 leading-relaxed">
-          {article.excerpt}
+          {formatExcerpt(article.excerpt)}
         </p>
         <div className="animate-fade-up-delay mt-8">
           <Link
