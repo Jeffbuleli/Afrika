@@ -21,6 +21,10 @@ export function CoverPhoto({
   sizes = "(max-width: 768px) 100vw, 50vw",
   fit = "contain",
 }: Props) {
+  // Wikimedia rate-limits Next.js image optimization on the server (429),
+  // which shows as broken images. Bypass optimizer for remote Wikimedia URLs.
+  const remoteWikimedia = src.startsWith("https://upload.wikimedia.org/");
+
   return (
     <div className={`relative overflow-hidden bg-ink/5 ${className}`}>
       <Image
@@ -30,6 +34,7 @@ export function CoverPhoto({
         priority={priority}
         quality={92}
         sizes={sizes}
+        unoptimized={remoteWikimedia}
         className={
           fit === "contain"
             ? "object-contain object-center"

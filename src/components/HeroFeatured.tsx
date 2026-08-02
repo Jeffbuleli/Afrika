@@ -43,6 +43,7 @@ export function HeroFeatured({
         priority
         className="object-cover"
         sizes="100vw"
+        unoptimized={image.startsWith("https://upload.wikimedia.org/")}
       />
       <div
         className="absolute inset-0"
