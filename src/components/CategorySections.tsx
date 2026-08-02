@@ -63,7 +63,7 @@ export function CategorySections({
                       sizes="150px"
                     />
                     <div className="min-w-0">
-                      <h3 className="text-lg font-semibold tracking-[-0.02em] leading-snug text-navy group-hover:text-gold-deep transition-colors">
+                      <h3 className="text-lg font-semibold tracking-[-0.02em] leading-snug line-clamp-2 text-navy group-hover:text-gold-deep transition-colors">
                         {lead.title}
                       </h3>
                       <p className="mt-2 line-clamp-2 text-sm text-ink-soft leading-relaxed">
@@ -95,7 +95,7 @@ export function CategorySections({
                                 sizes="88px"
                               />
                               <div className="min-w-0 self-center">
-                                <p className="text-sm font-medium leading-snug text-navy group-hover:text-gold-deep transition-colors">
+                                <p className="text-sm font-medium leading-snug line-clamp-2 text-navy group-hover:text-gold-deep transition-colors">
                                   {article.title}
                                 </p>
                                 {article.publishedAt ? (

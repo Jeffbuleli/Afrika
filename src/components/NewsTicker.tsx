@@ -36,7 +36,7 @@ export function NewsTicker({
                   {item.categoryLabel}
                 </span>
                 <span className="text-paper/35">-</span>
-                <span>{item.title}</span>
+                <span className="max-w-[28rem] truncate">{item.title}</span>
               </Link>
             ))}
           </div>

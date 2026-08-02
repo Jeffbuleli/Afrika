@@ -51,7 +51,7 @@ export function TopStoriesGrid({
                 ? ` - ${formatDate(lead.publishedAt, locale)}`
                 : ""}
             </p>
-            <h1 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-[-0.035em] leading-[1.12] group-hover:text-accent-deep transition-colors">
+            <h1 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-[-0.035em] leading-[1.12] line-clamp-3 group-hover:text-accent-deep transition-colors">
               {lead.title}
             </h1>
             <p className="mt-3 text-base text-ink-soft leading-relaxed">
@@ -89,7 +89,7 @@ export function TopStoriesGrid({
                   <p className="text-[0.65rem] uppercase tracking-[0.14em] text-ink-soft">
                     {cat}
                   </p>
-                  <h3 className="mt-1 text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug group-hover:text-accent-deep transition-colors">
+                  <h3 className="mt-1 text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug line-clamp-2 group-hover:text-accent-deep transition-colors">
                     {article.title}
                   </h3>
                   <p className="mt-1 line-clamp-2 text-sm text-ink-soft">

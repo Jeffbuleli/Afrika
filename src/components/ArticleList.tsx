@@ -46,7 +46,7 @@ export function ArticleList({
                     ? ` - ${formatDate(article.publishedAt, locale)}`
                     : ""}
                 </p>
-                <h3 className="mt-2 text-xl sm:text-2xl font-semibold tracking-[-0.03em] leading-snug group-hover:text-accent-deep transition-colors">
+                <h3 className="mt-2 text-xl sm:text-2xl font-semibold tracking-[-0.03em] leading-snug line-clamp-2 group-hover:text-accent-deep transition-colors">
                   {article.title}
                 </h3>
                 <p className="mt-2 max-w-3xl text-sm sm:text-base text-ink-soft leading-relaxed line-clamp-2 sm:line-clamp-3">

@@ -60,7 +60,7 @@ export function HeroFeatured({
             ? ` - ${formatDate(article.publishedAt, locale)}`
             : ""}
         </p>
-        <h1 className="animate-fade-up-delay mt-4 max-w-3xl text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.08] tracking-[-0.035em]">
+        <h1 className="animate-fade-up-delay mt-4 max-w-3xl text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.08] tracking-[-0.035em] line-clamp-3">
           {article.title}
         </h1>
         <p className="animate-fade-up-delay mt-5 max-w-2xl text-base sm:text-lg text-paper/90 leading-relaxed">
