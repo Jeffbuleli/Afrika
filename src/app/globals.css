@@ -133,6 +133,27 @@ body {
   padding-left: 0.25rem;
 }
 
+.section-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.story-deck {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.story-media img {
+  transition: transform 0.35s ease;
+}
+
+.group:hover .story-media img {
+  transform: scale(1.03);
+}
+
 @keyframes ticker-scroll {
   from {
     transform: translateX(0);

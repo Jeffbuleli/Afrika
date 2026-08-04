@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { CategorySections } from "@/components/CategorySections";
 import { ContactSuggestions } from "@/components/ContactSuggestions";
 import { NewsTicker } from "@/components/NewsTicker";
+import { SecondaryTrio } from "@/components/SecondaryTrio";
 import { TopStoriesGrid } from "@/components/TopStoriesGrid";
 import {
   getArticlesByCategory,
@@ -122,6 +123,9 @@ export default async function HomePage({
   );
   const side = [...sidePriority, ...sideOther].slice(0, 4);
 
+  const usedSlugs = new Set([lead.slug, ...side.map((a) => a.slug)]);
+  const trio = rest.filter((a) => !usedSlugs.has(a.slug)).slice(0, 3);
+
   const tickerSource = [
     lead,
     ...sidePriority.slice(0, 8),
@@ -142,6 +146,7 @@ export default async function HomePage({
     <>
       <NewsTicker items={tickerItems} locale={locale} />
       <TopStoriesGrid lead={lead} side={side} locale={locale} />
+      <SecondaryTrio articles={trio} locale={locale} />
       <CategorySections
         categories={categories}
         byCategory={byCategory}
