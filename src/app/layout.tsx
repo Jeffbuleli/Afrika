@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import { JsonLd, organizationJsonLd } from "@/components/JsonLd";
 import {
   SITE_NAME,
   SITE_TAGLINE_FR,
@@ -20,11 +21,49 @@ const base = siteUrl();
 export const metadata: Metadata = {
   metadataBase: new URL(base),
   title: {
-    default: SITE_NAME,
+    default: `${SITE_NAME} - ${SITE_TAGLINE_FR}`,
     template: `%s - ${SITE_NAME}`,
   },
-  description: `${SITE_NAME} - ${SITE_TAGLINE_FR}`,
+  description: siteDescription("fr"),
   applicationName: SITE_NAME,
+  keywords: [
+    "Afrique",
+    "Africa",
+    "actualité africaine",
+    "African news",
+    "politique",
+    "sécurité",
+    "économie",
+    "DRC",
+    "Mali",
+    "Rwanda",
+    "Sudan",
+    "Uganda",
+    "Africa Insight",
+  ],
+  authors: [{ name: SITE_NAME, url: base }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "news",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: {
+    canonical: base,
+    languages: {
+      fr: `${base}/fr`,
+      en: `${base}/en`,
+      "x-default": `${base}/fr`,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -67,6 +106,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${poppins.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased font-sans bg-paper text-ink">
+        <JsonLd data={organizationJsonLd()} />
         {children}
       </body>
     </html>

@@ -3,7 +3,7 @@
 Média d’analyse africaine bilingue (**FR / EN**).  
 *L’Afrique expliquée - pas seulement racontée.*
 
-**Prod :** [https://africa.mcbuleli.org](https://africa.mcbuleli.org)
+**Prod :** [https://www.africa-insight.org](https://www.africa-insight.org)
 
 Stack : **Next.js**, **Drizzle**, **SQLite**, images locales (R2 plus tard).
 
@@ -40,20 +40,22 @@ Modifie-les dans `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`, `AUTH_SECRET`) puis re
 
 ## Production (VPS)
 
-Même VPS que McBuleli (`162.35.181.98`), sous-domaine **africa.mcbuleli.org**, port local `3002`.
+Même VPS que McBuleli (`162.35.181.98`), domaine **www.africa-insight.org**, port local `3002`.
+L’ancien sous-domaine `africa.mcbuleli.org` redirige en 301 vers le nouveau domaine.
 
 ```bash
 # Sur le VPS (bootstrap une fois)
 git clone https://github.com/Jeffbuleli/Afrika.git /opt/africa-insight
 cd /opt/africa-insight/ops/vps
-cp .env.example .env   # secrets forts
-# nginx + certbot (voir ops/vps/nginx-africa.conf)
+cp .env.example .env   # secrets forts + NEXT_PUBLIC_APP_URL=https://www.africa-insight.org
+# nginx + certbot (voir ops/vps/nginx-africa.conf + issue-cert.sh)
 bash /opt/africa-insight/ops/vps/deploy.sh
 ```
 
 Déploiements suivants : push sur `main` → GitHub Action **Deploy VPS**, ou `bash /opt/africa-insight/ops/vps/deploy.sh`.
 
-DNS : enregistrement **A** `africa` → `162.35.181.98` (Cloudflare).
+DNS (Cloudflare) : **A** `@` et `www` → `162.35.181.98` (proxy orange OK).
+SEO : `https://www.africa-insight.org/sitemap.xml` + Search Console.
 
 ## Structure utile
 

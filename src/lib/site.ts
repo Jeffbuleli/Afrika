@@ -1,13 +1,15 @@
 import type { Locale } from "@/lib/i18n";
 
 export const SITE_NAME = "Africa Insight";
+export const SITE_DOMAIN = "www.africa-insight.org";
 export const SITE_TAGLINE_FR =
   "L'Afrique expliquée - pas seulement racontée.";
 export const SITE_TAGLINE_EN = "Africa explained - not just reported.";
 
 export function siteUrl(): string {
   const raw =
-    process.env.NEXT_PUBLIC_APP_URL?.trim() || "https://africa.mcbuleli.org";
+    process.env.NEXT_PUBLIC_APP_URL?.trim() ||
+    `https://${SITE_DOMAIN}`;
   return raw.replace(/\/$/, "");
 }
 
@@ -21,6 +23,6 @@ export function absoluteUrl(pathOrUrl: string | null | undefined): string {
 
 export function siteDescription(locale: Locale): string {
   return locale === "en"
-    ? "African analysis media. Facts, context, and what actually matters."
-    : "Média d'analyse africaine. Faits, contexte, et ce qui compte vraiment.";
+    ? "African analysis media covering politics, security, economy and society across Africa. Facts, context, and what actually matters."
+    : "Média d'analyse africaine : politique, sécurité, économie et société. Faits, contexte, et ce qui compte vraiment.";
 }

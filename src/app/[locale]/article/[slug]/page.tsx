@@ -11,6 +11,7 @@ import {
   getRelatedArticles,
 } from "@/lib/articles";
 import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
+import { JsonLd, articleJsonLd } from "@/components/JsonLd";
 import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
 import { formatExcerpt } from "@/lib/excerpt";
 
@@ -36,6 +37,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
     alternates: {
       canonical: url,
       languages: {
@@ -95,6 +101,18 @@ export default async function ArticlePage({ params }: Props) {
 
   return (
     <article key={`${locale}-${slug}`} lang={locale}>
+      <JsonLd
+        data={articleJsonLd({
+          title: article.title,
+          excerpt: formatExcerpt(article.excerpt || article.title),
+          slug: article.slug,
+          locale,
+          publishedAt: article.publishedAt,
+          coverImageUrl: article.coverImageUrl,
+          authorName: article.authorName,
+          categoryLabel: category,
+        })}
+      />
       <CoverPhoto
         src={image}
         alt={coverAlt(article, locale)}
