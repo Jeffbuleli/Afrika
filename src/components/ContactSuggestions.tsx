@@ -53,12 +53,9 @@ export function ContactSuggestions({ locale }: { locale: Locale }) {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-16">
         <div className="max-w-2xl">
-          <p className="text-xs uppercase tracking-[0.18em] text-ink-soft">
-            {copy.contactEyebrow}
-          </p>
           <h2
             id="contact-heading"
-            className="mt-2 text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-navy"
+            className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-navy"
           >
             {copy.contactTitle}
           </h2>

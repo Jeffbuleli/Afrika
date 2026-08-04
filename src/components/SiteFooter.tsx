@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { t, type Locale } from "@/lib/i18n";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -25,14 +24,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             {copy.footerAbout}
           </p>
         </div>
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-ink-soft">
-          <p>
-            © {year} Africa Insight. {copy.footerRights}
-          </p>
-          <Link href="/admin" className="hover:text-ink transition-colors">
-            {copy.admin}
-          </Link>
-        </div>
+        <p className="mt-8 text-center text-xs text-ink-soft">
+          © {year} Africa Insight. {copy.footerRights}
+        </p>
       </div>
     </footer>
   );

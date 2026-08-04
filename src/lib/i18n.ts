@@ -31,7 +31,6 @@ type Dictionary = {
   allNews: string;
   footerAbout: string;
   footerRights: string;
-  admin: string;
   notFound: string;
   backHome: string;
   previous: string;
@@ -47,7 +46,6 @@ type Dictionary = {
   installing: string;
   installError: string;
   installManual: string;
-  contactEyebrow: string;
   contactTitle: string;
   contactBody: string;
   contactKind: string;
@@ -85,7 +83,6 @@ const fr: Dictionary = {
   footerAbout:
     "Africa Insight est un média d'analyse africaine. Faits, contexte, et ce qui compte vraiment.",
   footerRights: "Tous droits réservés.",
-  admin: "Rédaction",
   notFound: "Article introuvable",
   backHome: "Retour à l'accueil",
   previous: "Précédent",
@@ -103,7 +100,6 @@ const fr: Dictionary = {
   installing: "Installation…",
   installError: "Installation interrompue. Réessayez ou utilisez le menu du navigateur.",
   installManual: "Utilisez le menu ⋮ du navigateur → « Installer l’application ».",
-  contactEyebrow: "Rédaction",
   contactTitle: "Suggestions & contact",
   contactBody:
     "Une idée d’article, un signalement, ou un message pour la rédaction ? Écrivez-nous ici - vos coordonnées restent privées et ne sont pas affichées sur le site.",
@@ -142,7 +138,6 @@ const en: Dictionary = {
   footerAbout:
     "Africa Insight is an African analysis outlet. Facts, context, and what actually matters.",
   footerRights: "All rights reserved.",
-  admin: "Newsroom",
   notFound: "Article not found",
   backHome: "Back to home",
   previous: "Previous",
@@ -160,7 +155,6 @@ const en: Dictionary = {
   installing: "Installing…",
   installError: "Install interrupted. Try again or use your browser menu.",
   installManual: "Use the browser ⋮ menu → “Install app”.",
-  contactEyebrow: "Newsroom",
   contactTitle: "Suggestions & contact",
   contactBody:
     "Story idea, tip, or a note for the editors? Write here - your details stay private and are never shown on the site.",
