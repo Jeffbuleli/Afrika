@@ -14,6 +14,7 @@ import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
 import { JsonLd, articleJsonLd } from "@/components/JsonLd";
 import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
 import { formatExcerpt } from "@/lib/excerpt";
+import { articleKeywords } from "@/lib/seo-keywords";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -26,6 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = await getArticleBySlug(locale, slug);
   if (!article) return {};
 
+  const categoryLabel =
+    locale === "en" ? article.categoryLabelEn : article.categoryLabelFr;
   const title = article.seoTitle || article.title;
   const description = formatExcerpt(
     article.seoDescription || article.excerpt || "",
@@ -33,14 +36,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const url = `${siteUrl()}/${locale}/article/${article.slug}`;
   const image = absoluteUrl(article.coverImageUrl);
   const imageAlt = coverAlt(article, locale) || title;
+  const keywords = articleKeywords({
+    title: article.title,
+    locale,
+    categoryLabel,
+    country: article.country,
+  });
 
   return {
     title,
     description,
+    keywords,
+    authors: article.authorName
+      ? [{ name: article.authorName }]
+      : [{ name: SITE_NAME }],
+    category: categoryLabel,
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true },
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     alternates: {
       canonical: url,
@@ -58,8 +77,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: locale === "en" ? "en_GB" : "fr_FR",
       publishedTime: article.publishedAt || undefined,
       authors: article.authorName ? [article.authorName] : undefined,
-      section:
-        locale === "en" ? article.categoryLabelEn : article.categoryLabelFr,
+      section: categoryLabel,
+      tags: keywords.slice(0, 12),
       images: [
         {
           url: image,
@@ -111,6 +130,13 @@ export default async function ArticlePage({ params }: Props) {
           coverImageUrl: article.coverImageUrl,
           authorName: article.authorName,
           categoryLabel: category,
+          country: article.country,
+          keywords: articleKeywords({
+            title: article.title,
+            locale,
+            categoryLabel: category,
+            country: article.country,
+          }),
         })}
       />
       <CoverPhoto

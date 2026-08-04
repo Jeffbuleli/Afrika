@@ -10,6 +10,7 @@ import {
 } from "@/lib/articles";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
+import { homeKeywords } from "@/lib/seo-keywords";
 
 const HOME_PRIORITY = new Set(["DRC", "RWANDA", "UGANDA"]);
 
@@ -27,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: SITE_NAME,
     description,
+    keywords: homeKeywords(locale),
     alternates: {
       canonical: url,
       languages: { fr: `${siteUrl()}/fr`, en: `${siteUrl()}/en` },

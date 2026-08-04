@@ -11,6 +11,7 @@ import {
 import { categoryBlurb } from "@/lib/category-blurbs";
 import { isLocale, t, type Locale } from "@/lib/i18n";
 import { SITE_NAME, siteUrl } from "@/lib/site";
+import { categoryKeywords } from "@/lib/seo-keywords";
 
 const PAGE_SIZE = 12;
 
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
+    keywords: categoryKeywords(locale, title, slug),
     alternates: { canonical: url },
     openGraph: {
       type: "website",

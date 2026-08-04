@@ -1,5 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { BrandLogo } from "@/components/BrandLogo";
 import { t, type Locale } from "@/lib/i18n";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -10,7 +10,15 @@ export function SiteFooter({ locale }: { locale: Locale }) {
     <footer className="mt-auto border-t site-rule bg-paper-deep">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
         <div className="max-w-xl">
-          <BrandLogo locale={locale} size="footer" />
+          <div className="relative h-12 w-[168px]">
+            <Image
+              src="/logo-africa-insight-mark.png"
+              alt="Africa Insight"
+              fill
+              className="object-contain object-left"
+              sizes="168px"
+            />
+          </div>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft">
             {copy.footerAbout}
           </p>

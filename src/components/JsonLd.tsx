@@ -11,6 +11,8 @@ type ArticleJsonLdInput = {
   coverImageUrl: string | null;
   authorName: string;
   categoryLabel: string;
+  keywords?: string[];
+  country?: string | null;
 };
 
 export function articleJsonLd(article: ArticleJsonLdInput) {
@@ -33,9 +35,15 @@ export function articleJsonLd(article: ArticleJsonLdInput) {
       logo: {
         "@type": "ImageObject",
         url: `${siteUrl()}/icon-512.png`,
+        width: 512,
+        height: 512,
       },
       url: siteUrl(),
     },
+    keywords: (article.keywords || [article.categoryLabel]).join(", "),
+    about: article.country
+      ? { "@type": "Place", name: article.country }
+      : undefined,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": url,
@@ -51,7 +59,13 @@ export function organizationJsonLd() {
     "@type": "NewsMediaOrganization",
     name: SITE_NAME,
     url: siteUrl(),
-    logo: `${siteUrl()}/icon-512.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl()}/icon-512.png`,
+      width: 512,
+      height: 512,
+    },
+    image: `${siteUrl()}/icon-512.png`,
     sameAs: [],
   };
 }
