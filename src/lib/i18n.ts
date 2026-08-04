@@ -39,6 +39,11 @@ type Dictionary = {
   page: string;
   of: string;
   articlesCount: string;
+  installTitle: string;
+  installBody: string;
+  installIosHint: string;
+  installCta: string;
+  installLater: string;
 };
 
 const fr: Dictionary = {
@@ -71,6 +76,13 @@ const fr: Dictionary = {
   page: "Page",
   of: "sur",
   articlesCount: "articles",
+  installTitle: "Installer Africa Insight",
+  installBody:
+    "Ajoutez l’app à votre écran d’accueil pour un accès rapide aux analyses.",
+  installIosHint:
+    "Sur iPhone : touchez Partager, puis « Sur l’écran d’accueil ».",
+  installCta: "Installer",
+  installLater: "Plus tard",
 };
 
 const en: Dictionary = {
@@ -103,6 +115,13 @@ const en: Dictionary = {
   page: "Page",
   of: "of",
   articlesCount: "articles",
+  installTitle: "Install Africa Insight",
+  installBody:
+    "Add the app to your home screen for quick access to African analysis.",
+  installIosHint:
+    "On iPhone: tap Share, then “Add to Home Screen”.",
+  installCta: "Install",
+  installLater: "Not now",
 };
 
 export function t(locale: Locale): Dictionary {

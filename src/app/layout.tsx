@@ -27,6 +27,14 @@ export const metadata: Metadata = {
   },
   description: siteDescription("fr"),
   applicationName: SITE_NAME,
+  appleWebApp: {
+    capable: true,
+    title: SITE_NAME,
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   keywords: [
     "Afrique",
     "Africa",

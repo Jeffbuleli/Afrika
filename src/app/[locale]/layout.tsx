@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { InstallAppPrompt } from "@/components/InstallAppPrompt";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { VisitBeacon } from "@/components/VisitBeacon";
@@ -25,6 +26,7 @@ export default async function LocaleLayout({
         {children}
       </main>
       <SiteFooter locale={locale} />
+      <InstallAppPrompt locale={locale} />
     </>
   );
 }
