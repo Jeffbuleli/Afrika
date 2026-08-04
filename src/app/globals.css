@@ -52,19 +52,21 @@ body {
 
 .prose-article {
   max-width: 68ch;
-  font-size: 1.0625rem;
-  line-height: 1.75;
-  color: var(--ink);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #1a1714;
+  -webkit-text-fill-color: #1a1714;
 }
 
 .prose-article p {
   margin: 0 0 1.25rem;
+  color: #1a1714;
 }
 
 .prose-article > p:first-child {
-  font-size: 1.125rem;
-  line-height: 1.7;
-  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: #1a1714;
 }
 
 .prose-article h2 {

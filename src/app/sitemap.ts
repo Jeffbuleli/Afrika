@@ -4,7 +4,8 @@ import { db } from "@/db";
 import { articleTranslations, articles } from "@/db/schema";
 import { siteUrl } from "@/lib/site";
 
-export const dynamic = "force-dynamic";
+// Regenerate hourly — keeps Google fetches fast without stale URLs for long.
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = siteUrl();

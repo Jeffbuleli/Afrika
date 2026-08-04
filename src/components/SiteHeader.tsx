@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import type { Category } from "@/db/schema";
+import { BrandLogo } from "@/components/BrandLogo";
 import { CategoryNav } from "@/components/CategoryNav";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
 import { t, type Locale } from "@/lib/i18n";
@@ -21,20 +21,7 @@ export function SiteHeader({ locale, categories }: Props) {
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex items-center justify-between gap-4 py-3 sm:py-4">
-          <Link
-            href={`/${locale}`}
-            className="relative block h-11 w-[148px] sm:h-12 sm:w-[168px] shrink-0"
-            aria-label="Africa Insight"
-          >
-            <Image
-              src="/logo-africa-insight-mark.png"
-              alt="Africa Insight"
-              fill
-              priority
-              className="object-contain object-left"
-              sizes="168px"
-            />
-          </Link>
+          <BrandLogo locale={locale} size="header" />
 
           <div className="flex items-center gap-3 sm:gap-5 shrink-0">
             <Link
