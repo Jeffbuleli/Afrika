@@ -50,7 +50,7 @@ function dismiss() {
 async function ensureServiceWorker(): Promise<boolean> {
   if (!("serviceWorker" in navigator)) return false;
   try {
-    await navigator.serviceWorker.register("/sw.js", {
+    await navigator.serviceWorker.register("/sw.js?v=2", {
       scope: "/",
       updateViaCache: "none",
     });
