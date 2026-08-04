@@ -24,9 +24,9 @@ export function TopStoriesGrid({
   return (
     <section className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-10">
       <div className="mb-6 flex items-end justify-between gap-4 border-b-2 border-navy pb-3">
-        <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-navy">
+        <h1 className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-navy">
           {copy.featured}
-        </h2>
+        </h1>
         <p className="hidden sm:block text-sm text-ink-soft max-w-sm text-right">
           {copy.tagline}
         </p>
@@ -52,9 +52,9 @@ export function TopStoriesGrid({
                 ? ` - ${formatDate(lead.publishedAt, locale)}`
                 : ""}
             </p>
-            <h1 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-[-0.035em] leading-[1.12] line-clamp-3 group-hover:text-accent-deep transition-colors">
+            <h2 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-[-0.035em] leading-[1.12] line-clamp-3 group-hover:text-accent-deep transition-colors">
               {lead.title}
-            </h1>
+            </h2>
             <p className="mt-3 text-base text-ink-soft leading-relaxed">
               {formatExcerpt(lead.excerpt)}
             </p>

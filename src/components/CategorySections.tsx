@@ -96,7 +96,7 @@ function CategorySectionCard({
           >
             {label}
           </h2>
-          <p className="mt-1 max-w-md text-[0.75rem] leading-snug text-paper/70">
+          <p className="mt-1 max-w-md text-[0.75rem] leading-snug text-paper/85">
             {categoryBlurb(category.slug, locale)}
           </p>
         </div>

@@ -42,6 +42,8 @@ export function HeroFeatured({
         alt={coverAlt(article, locale)}
         fill
         priority
+        fetchPriority="high"
+        quality={72}
         className="object-cover"
         sizes="100vw"
         unoptimized={image.startsWith("https://upload.wikimedia.org/")}

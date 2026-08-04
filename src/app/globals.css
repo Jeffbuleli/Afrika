@@ -4,11 +4,13 @@
   --paper: #f7f4ee;
   --paper-deep: #ebe6db;
   --ink: #1a1714;
-  --ink-soft: #4a4238;
+  /* Darker soft ink for WCAG AA on paper (~7:1+) */
+  --ink-soft: #3a342c;
   --line: #d4c8b5;
   --navy: #1a2b48;
-  --gold: #c59b2e;
-  --gold-deep: #a37f22;
+  --gold: #b89128;
+  /* Darker gold for text on cream / active nav */
+  --gold-deep: #6f5210;
   --accent: var(--gold);
   --accent-deep: var(--gold-deep);
   --hero-overlay: rgba(18, 14, 10, 0.52);

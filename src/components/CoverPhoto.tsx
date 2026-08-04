@@ -11,7 +11,8 @@ type Props = {
 };
 
 /**
- * Sharp, non-cropped covers by default (object-contain + solid backdrop).
+ * Sharp covers with Next image optimization (AVIF/WebP).
+ * `priority` sets fetchPriority=high for LCP candidates.
  */
 export function CoverPhoto({
   src,
@@ -21,8 +22,7 @@ export function CoverPhoto({
   sizes = "(max-width: 768px) 100vw, 50vw",
   fit = "contain",
 }: Props) {
-  // Wikimedia rate-limits Next.js image optimization on the server (429),
-  // which shows as broken images. Bypass optimizer for remote Wikimedia URLs.
+  // Wikimedia rate-limits Next.js image optimization (429).
   const remoteWikimedia = src.startsWith("https://upload.wikimedia.org/");
 
   return (
@@ -32,7 +32,8 @@ export function CoverPhoto({
         alt={alt}
         fill
         priority={priority}
-        quality={92}
+        fetchPriority={priority ? "high" : "auto"}
+        quality={priority ? 72 : 68}
         sizes={sizes}
         unoptimized={remoteWikimedia}
         className={

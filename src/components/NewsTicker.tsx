@@ -54,13 +54,18 @@ export function NewsTicker({
               <Link
                 key={`${item.slug}-${i}`}
                 href={`/${locale}/article/${item.slug}`}
-                className="mx-6 inline-flex items-center gap-2 text-sm hover:text-paper/80"
+                aria-label={item.title}
+                className="mx-6 inline-flex items-center gap-2 text-sm hover:text-paper/90"
               >
-                <span className="text-gold uppercase tracking-[0.12em] text-[0.65rem]">
+                <span className="text-gold uppercase tracking-[0.12em] text-[0.65rem]" aria-hidden>
                   {item.categoryLabel}
                 </span>
-                <span className="text-paper/35">-</span>
-                <span className="max-w-[28rem] truncate">{item.title}</span>
+                <span className="text-paper/50" aria-hidden>
+                  -
+                </span>
+                <span className="max-w-[28rem] truncate" aria-hidden>
+                  {item.title}
+                </span>
               </Link>
             ))}
           </div>

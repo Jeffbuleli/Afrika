@@ -20,6 +20,12 @@ function labelFor(category: NavCategory, locale: Locale) {
   return locale === "en" ? category.labelEn : category.labelFr;
 }
 
+function navClass(active: boolean) {
+  return active
+    ? "whitespace-nowrap text-navy underline decoration-gold decoration-2 underline-offset-4 transition-colors"
+    : "whitespace-nowrap hover:text-gold-deep transition-colors";
+}
+
 export function CategoryNav({ locale, categories }: Props) {
   const pathname = usePathname();
   const copy = t(locale);
@@ -33,11 +39,7 @@ export function CategoryNav({ locale, categories }: Props) {
     >
       <Link
         href={homeHref}
-        className={
-          homeActive
-            ? "whitespace-nowrap text-gold-deep transition-colors"
-            : "whitespace-nowrap hover:text-gold-deep transition-colors"
-        }
+        className={navClass(homeActive)}
         aria-current={homeActive ? "page" : undefined}
       >
         {copy.home}
@@ -50,11 +52,7 @@ export function CategoryNav({ locale, categories }: Props) {
           <Link
             key={category.id}
             href={href}
-            className={
-              active
-                ? "whitespace-nowrap text-gold-deep transition-colors"
-                : "whitespace-nowrap hover:text-gold-deep transition-colors"
-            }
+            className={navClass(active)}
             aria-current={active ? "page" : undefined}
           >
             {labelFor(category, locale)}
