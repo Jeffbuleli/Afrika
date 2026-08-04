@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CategorySections } from "@/components/CategorySections";
+import { ContactSuggestions } from "@/components/ContactSuggestions";
 import { NewsTicker } from "@/components/NewsTicker";
 import { TopStoriesGrid } from "@/components/TopStoriesGrid";
 import {
@@ -146,6 +147,7 @@ export default async function HomePage({
         byCategory={byCategory}
         locale={locale}
       />
+      <ContactSuggestions locale={locale} />
     </>
   );
 }

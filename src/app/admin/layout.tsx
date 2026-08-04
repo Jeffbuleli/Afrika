@@ -26,9 +26,17 @@ export default async function AdminLayout({
           </div>
           <div className="flex items-center gap-4 text-sm">
             {session ? (
-              <Link href="/admin/logs" className="text-ink-soft hover:text-ink">
-                Logs
-              </Link>
+              <>
+                <Link
+                  href="/admin/messages"
+                  className="text-ink-soft hover:text-ink"
+                >
+                  Messages
+                </Link>
+                <Link href="/admin/logs" className="text-ink-soft hover:text-ink">
+                  Logs
+                </Link>
+              </>
             ) : null}
             <Link href="/fr" className="text-ink-soft hover:text-ink">
               Voir le site

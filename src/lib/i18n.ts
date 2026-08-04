@@ -47,6 +47,20 @@ type Dictionary = {
   installing: string;
   installError: string;
   installManual: string;
+  contactEyebrow: string;
+  contactTitle: string;
+  contactBody: string;
+  contactKind: string;
+  contactKindSuggestion: string;
+  contactKindContact: string;
+  contactName: string;
+  contactEmail: string;
+  contactOptional: string;
+  contactMessage: string;
+  contactSubmit: string;
+  contactSending: string;
+  contactSuccess: string;
+  contactError: string;
 };
 
 const fr: Dictionary = {
@@ -89,6 +103,21 @@ const fr: Dictionary = {
   installing: "Installation…",
   installError: "Installation interrompue. Réessayez ou utilisez le menu du navigateur.",
   installManual: "Utilisez le menu ⋮ du navigateur → « Installer l’application ».",
+  contactEyebrow: "Rédaction",
+  contactTitle: "Suggestions & contact",
+  contactBody:
+    "Une idée d’article, un signalement, ou un message pour la rédaction ? Écrivez-nous ici — vos coordonnées restent privées et ne sont pas affichées sur le site.",
+  contactKind: "Type de message",
+  contactKindSuggestion: "Suggestion",
+  contactKindContact: "Contacter la rédaction",
+  contactName: "Nom",
+  contactEmail: "Email",
+  contactOptional: "facultatif",
+  contactMessage: "Message",
+  contactSubmit: "Envoyer",
+  contactSending: "Envoi…",
+  contactSuccess: "Merci — votre message a bien été reçu.",
+  contactError: "Envoi impossible. Réessayez dans un moment.",
 };
 
 const en: Dictionary = {
@@ -131,6 +160,21 @@ const en: Dictionary = {
   installing: "Installing…",
   installError: "Install interrupted. Try again or use your browser menu.",
   installManual: "Use the browser ⋮ menu → “Install app”.",
+  contactEyebrow: "Newsroom",
+  contactTitle: "Suggestions & contact",
+  contactBody:
+    "Story idea, tip, or a note for the editors? Write here — your details stay private and are never shown on the site.",
+  contactKind: "Message type",
+  contactKindSuggestion: "Suggestion",
+  contactKindContact: "Contact editors",
+  contactName: "Name",
+  contactEmail: "Email",
+  contactOptional: "optional",
+  contactMessage: "Message",
+  contactSubmit: "Send",
+  contactSending: "Sending…",
+  contactSuccess: "Thank you — your message was received.",
+  contactError: "Could not send. Please try again shortly.",
 };
 
 export function t(locale: Locale): Dictionary {

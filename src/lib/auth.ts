@@ -9,7 +9,13 @@ const COOKIE_NAME = "ai_session";
 const SESSION_DAYS = 7;
 
 function getSecret() {
-  const secret = process.env.AUTH_SECRET || "dev-only-secret-change-me";
+  const secret = process.env.AUTH_SECRET;
+  if (!secret) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error("AUTH_SECRET is required in production");
+    }
+    return new TextEncoder().encode("dev-only-secret-change-me");
+  }
   return new TextEncoder().encode(secret);
 }
 

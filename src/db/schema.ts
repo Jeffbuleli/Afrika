@@ -133,6 +133,28 @@ export const adminAuthLogs = sqliteTable("admin_auth_logs", {
     .default(sql`(datetime('now'))`),
 });
 
+/** Public suggestions / editor contact — no personal staff info exposed. */
+export const contactMessages = sqliteTable("contact_messages", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  kind: text("kind", { enum: ["suggestion", "contact"] })
+    .notNull()
+    .default("contact"),
+  name: text("name").notNull(),
+  email: text("email"),
+  message: text("message").notNull(),
+  locale: text("locale"),
+  ip: text("ip"),
+  userAgent: text("user_agent"),
+  status: text("status", { enum: ["new", "read", "archived"] })
+    .notNull()
+    .default("new"),
+  createdAt: text("created_at")
+    .notNull()
+    .default(sql`(datetime('now'))`),
+});
+
+export type ContactMessage = typeof contactMessages.$inferSelect;
+
 export const authorsRelations = relations(authors, ({ many }) => ({
   articles: many(articles),
 }));

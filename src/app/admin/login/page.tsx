@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
             name="email"
             type="email"
             required
-            defaultValue="editor@africainsight.local"
+            autoComplete="username"
             className="mt-1 w-full border border-line bg-paper px-3 py-2 outline-none focus:border-accent"
           />
         </label>

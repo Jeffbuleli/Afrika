@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { marked } from "marked";
 import { ArticleList } from "@/components/ArticleList";
 import { CoverPhoto } from "@/components/CoverPhoto";
 import {
@@ -15,6 +14,7 @@ import { JsonLd, articleJsonLd } from "@/components/JsonLd";
 import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
 import { formatExcerpt } from "@/lib/excerpt";
 import { articleKeywords } from "@/lib/seo-keywords";
+import { renderArticleMarkdown } from "@/lib/markdown";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -109,7 +109,7 @@ export default async function ArticlePage({ params }: Props) {
   const copy = t(locale);
   const category =
     locale === "en" ? article.categoryLabelEn : article.categoryLabelFr;
-  const bodyHtml = await marked.parse(article.body);
+  const bodyHtml = await renderArticleMarkdown(article.body);
   const available = await getAvailableLocales(article.id);
   const sister = otherLocale(locale);
   const hasSister = available.includes(sister);
