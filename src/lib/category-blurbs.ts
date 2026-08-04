@@ -1,6 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 
-/** Short editorial intros — why this rubrique matters. */
+/** Short editorial intros - why this rubrique matters. */
 const BLURBS: Record<string, { fr: string; en: string }> = {
   politique: {
     fr: "Pouvoir, institutions et décisions qui redessinent les États africains.",

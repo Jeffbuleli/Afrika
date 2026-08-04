@@ -19,7 +19,7 @@ export function formatExcerpt(text: string | null | undefined, maxLen = 220): st
   }
   if (ends.length) return clean.slice(0, ends[ends.length - 1]).trim();
 
-  const cut = clean.slice(0, maxLen).replace(/\s+\S*$/, "").replace(/[,;:\-–—]+$/, "");
+  const cut = clean.slice(0, maxLen).replace(/\s+\S*$/, "").replace(/[,;:\-–-]+$/, "");
   return cut ? `${cut}…` : `${clean.slice(0, maxLen)}…`;
 }
 

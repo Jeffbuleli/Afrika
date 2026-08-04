@@ -123,7 +123,7 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
         return;
       }
       if (!deferred) {
-        // Event not available yet — keep banner, tell user to use browser menu.
+        // Event not available yet - keep banner, tell user to use browser menu.
         setError(copy.installManual);
         return;
       }
@@ -134,7 +134,7 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
         setVisible(false);
         return;
       }
-      // User cancelled native sheet — keep banner dismissible.
+      // User cancelled native sheet - keep banner dismissible.
     } catch {
       setError(copy.installError);
     } finally {

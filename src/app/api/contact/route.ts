@@ -11,7 +11,7 @@ const bodySchema = z.object({
   email: z.string().trim().max(120).optional().default(""),
   message: z.string().trim().min(10).max(2000),
   locale: z.string().optional(),
-  // Honeypot — bots fill this; humans leave empty.
+  // Honeypot - bots fill this; humans leave empty.
   website: z.string().max(80).optional().default(""),
 });
 

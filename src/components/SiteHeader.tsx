@@ -25,7 +25,7 @@ export function SiteHeader({ locale, categories }: Props) {
             className="relative block h-11 w-[148px] sm:h-12 sm:w-[168px] shrink-0"
             aria-label="Africa Insight"
           >
-            {/* Fixed small asset — avoid huge Next image srcset on mobile LCP path */}
+            {/* Fixed small asset - avoid huge Next image srcset on mobile LCP path */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-africa-insight-mark.png"

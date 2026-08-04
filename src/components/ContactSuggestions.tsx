@@ -141,7 +141,7 @@ export function ContactSuggestions({ locale }: { locale: Locale }) {
             />
           </label>
 
-          {/* Honeypot — hidden from humans */}
+          {/* Honeypot - hidden from humans */}
           <label className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
             <span>Website</span>
             <input name="website" type="text" tabIndex={-1} autoComplete="off" />

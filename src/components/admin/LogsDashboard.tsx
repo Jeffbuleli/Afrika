@@ -38,12 +38,12 @@ function whereOf(row: {
   region: string | null;
   country: string | null;
 }) {
-  return [row.city, row.region, row.country].filter(Boolean).join(", ") || "—";
+  return [row.city, row.region, row.country].filter(Boolean).join(", ") || "-";
 }
 
 function formatWhen(iso: string) {
   try {
-    // SQLite datetime('now') is UTC without Z — treat as UTC
+    // SQLite datetime('now') is UTC without Z - treat as UTC
     const normalized = /Z$|[+-]\d{2}:\d{2}$/.test(iso) ? iso : `${iso.replace(" ", "T")}Z`;
     return new Intl.DateTimeFormat("fr-FR", {
       dateStyle: "short",
@@ -208,14 +208,14 @@ export function LogsDashboard() {
                     </td>
                     <td className="px-3 py-2 font-medium">{row.email}</td>
                     <td className="px-3 py-2 font-mono text-xs">
-                      {row.ip || "—"}
+                      {row.ip || "-"}
                     </td>
                     <td className="px-3 py-2">{whereOf(row)}</td>
-                    <td className="px-3 py-2">{row.browser || "—"}</td>
-                    <td className="px-3 py-2">{row.os || "—"}</td>
+                    <td className="px-3 py-2">{row.browser || "-"}</td>
+                    <td className="px-3 py-2">{row.os || "-"}</td>
                     <td className="px-3 py-2">
                       <span title={row.userAgent || undefined}>
-                        {row.device || "—"}
+                        {row.device || "-"}
                       </span>
                     </td>
                   </tr>
@@ -256,18 +256,18 @@ export function LogsDashboard() {
                       {row.path}
                     </td>
                     <td className="px-3 py-2 font-mono text-xs">
-                      {row.ip || "—"}
+                      {row.ip || "-"}
                     </td>
                     <td className="px-3 py-2">{whereOf(row)}</td>
-                    <td className="px-3 py-2">{row.browser || "—"}</td>
-                    <td className="px-3 py-2">{row.os || "—"}</td>
+                    <td className="px-3 py-2">{row.browser || "-"}</td>
+                    <td className="px-3 py-2">{row.os || "-"}</td>
                     <td className="px-3 py-2">
                       <span title={row.userAgent || undefined}>
-                        {row.device || "—"}
+                        {row.device || "-"}
                       </span>
                     </td>
                     <td className="max-w-[180px] truncate px-3 py-2 text-xs text-ink-soft">
-                      {row.referrer || "—"}
+                      {row.referrer || "-"}
                     </td>
                   </tr>
                 ))

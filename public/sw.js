@@ -1,4 +1,4 @@
-/* Africa Insight PWA — keep SW install fast and never block on cache. */
+/* Africa Insight PWA - keep SW install fast and never block on cache. */
 const CACHE = "africa-insight-shell-v2";
 
 self.addEventListener("install", (event) => {
@@ -22,7 +22,7 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
-  // Network-first for everything — news must stay fresh.
+  // Network-first for everything - news must stay fresh.
   // Pass-through keeps the SW "active" without offline HTML caching.
   event.respondWith(fetch(req).catch(() => caches.match(req)));
 });

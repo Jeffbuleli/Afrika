@@ -93,7 +93,7 @@ export const admins = sqliteTable("admins", {
     .default(sql`(datetime('now'))`),
 });
 
-/** Public page views — IP, where, when, browser. */
+/** Public page views - IP, where, when, browser. */
 export const visitLogs = sqliteTable("visit_logs", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   path: text("path").notNull(),
@@ -113,7 +113,7 @@ export const visitLogs = sqliteTable("visit_logs", {
     .default(sql`(datetime('now'))`),
 });
 
-/** Admin login attempts — success / fail, IP, where, browser. */
+/** Admin login attempts - success / fail, IP, where, browser. */
 export const adminAuthLogs = sqliteTable("admin_auth_logs", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   email: text("email").notNull(),
@@ -133,7 +133,7 @@ export const adminAuthLogs = sqliteTable("admin_auth_logs", {
     .default(sql`(datetime('now'))`),
 });
 
-/** Public suggestions / editor contact — no personal staff info exposed. */
+/** Public suggestions / editor contact - no personal staff info exposed. */
 export const contactMessages = sqliteTable("contact_messages", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   kind: text("kind", { enum: ["suggestion", "contact"] })

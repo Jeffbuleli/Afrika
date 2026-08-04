@@ -84,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return [...staticEntries, ...articleEntries];
   } catch {
-    // Build-time / empty DB — still ship a valid sitemap shell.
+    // Build-time / empty DB - still ship a valid sitemap shell.
     return staticEntries;
   }
 }

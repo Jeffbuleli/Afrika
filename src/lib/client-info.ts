@@ -117,5 +117,5 @@ export function formatWhere(geo: {
   region?: string | null;
   country?: string | null;
 }): string {
-  return [geo.city, geo.region, geo.country].filter(Boolean).join(", ") || "—";
+  return [geo.city, geo.region, geo.country].filter(Boolean).join(", ") || "-";
 }

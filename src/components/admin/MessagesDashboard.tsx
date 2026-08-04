@@ -79,7 +79,7 @@ export function MessagesDashboard() {
             Messages lecteurs
           </h1>
           <p className="mt-1 text-sm text-ink-soft">
-            Suggestions et contacts — {newCount} non lu
+            Suggestions et contacts - {newCount} non lu
             {newCount > 1 ? "s" : ""}
           </p>
         </div>
@@ -156,7 +156,7 @@ export function MessagesDashboard() {
                     {m.message}
                   </p>
                   <p className="mt-2 text-xs text-ink-soft">
-                    {m.locale || "—"} · {m.ip || "IP ?"}
+                    {m.locale || "-"} · {m.ip || "IP ?"}
                   </p>
                 </div>
                 <div className="flex shrink-0 flex-col gap-2 text-xs">

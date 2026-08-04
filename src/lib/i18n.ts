@@ -106,7 +106,7 @@ const fr: Dictionary = {
   contactEyebrow: "Rédaction",
   contactTitle: "Suggestions & contact",
   contactBody:
-    "Une idée d’article, un signalement, ou un message pour la rédaction ? Écrivez-nous ici — vos coordonnées restent privées et ne sont pas affichées sur le site.",
+    "Une idée d’article, un signalement, ou un message pour la rédaction ? Écrivez-nous ici - vos coordonnées restent privées et ne sont pas affichées sur le site.",
   contactKind: "Type de message",
   contactKindSuggestion: "Suggestion",
   contactKindContact: "Contacter la rédaction",
@@ -116,7 +116,7 @@ const fr: Dictionary = {
   contactMessage: "Message",
   contactSubmit: "Envoyer",
   contactSending: "Envoi…",
-  contactSuccess: "Merci — votre message a bien été reçu.",
+  contactSuccess: "Merci - votre message a bien été reçu.",
   contactError: "Envoi impossible. Réessayez dans un moment.",
 };
 
@@ -163,7 +163,7 @@ const en: Dictionary = {
   contactEyebrow: "Newsroom",
   contactTitle: "Suggestions & contact",
   contactBody:
-    "Story idea, tip, or a note for the editors? Write here — your details stay private and are never shown on the site.",
+    "Story idea, tip, or a note for the editors? Write here - your details stay private and are never shown on the site.",
   contactKind: "Message type",
   contactKindSuggestion: "Suggestion",
   contactKindContact: "Contact editors",
@@ -173,7 +173,7 @@ const en: Dictionary = {
   contactMessage: "Message",
   contactSubmit: "Send",
   contactSending: "Sending…",
-  contactSuccess: "Thank you — your message was received.",
+  contactSuccess: "Thank you - your message was received.",
   contactError: "Could not send. Please try again shortly.",
 };
 

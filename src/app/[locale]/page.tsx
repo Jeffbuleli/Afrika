@@ -15,7 +15,7 @@ import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
 import { homeKeywords } from "@/lib/seo-keywords";
 
 const HOME_PRIORITY = new Set(["DRC", "RWANDA", "UGANDA"]);
-/** Cap home payload — was loading ALL published articles (~3k) into HTML. */
+/** Cap home payload - was loading ALL published articles (~3k) into HTML. */
 const TOP_FEED = 36;
 const PER_CATEGORY = 10;
 
