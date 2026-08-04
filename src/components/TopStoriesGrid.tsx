@@ -44,7 +44,7 @@ export function TopStoriesGrid({
               priority
               fit="cover"
               className="aspect-[16/10]"
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 55vw"
             />
             <p className="mt-4 text-xs uppercase tracking-[0.16em] text-accent-deep">
               {leadCat}

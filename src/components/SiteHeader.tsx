@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import type { Category } from "@/db/schema";
@@ -26,13 +25,16 @@ export function SiteHeader({ locale, categories }: Props) {
             className="relative block h-11 w-[148px] sm:h-12 sm:w-[168px] shrink-0"
             aria-label="Africa Insight"
           >
-            <Image
+            {/* Fixed small asset — avoid huge Next image srcset on mobile LCP path */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/logo-africa-insight-mark.png"
               alt="Africa Insight"
-              fill
-              priority
-              className="object-contain object-left"
-              sizes="168px"
+              width={168}
+              height={65}
+              decoding="async"
+              fetchPriority="low"
+              className="h-full w-full object-contain object-left"
             />
           </Link>
 

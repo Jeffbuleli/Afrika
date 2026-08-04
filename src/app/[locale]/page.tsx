@@ -4,6 +4,7 @@ import { CategorySections } from "@/components/CategorySections";
 import { NewsTicker } from "@/components/NewsTicker";
 import { TopStoriesGrid } from "@/components/TopStoriesGrid";
 import {
+  getArticlesByCategory,
   getCategories,
   getFeaturedArticle,
   getPublishedArticles,
@@ -13,6 +14,9 @@ import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
 import { homeKeywords } from "@/lib/seo-keywords";
 
 const HOME_PRIORITY = new Set(["DRC", "RWANDA", "UGANDA"]);
+/** Cap home payload — was loading ALL published articles (~3k) into HTML. */
+const TOP_FEED = 36;
+const PER_CATEGORY = 10;
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -72,9 +76,16 @@ export default async function HomePage({
 
   const [featured, articles, categories] = await Promise.all([
     getFeaturedArticle(locale),
-    getPublishedArticles(locale, 0),
+    getPublishedArticles(locale, TOP_FEED),
     getCategories(),
   ]);
+
+  const categoryFeeds = await Promise.all(
+    categories.map(async (category) => ({
+      slug: category.slug,
+      items: await getArticlesByCategory(locale, category.slug, PER_CATEGORY),
+    })),
+  );
 
   const ranked = [...articles].sort((a, b) => {
     const sc = countryScore(a.country) - countryScore(b.country);
@@ -102,7 +113,6 @@ export default async function HomePage({
   }
 
   const rest = ranked.filter((a) => a.slug !== lead.slug);
-  // Side rail: mix DRC / Rwanda / Uganda first, then others
   const sidePriority = rest.filter((a) =>
     HOME_PRIORITY.has((a.country || "").toUpperCase()),
   );
@@ -123,10 +133,8 @@ export default async function HomePage({
   }));
 
   const byCategory: Record<string, typeof articles> = {};
-  for (const article of ranked) {
-    const key = article.categorySlug;
-    if (!byCategory[key]) byCategory[key] = [];
-    byCategory[key].push(article);
+  for (const feed of categoryFeeds) {
+    byCategory[feed.slug] = feed.items;
   }
 
   return (

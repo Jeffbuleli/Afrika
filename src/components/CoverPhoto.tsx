@@ -33,7 +33,7 @@ export function CoverPhoto({
         fill
         priority={priority}
         fetchPriority={priority ? "high" : "auto"}
-        quality={priority ? 72 : 68}
+        quality={priority ? 65 : 60}
         sizes={sizes}
         unoptimized={remoteWikimedia}
         className={

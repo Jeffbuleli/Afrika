@@ -7,7 +7,7 @@ import { CoverPhoto } from "@/components/CoverPhoto";
 import { PaginationControls } from "@/components/Pagination";
 import { categoryBlurb } from "@/lib/category-blurbs";
 import { formatExcerpt } from "@/lib/excerpt";
-import { formatDate, t, type Locale } from "@/lib/i18n";
+import { formatDate, type Locale } from "@/lib/i18n";
 
 type CategoryInfo = {
   id: number;
@@ -45,7 +45,6 @@ function CategorySectionCard({
   active: boolean;
   onActive: (slug: string) => void;
 }) {
-  const copy = t(locale);
   const label = labelFor(category, locale);
   const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
   const [page, setPage] = useState(1);
@@ -104,7 +103,7 @@ function CategorySectionCard({
           href={`/${locale}/${category.slug}`}
           className="shrink-0 text-[0.65rem] uppercase tracking-[0.14em] text-gold hover:text-paper transition-colors"
         >
-          {copy.readMore}
+          {locale === "en" ? `More in ${label}` : `Plus : ${label}`}
         </Link>
       </div>
 

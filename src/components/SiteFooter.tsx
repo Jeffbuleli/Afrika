@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { t, type Locale } from "@/lib/i18n";
 
@@ -11,12 +10,15 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12">
         <div className="max-w-xl">
           <div className="relative h-12 w-[168px]">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src="/logo-africa-insight-mark.png"
               alt="Africa Insight"
-              fill
-              className="object-contain object-left"
-              sizes="168px"
+              width={168}
+              height={65}
+              loading="lazy"
+              decoding="async"
+              className="h-full w-full object-contain object-left"
             />
           </div>
           <p className="mt-4 text-sm leading-relaxed text-ink-soft">
