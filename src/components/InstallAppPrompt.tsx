@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { t, type Locale } from "@/lib/i18n";
 
-const DISMISS_KEY = "ai-install-dismissed-v1";
+const DISMISS_KEY = "ai-install-dismissed-v2";
 const DISMISS_DAYS = 14;
 
 type BeforeInstallPromptEvent = Event & {
@@ -20,7 +20,6 @@ function isStandalone() {
   if (typeof window === "undefined") return false;
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
-    // iOS Safari
     ("standalone" in navigator &&
       Boolean((navigator as Navigator & { standalone?: boolean }).standalone))
   );
@@ -48,10 +47,26 @@ function dismiss() {
   }
 }
 
+async function ensureServiceWorker(): Promise<boolean> {
+  if (!("serviceWorker" in navigator)) return false;
+  try {
+    await navigator.serviceWorker.register("/sw.js", {
+      scope: "/",
+      updateViaCache: "none",
+    });
+    await navigator.serviceWorker.ready;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function InstallAppPrompt({ locale }: { locale: Locale }) {
   const copy = t(locale);
   const [visible, setVisible] = useState(false);
   const [iosHint, setIosHint] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(
     null,
   );
@@ -60,42 +75,58 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
     if (typeof window === "undefined") return;
     if (isStandalone() || wasDismissed()) return;
 
-    // Register SW (required for Chrome installability).
-    if ("serviceWorker" in navigator) {
-      void navigator.serviceWorker.register("/sw.js").catch(() => {
-        // non-blocking
-      });
-    }
-
+    let cancelled = false;
     const onBip = (e: Event) => {
       e.preventDefault();
+      if (cancelled) return;
       setDeferred(e as BeforeInstallPromptEvent);
-      setVisible(true);
       setIosHint(false);
+      setVisible(true);
     };
     window.addEventListener("beforeinstallprompt", onBip);
 
-    // iOS has no beforeinstallprompt — show manual tip after a short delay.
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    if (isIos()) {
-      timer = setTimeout(() => {
-        if (!wasDismissed() && !isStandalone()) {
+    const onInstalled = () => {
+      setVisible(false);
+      setDeferred(null);
+      dismiss();
+    };
+    window.addEventListener("appinstalled", onInstalled);
+
+    void (async () => {
+      await ensureServiceWorker();
+      if (cancelled) return;
+      if (isIos()) {
+        window.setTimeout(() => {
+          if (cancelled || wasDismissed() || isStandalone()) return;
           setIosHint(true);
           setVisible(true);
-        }
-      }, 4500);
-    }
+        }, 3500);
+      }
+    })();
 
     return () => {
+      cancelled = true;
       window.removeEventListener("beforeinstallprompt", onBip);
-      if (timer) clearTimeout(timer);
+      window.removeEventListener("appinstalled", onInstalled);
     };
   }, []);
 
   if (!visible) return null;
 
   const onInstall = async () => {
-    if (deferred) {
+    setError(null);
+    setBusy(true);
+    try {
+      const ok = await ensureServiceWorker();
+      if (!ok) {
+        setError(copy.installError);
+        return;
+      }
+      if (!deferred) {
+        // Event not available yet — keep banner, tell user to use browser menu.
+        setError(copy.installManual);
+        return;
+      }
       await deferred.prompt();
       const choice = await deferred.userChoice;
       setDeferred(null);
@@ -103,9 +134,12 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
         setVisible(false);
         return;
       }
+      // User cancelled native sheet — keep banner dismissible.
+    } catch {
+      setError(copy.installError);
+    } finally {
+      setBusy(false);
     }
-    dismiss();
-    setVisible(false);
   };
 
   const onClose = () => {
@@ -137,15 +171,19 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
           <p className="mt-1 text-xs leading-relaxed text-ink-soft sm:text-sm">
             {iosHint ? copy.installIosHint : copy.installBody}
           </p>
+          {error ? (
+            <p className="mt-1 text-xs text-accent-deep">{error}</p>
+          ) : null}
         </div>
         <div className="flex shrink-0 flex-col gap-2 sm:flex-row sm:items-center">
           {!iosHint ? (
             <button
               type="button"
+              disabled={busy}
               onClick={() => void onInstall()}
-              className="bg-navy px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-paper hover:bg-navy/90"
+              className="bg-navy px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-paper hover:bg-navy/90 disabled:opacity-60"
             >
-              {copy.installCta}
+              {busy ? copy.installing : copy.installCta}
             </button>
           ) : null}
           <button

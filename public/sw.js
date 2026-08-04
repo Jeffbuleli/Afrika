@@ -1,42 +1,28 @@
-/* Africa Insight — minimal SW so the site is installable as an app. */
-const CACHE = "africa-insight-shell-v1";
-const PRECACHE = ["/icon-192.png", "/icon-512.png", "/favicon-48.png"];
+/* Africa Insight PWA — keep SW install fast and never block on cache. */
+const CACHE = "africa-insight-shell-v2";
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches
-      .open(CACHE)
-      .then((cache) => cache.addAll(PRECACHE))
-      .then(() => self.skipWaiting()),
-  );
+  // Must resolve quickly or Chrome install UI hangs.
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches
-      .keys()
-      .then((keys) =>
-        Promise.all(
-          keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)),
-        ),
-      )
-      .then(() => self.clients.claim()),
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)),
+      );
+      await self.clients.claim();
+    })(),
   );
 });
 
+// Required for installability: a fetch handler must exist.
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET") return;
-  const url = new URL(req.url);
-  // Only cache static icons — never HTML/API (fresh news).
-  if (
-    url.origin === self.location.origin &&
-    (url.pathname.startsWith("/icon") ||
-      url.pathname.startsWith("/favicon") ||
-      url.pathname.startsWith("/apple-touch"))
-  ) {
-    event.respondWith(
-      caches.match(req).then((hit) => hit || fetch(req)),
-    );
-  }
+  // Network-first for everything — news must stay fresh.
+  // Pass-through keeps the SW "active" without offline HTML caching.
+  event.respondWith(fetch(req).catch(() => caches.match(req)));
 });

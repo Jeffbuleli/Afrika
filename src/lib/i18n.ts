@@ -44,6 +44,9 @@ type Dictionary = {
   installIosHint: string;
   installCta: string;
   installLater: string;
+  installing: string;
+  installError: string;
+  installManual: string;
 };
 
 const fr: Dictionary = {
@@ -83,6 +86,9 @@ const fr: Dictionary = {
     "Sur iPhone : touchez Partager, puis « Sur l’écran d’accueil ».",
   installCta: "Installer",
   installLater: "Plus tard",
+  installing: "Installation…",
+  installError: "Installation interrompue. Réessayez ou utilisez le menu du navigateur.",
+  installManual: "Utilisez le menu ⋮ du navigateur → « Installer l’application ».",
 };
 
 const en: Dictionary = {
@@ -122,6 +128,9 @@ const en: Dictionary = {
     "On iPhone: tap Share, then “Add to Home Screen”.",
   installCta: "Install",
   installLater: "Not now",
+  installing: "Installing…",
+  installError: "Install interrupted. Try again or use your browser menu.",
+  installManual: "Use the browser ⋮ menu → “Install app”.",
 };
 
 export function t(locale: Locale): Dictionary {
