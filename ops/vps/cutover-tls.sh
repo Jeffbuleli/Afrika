@@ -5,7 +5,13 @@ REPO=/opt/africa-insight
 certbot certonly --webroot -w /var/www/html \
   -d www.africa-insight.org -d africa-insight.org \
   --non-interactive --agree-tos --register-unsafely-without-email \
-  --keep-until-expiring
+  --keep-until-expiring \
+  --cert-name africa-insight.org || true
+
+# Certbot may store under www.* on first issue — normalize path for nginx.
+if [[ -d /etc/letsencrypt/live/www.africa-insight.org && ! -e /etc/letsencrypt/live/africa-insight.org/fullchain.pem ]]; then
+  ln -sfn /etc/letsencrypt/live/www.africa-insight.org /etc/letsencrypt/live/africa-insight.org
+fi
 
 # Install full TLS config from repo (without legacy mcbuleli vhosts on this box)
 python3 - <<'PY'
