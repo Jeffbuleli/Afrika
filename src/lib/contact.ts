@@ -35,6 +35,7 @@ export async function createContactMessage(input: {
   locale: string | null;
   ip: string | null;
   userAgent: string | null;
+  status?: "new" | "read" | "archived" | "spam";
 }) {
   ensureContactSchema();
   const [row] = await db
@@ -47,7 +48,7 @@ export async function createContactMessage(input: {
       locale: input.locale,
       ip: input.ip,
       userAgent: input.userAgent,
-      status: "new",
+      status: input.status ?? "new",
     })
     .returning({ id: contactMessages.id });
   return row;
@@ -73,7 +74,7 @@ export async function countNewContactMessages() {
 
 export async function setContactMessageStatus(
   id: number,
-  status: "new" | "read" | "archived",
+  status: "new" | "read" | "archived" | "spam",
 ) {
   ensureContactSchema();
   await db

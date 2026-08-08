@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { t, type Locale } from "@/lib/i18n";
 
 export function ContactSuggestions({ locale }: { locale: Locale }) {
@@ -10,6 +10,11 @@ export function ContactSuggestions({ locale }: { locale: Locale }) {
     "idle",
   );
   const [error, setError] = useState("");
+  const [formOpenedAt, setFormOpenedAt] = useState(0);
+
+  useEffect(() => {
+    setFormOpenedAt(Date.now());
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,6 +33,7 @@ export function ContactSuggestions({ locale }: { locale: Locale }) {
           email: data.get("email"),
           message: data.get("message"),
           website: data.get("website"),
+          formOpenedAt: formOpenedAt || Date.now(),
           locale,
         }),
       });
@@ -38,6 +44,7 @@ export function ContactSuggestions({ locale }: { locale: Locale }) {
         return;
       }
       form.reset();
+      setFormOpenedAt(Date.now());
       setStatus("ok");
     } catch {
       setStatus("error");

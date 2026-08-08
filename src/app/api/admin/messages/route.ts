@@ -28,7 +28,7 @@ export async function PATCH(request: Request) {
   const parsed = z
     .object({
       id: z.number().int().positive(),
-      status: z.enum(["new", "read", "archived"]),
+      status: z.enum(["new", "read", "archived", "spam"]),
     })
     .safeParse(body);
 

@@ -145,7 +145,7 @@ export const contactMessages = sqliteTable("contact_messages", {
   locale: text("locale"),
   ip: text("ip"),
   userAgent: text("user_agent"),
-  status: text("status", { enum: ["new", "read", "archived"] })
+  status: text("status", { enum: ["new", "read", "archived", "spam"] })
     .notNull()
     .default("new"),
   createdAt: text("created_at")

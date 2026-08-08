@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+type MessageStatus = "new" | "read" | "archived" | "spam";
+
 type Message = {
   id: number;
   kind: "suggestion" | "contact";
@@ -11,7 +13,7 @@ type Message = {
   locale: string | null;
   ip: string | null;
   userAgent: string | null;
-  status: "new" | "read" | "archived";
+  status: MessageStatus;
   createdAt: string;
 };
 
@@ -30,12 +32,17 @@ function formatWhen(iso: string) {
   }
 }
 
+function statusLabel(status: MessageStatus) {
+  if (status === "new") return "Nouveau";
+  if (status === "read") return "Lu";
+  if (status === "spam") return "Spam";
+  return "Archivé";
+}
+
 export function MessagesDashboard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState<"all" | "new" | "read" | "archived">(
-    "all",
-  );
+  const [filter, setFilter] = useState<"all" | MessageStatus>("new");
 
   const load = useCallback(async () => {
     try {
@@ -53,7 +60,7 @@ export function MessagesDashboard() {
     void load();
   }, [load]);
 
-  async function setStatus(id: number, status: Message["status"]) {
+  async function setStatus(id: number, status: MessageStatus) {
     const res = await fetch("/api/admin/messages", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -70,6 +77,7 @@ export function MessagesDashboard() {
     filter === "all" ? true : m.status === filter,
   );
   const newCount = messages.filter((m) => m.status === "new").length;
+  const spamCount = messages.filter((m) => m.status === "spam").length;
 
   return (
     <div>
@@ -81,6 +89,7 @@ export function MessagesDashboard() {
           <p className="mt-1 text-sm text-ink-soft">
             Suggestions et contacts - {newCount} non lu
             {newCount > 1 ? "s" : ""}
+            {spamCount > 0 ? ` · ${spamCount} spam` : ""}
           </p>
         </div>
         <button
@@ -93,7 +102,9 @@ export function MessagesDashboard() {
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2">
-        {(["all", "new", "read", "archived"] as const).map((f) => (
+        {(
+          ["new", "all", "read", "spam", "archived"] as const
+        ).map((f) => (
           <button
             key={f}
             type="button"
@@ -110,7 +121,9 @@ export function MessagesDashboard() {
                 ? "Nouveaux"
                 : f === "read"
                   ? "Lus"
-                  : "Archivés"}
+                  : f === "spam"
+                    ? "Spam"
+                    : "Archivés"}
           </button>
         ))}
       </div>
@@ -130,14 +143,12 @@ export function MessagesDashboard() {
                       className={
                         m.status === "new"
                           ? "bg-emerald-100 px-2 py-0.5 text-emerald-900"
-                          : "bg-paper-deep px-2 py-0.5 text-ink-soft"
+                          : m.status === "spam"
+                            ? "bg-red-100 px-2 py-0.5 text-red-900"
+                            : "bg-paper-deep px-2 py-0.5 text-ink-soft"
                       }
                     >
-                      {m.status === "new"
-                        ? "Nouveau"
-                        : m.status === "read"
-                          ? "Lu"
-                          : "Archivé"}
+                      {statusLabel(m.status)}
                     </span>
                     <span className="uppercase tracking-[0.12em] text-ink-soft">
                       {m.kind === "suggestion" ? "Suggestion" : "Contact"}
@@ -176,6 +187,15 @@ export function MessagesDashboard() {
                       className="text-ink-soft hover:text-ink"
                     >
                       Remettre nouveau
+                    </button>
+                  ) : null}
+                  {m.status !== "spam" ? (
+                    <button
+                      type="button"
+                      onClick={() => void setStatus(m.id, "spam")}
+                      className="text-ink-soft hover:text-ink"
+                    >
+                      Marquer spam
                     </button>
                   ) : null}
                   {m.status !== "archived" ? (
