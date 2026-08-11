@@ -12,7 +12,7 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_APP_URL=https://www.africa-insight.org
 ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
-ARG ADMIN_EMAIL=editor@africa.mcbuleli.org
+ARG ADMIN_EMAIL=editor@africa-insight.org
 ARG ADMIN_PASSWORD=change-me-on-first-boot
 ARG AUTH_SECRET=change-me-build-only
 ENV ADMIN_EMAIL=$ADMIN_EMAIL

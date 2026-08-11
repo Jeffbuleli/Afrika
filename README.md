@@ -40,8 +40,8 @@ Modifie-les dans `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`, `AUTH_SECRET`) puis re
 
 ## Production (VPS)
 
-Même VPS que McBuleli (`162.35.181.98`), domaine **www.africa-insight.org**, port local `3002`.
-L’ancien sous-domaine `africa.mcbuleli.org` redirige en 301 vers le nouveau domaine.
+VPS dédié **153.75.235.176**, domaine **www.africa-insight.org**, port local `3002`.
+Le sous-domaine `africa.mcbuleli.org` est **délié** (ne doit plus pointer vers McBuleli).
 
 ```bash
 # Sur le VPS (bootstrap une fois)
