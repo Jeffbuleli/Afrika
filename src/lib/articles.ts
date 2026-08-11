@@ -7,6 +7,7 @@ import {
   categories,
 } from "@/db/schema";
 import type { Locale } from "@/lib/i18n";
+import { normalizeDashes } from "@/lib/typography";
 
 export async function getCategories() {
   return db.query.categories.findMany({
@@ -276,10 +277,11 @@ export function coverAlt(
   },
   locale: Locale,
 ) {
-  if (locale === "en") {
-    return article.coverImageAltEn || article.title || "";
-  }
-  return article.coverImageAltFr || article.title || "";
+  const alt =
+    locale === "en"
+      ? article.coverImageAltEn || article.title || ""
+      : article.coverImageAltFr || article.title || "";
+  return normalizeDashes(alt);
 }
 
 export async function estimateReadingTime(body: string) {

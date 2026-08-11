@@ -1,4 +1,5 @@
 import { marked } from "marked";
+import { normalizeDashes } from "@/lib/typography";
 
 /** Escape raw HTML blocks in Markdown so article XSS cannot ship via admin body. */
 marked.use({
@@ -13,5 +14,5 @@ marked.use({
 });
 
 export async function renderArticleMarkdown(source: string): Promise<string> {
-  return marked.parse(source || "");
+  return marked.parse(normalizeDashes(source || ""));
 }

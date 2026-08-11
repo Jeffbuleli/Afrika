@@ -1,6 +1,8 @@
+import { normalizeDashes } from "@/lib/typography";
+
 /** Normalize whitespace for comparison / previews. */
 export function collapseWhitespace(text: string): string {
-  return text.replace(/\s+/g, " ").trim();
+  return normalizeDashes(text).replace(/\s+/g, " ").trim();
 }
 
 /**
