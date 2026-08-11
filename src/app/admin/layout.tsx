@@ -1,6 +1,17 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { AdminLogout } from "@/components/AdminLogout";
 import { getSession } from "@/lib/auth";
+
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
+  title: "Rédaction",
+};
 
 export default async function AdminLayout({
   children,

@@ -42,6 +42,24 @@ fi
 
 chmod +x "$REPO_DIR/ops/vps/"*.sh 2>/dev/null || true
 
+echo "==> Refresh nginx site + client-IP map (if root)"
+if [[ "$(id -u)" -eq 0 ]] && [[ -d /etc/nginx ]]; then
+  install -m 0644 "$REPO_DIR/ops/vps/00-africa-insight-client-ip.conf" \
+    /etc/nginx/conf.d/00-africa-insight-client-ip.conf
+  install -m 0644 "$REPO_DIR/ops/vps/nginx-africa.conf" \
+    /etc/nginx/sites-available/africa-insight.org
+  ln -sfn /etc/nginx/sites-available/africa-insight.org \
+    /etc/nginx/sites-enabled/africa-insight.org
+  # Ensure leftover africa.mcbuleli.org is not enabled on this host
+  rm -f /etc/nginx/sites-enabled/africa.mcbuleli.org \
+    /etc/nginx/sites-enabled/africa-mcbuleli \
+    /etc/nginx/sites-enabled/africa-mcbuleli-gone.conf 2>/dev/null || true
+  nginx -t && systemctl reload nginx
+  echo "nginx refreshed"
+else
+  echo "skip nginx refresh (not root or no /etc/nginx)"
+fi
+
 echo "==> Building web image"
 docker compose build web
 echo "==> Restarting web"

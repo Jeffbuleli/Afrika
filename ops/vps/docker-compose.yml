@@ -12,7 +12,7 @@ services:
       dockerfile: ops/vps/Dockerfile
       args:
         NEXT_PUBLIC_APP_URL: https://www.africa-insight.org
-        ADMIN_EMAIL: ${ADMIN_EMAIL:-editor@africa.mcbuleli.org}
+        ADMIN_EMAIL: ${ADMIN_EMAIL:-editor@africa-insight.org}
         ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
         AUTH_SECRET: ${AUTH_SECRET:?set AUTH_SECRET}
     restart: unless-stopped

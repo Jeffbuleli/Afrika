@@ -8,6 +8,10 @@ import { admins } from "@/db/schema";
 const COOKIE_NAME = "ai_session";
 const SESSION_DAYS = 7;
 
+/** bcrypt of a fixed unused password — missing users still cost a compare. */
+const DUMMY_HASH =
+  "$2b$10$hSMC8ALSm7tFarLv7TGbKuHkTjH6V3fIxI1lSI4usVvOpJZjB51oS";
+
 function getSecret() {
   const secret = process.env.AUTH_SECRET;
   if (!secret) {
@@ -23,9 +27,9 @@ export async function verifyAdminCredentials(email: string, password: string) {
   const admin = await db.query.admins.findFirst({
     where: eq(admins.email, email.toLowerCase().trim()),
   });
-  if (!admin) return null;
-  const ok = await compare(password, admin.passwordHash);
-  if (!ok) return null;
+  const hash = admin?.passwordHash || DUMMY_HASH;
+  const ok = await compare(password, hash);
+  if (!admin || !ok) return null;
   return { id: admin.id, email: admin.email, name: admin.name };
 }
 

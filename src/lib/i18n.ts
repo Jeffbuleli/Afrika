@@ -59,6 +59,8 @@ type Dictionary = {
   contactSending: string;
   contactSuccess: string;
   contactError: string;
+  navAbout: string;
+  navLegal: string;
 };
 
 const fr: Dictionary = {
@@ -114,6 +116,8 @@ const fr: Dictionary = {
   contactSending: "Envoi…",
   contactSuccess: "Merci - votre message a bien été reçu.",
   contactError: "Envoi impossible. Réessayez dans un moment.",
+  navAbout: "À propos",
+  navLegal: "Mentions légales",
 };
 
 const en: Dictionary = {
@@ -169,6 +173,8 @@ const en: Dictionary = {
   contactSending: "Sending…",
   contactSuccess: "Thank you - your message was received.",
   contactError: "Could not send. Please try again shortly.",
+  navAbout: "About",
+  navLegal: "Legal notice",
 };
 
 export function t(locale: Locale): Dictionary {

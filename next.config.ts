@@ -1,7 +1,25 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
+const csp = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-ancestors 'self'",
+  "form-action 'self'",
+  "img-src 'self' data: blob: https:",
+  "font-src 'self' data:",
+  "style-src 'self' 'unsafe-inline'",
+  // Next.js / Turbopack needs inline scripts in some paths; tighten later with nonces.
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+  "connect-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
 const nextConfig: NextConfig = {
   output: "standalone",
+  poweredByHeader: false,
   serverExternalPackages: ["better-sqlite3"],
   images: {
     formats: ["image/avif", "image/webp"],
@@ -19,9 +37,62 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // Prefer modern syntax; browserslist below cuts legacy polyfills.
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    removeConsole: isProd,
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+          ...(isProd
+            ? [
+                {
+                  key: "Strict-Transport-Security",
+                  value: "max-age=63072000; includeSubDomains; preload",
+                },
+                { key: "Content-Security-Policy", value: csp },
+              ]
+            : []),
+        ],
+      },
+      {
+        source: "/admin/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive",
+          },
+          {
+            key: "Cache-Control",
+            value: "no-store, no-cache, must-revalidate, private",
+          },
+        ],
+      },
+      {
+        source: "/api/admin/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow, noarchive",
+          },
+          {
+            key: "Cache-Control",
+            value: "no-store",
+          },
+        ],
+      },
+    ];
   },
 };
 

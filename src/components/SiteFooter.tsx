@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { t, type Locale } from "@/lib/i18n";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -23,6 +24,35 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <p className="mt-4 text-sm leading-relaxed text-ink-soft">
             {copy.footerAbout}
           </p>
+          <nav
+            className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm"
+            aria-label={locale === "fr" ? "Liens légaux" : "Legal links"}
+          >
+            <Link
+              href={`/${locale}/about`}
+              className="text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              {copy.navAbout}
+            </Link>
+            <Link
+              href={`/${locale}/legal`}
+              className="text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              {copy.navLegal}
+            </Link>
+            <Link
+              href={`/${locale}#contact`}
+              className="text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              {copy.contactTitle}
+            </Link>
+            <a
+              href="mailto:info@africa-insight.org"
+              className="text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              info@africa-insight.org
+            </a>
+          </nav>
         </div>
         <p className="mt-8 text-center text-xs text-ink-soft">
           © {year} Africa Insight. {copy.footerRights}
