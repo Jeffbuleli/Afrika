@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CategorySections } from "@/components/CategorySections";
 import { ContactSuggestions } from "@/components/ContactSuggestions";
-import { HomeEditorialBand } from "@/components/HomeEditorialBand";
 import { NewsTicker } from "@/components/NewsTicker";
 import { SecondaryTrio } from "@/components/SecondaryTrio";
 import { TopStoriesGrid } from "@/components/TopStoriesGrid";
@@ -146,7 +145,6 @@ export default async function HomePage({
   return (
     <>
       <NewsTicker items={tickerItems} locale={locale} />
-      <HomeEditorialBand locale={locale} />
       <TopStoriesGrid lead={lead} side={side} locale={locale} />
       <SecondaryTrio articles={trio} locale={locale} />
       <CategorySections
