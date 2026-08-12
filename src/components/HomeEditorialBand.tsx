@@ -11,7 +11,7 @@ export function HomeEditorialBand({ locale }: { locale: Locale }) {
   const pillars = PILLARS[locale];
 
   return (
-    <section className="border-b border-line bg-paper-deep/40">
+    <section className="hidden border-b border-line bg-paper-deep/40 md:block">
       <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           <div>
