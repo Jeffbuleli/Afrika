@@ -8,7 +8,7 @@ import { admins } from "@/db/schema";
 const COOKIE_NAME = "ai_session";
 const SESSION_DAYS = 7;
 
-/** bcrypt of a fixed unused password — missing users still cost a compare. */
+/** bcrypt of a fixed unused password - missing users still cost a compare. */
 const DUMMY_HASH =
   "$2b$10$hSMC8ALSm7tFarLv7TGbKuHkTjH6V3fIxI1lSI4usVvOpJZjB51oS";
 

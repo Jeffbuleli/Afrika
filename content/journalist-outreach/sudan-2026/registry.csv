@@ -1,0 +1,11 @@
+id,name,zone,fit,channel,url,email,email_file,priority
+1,Sudan News Today,Khartoum,local page / tips,Facebook,https://www.facebook.com/profile.php?id=61573270775046,sudannewstoday24@gmail.com,emails/01-sudan-news-today.txt,high
+2,Kordofan News,Kordofan / Khartoum,local page / tips,Facebook,https://www.facebook.com/profile.php?id=100088083196811,kordofannewscertainty@gmail.com,emails/02-kordofan-news.txt,high
+3,Ahmed Eissa,Nyala South Darfur,freelance looking for contracts,LinkedIn,https://www.linkedin.com/in/ahmed-eissa-4121051a9,,emails/03-ahmed-eissa.txt,high
+4,Mohammed Shoaib,El Fasher North Darfur,freelance on ground,journalist.net,https://journalist.net/mohammed.shoaib,,emails/04-mohammed-shoaib.txt,high
+5,Eisa Dafalla,Darfur (missions),independent photojournalist,LinkedIn / journalist.net,https://www.linkedin.com/in/eisa-dafalla-1586b91b5,,emails/05-eisa-dafalla.txt,high
+6,Mohamed Zakaria,North Darfur,visual storyteller,LinkedIn,https://www.linkedin.com/in/mohamed-zakaria-522b65306,,emails/06-mohamed-zakaria.txt,medium
+7,Ezaldeen Arbab,Khartoum / Darfur,freelance fixer translator,LinkedIn,https://www.linkedin.com/in/ezaldeen-arbab-08981b164,,emails/07-ezaldeen-arbab.txt,high
+8,Mohamed Ahmed,El Obeid North Kordofan,freelance Egab / TNH,LinkedIn,https://www.linkedin.com/in/mohamed-ahmed-86103b300,,emails/08-mohamed-ahmed-obeid.txt,high
+9,Murtada Ahmed,Khartoum / Droob,freelance Droob,LinkedIn,https://www.linkedin.com/in/murtada-ahmed-2a7113248,,emails/09-murtada-ahmed.txt,medium
+10,Haydar Abdelkarim,Darfur network,freelance Ayin / MEE,Middle East Eye,https://www.middleeasteye.net/users/haydar-abdelkarim,,emails/10-haydar-abdelkarim.txt,medium

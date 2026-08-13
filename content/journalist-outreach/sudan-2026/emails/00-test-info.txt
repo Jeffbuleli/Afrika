@@ -1,0 +1,17 @@
+From: Africa Insight <noreply@africa-insight.org>
+Reply-To: info@africa-insight.org
+Subject: [TEST] Africa Insight journalist outreach - card layout
+
+Channel: internal test to info@
+
+---
+
+Hello,
+
+This is a TEST of the Africa Insight journalist outreach emails, using the polished **card** layout (logo, white card, five weekly-report pillars).
+
+Headers for production outreach:
+- From: noreply@africa-insight.org
+- Reply-To: info@africa-insight.org
+
+Please reply to this message to confirm Reply-To routing into info@.
