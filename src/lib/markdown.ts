@@ -13,6 +13,19 @@ marked.use({
   },
 });
 
+/**
+ * Seed bodies often use single newlines between paragraphs.
+ * Markdown collapses those into one block - promote them to real paragraphs.
+ */
+export function normalizeArticleParagraphs(source: string): string {
+  return normalizeDashes(source || "")
+    .replace(/\r\n/g, "\n")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/([^\n])\n(?!\n)([^\n])/g, "$1\n\n$2")
+    .trim();
+}
+
 export async function renderArticleMarkdown(source: string): Promise<string> {
-  return marked.parse(normalizeDashes(source || ""));
+  return marked.parse(normalizeArticleParagraphs(source));
 }

@@ -71,4 +71,10 @@ sleep 5
 curl -fsS -o /dev/null -w "health_http=%{http_code}\n" "http://127.0.0.1:3002/fr" || {
   echo "WARN: web not responding on :3002 yet — check: docker compose logs -f web" >&2
 }
+
+echo "==> Syncing article translations into live DB (preserve visits/admins)"
+bash "$REPO_DIR/ops/vps/sync-seed-translations.sh" || {
+  echo "WARN: translation sync failed — site is up, content may be stale" >&2
+}
+
 echo "DEPLOY_OK $(git -C "$REPO_DIR" rev-parse --short HEAD)"
