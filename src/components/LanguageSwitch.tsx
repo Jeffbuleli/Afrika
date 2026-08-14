@@ -9,7 +9,9 @@ export function LanguageSwitch({ locale }: { locale: Locale }) {
   const searchParams = useSearchParams();
   const switchLocale = otherLocale(locale);
   const rest = pathname.replace(new RegExp(`^/${locale}(?=/|$)`), "") || "";
-  const query = searchParams?.toString();
+  const params = new URLSearchParams(searchParams?.toString() || "");
+  params.delete("lang");
+  const query = params.toString();
   const href = `/${switchLocale}${rest}${query ? `?${query}` : ""}`;
   const copy = t(locale);
 
@@ -19,6 +21,7 @@ export function LanguageSwitch({ locale }: { locale: Locale }) {
       className="text-sm font-medium text-accent-deep hover:text-accent transition-colors"
       hrefLang={switchLocale}
       lang={switchLocale}
+      data-locale-switch={switchLocale}
     >
       {copy.switchTo}
     </a>

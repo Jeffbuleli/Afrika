@@ -6,7 +6,6 @@ import { CoverPhoto } from "@/components/CoverPhoto";
 import {
   coverAlt,
   getArticleBySlug,
-  getAvailableLocales,
   getRelatedArticles,
 } from "@/lib/articles";
 import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
@@ -110,9 +109,7 @@ export default async function ArticlePage({ params }: Props) {
   const category =
     locale === "en" ? article.categoryLabelEn : article.categoryLabelFr;
   const bodyHtml = await renderArticleMarkdown(article.body);
-  const available = await getAvailableLocales(article.id);
   const sister = otherLocale(locale);
-  const hasSister = available.includes(sister);
   const related = await getRelatedArticles(locale, article.categorySlug, slug);
   const image =
     article.coverImageUrl ||
@@ -172,16 +169,15 @@ export default async function ArticlePage({ params }: Props) {
             <span>
               {article.readingTimeMinutes} {copy.minRead}
             </span>
-            {hasSister ? (
-              <a
-                href={`/${sister}/article/${article.slug}`}
-                className="text-accent-deep hover:text-accent font-medium"
-                hrefLang={sister}
-                lang={sister}
-              >
-                {copy.switchTo}
-              </a>
-            ) : null}
+            <a
+              href={`/${sister}/article/${article.slug}`}
+              className="text-accent-deep hover:text-accent font-medium"
+              hrefLang={sister}
+              lang={sister}
+              data-locale-switch={sister}
+            >
+              {copy.switchTo}
+            </a>
           </div>
 
           <div

@@ -32,13 +32,17 @@ def normalize_paragraphs(text: str) -> str:
     return out.strip() + "\n"
 
 
+def has_french_marks(text: str) -> bool:
+    return bool(re.search(r"[àâäéèêëïîôùûüçœ]", text or "", re.I))
+
+
 def is_englishish(text: str) -> bool:
     s = text or ""
-    if re.search(r"[àâäéèêëïîôùûüç]", s[:900], re.I):
+    if has_french_marks(s[:1200]):
         return False
     fr = len(
         re.findall(
-            r"\b(le|la|les|des|une|un|dans|pour|avec|sur|qui|que|est|ont|été|cette|ces|aux|du|au|par|des)\b",
+            r"\b(le|la|les|des|une|un|dans|pour|avec|sur|qui|que|est|ont|été|cette|ces|aux|du|au|par)\b",
             s.lower(),
         )
     )
@@ -48,7 +52,7 @@ def is_englishish(text: str) -> bool:
             s.lower(),
         )
     )
-    return en >= 10 and fr < 6
+    return en >= 8 and fr < 6
 
 
 def translate_text(text: str, retries: int = 6) -> str:
@@ -101,16 +105,16 @@ def load_progress() -> dict:
 
 
 def needs_retranslate(item: dict, done: dict) -> bool:
-    slug = item["slug"]
-    # Prefer live seed content over progress when FR is Englishish
-    if is_englishish(item.get("body_fr", "")) or is_englishish(item.get("title", "")):
+    title = item.get("title") or ""
+    title_en = item.get("title_en") or ""
+    body_fr = item.get("body_fr") or ""
+    body_en = item.get("body_en") or ""
+    if body_fr.strip() == body_en.strip() and body_en.strip():
         return True
-    # Missing progress entry for this slug
-    if not (done.get(slug) or {}).get("body_fr"):
-        # Only if FR looks Englishish or equals EN
-        return item.get("body_fr") == item.get("body_en") or is_englishish(
-            item.get("body_fr", "")
-        )
+    if title.strip() == title_en.strip() and title_en.strip() and not has_french_marks(title):
+        return True
+    if is_englishish(body_fr) or is_englishish(title):
+        return True
     return False
 
 
