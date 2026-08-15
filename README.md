@@ -54,7 +54,7 @@ bash /opt/africa-insight/ops/vps/deploy.sh
 
 Déploiements suivants : push sur `main` → GitHub Action **Deploy VPS**, ou `bash /opt/africa-insight/ops/vps/deploy.sh`.
 
-DNS (Cloudflare) : **A** `@` et `www` → `162.35.181.98` (proxy orange OK).
+DNS (Cloudflare) : **A** `@` et `www` → `153.75.235.176` (proxy orange OK).
 SEO : `https://www.africa-insight.org/sitemap.xml` + Search Console.
 
 ## Structure utile

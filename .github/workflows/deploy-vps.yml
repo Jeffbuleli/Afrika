@@ -2,7 +2,7 @@ name: Deploy VPS (from GitHub)
 
 # Prod deploys ONLY from GitHub main - not from laptop rsync.
 # Secrets (Settings → Secrets → Actions):
-#   VPS_HOST          e.g. 162.35.181.98
+#   VPS_HOST          e.g. 153.75.235.176
 #   VPS_USER          e.g. root
 #   VPS_SSH_KEY       private key with deploy access
 # Optional:
