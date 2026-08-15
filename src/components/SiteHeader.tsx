@@ -39,7 +39,7 @@ export function SiteHeader({ locale, categories }: Props) {
             />
           </Link>
 
-          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
             <div className="hidden md:block">
               <SmartSearchBar
                 locale={locale}
@@ -52,15 +52,30 @@ export function SiteHeader({ locale, categories }: Props) {
             </div>
             <Link
               href={`/${locale}/search`}
-              className="md:hidden text-sm font-medium text-navy hover:text-accent-deep transition-colors"
+              className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/20 bg-paper text-navy transition-colors hover:border-accent hover:text-accent-deep"
+              aria-label={copy.search}
+              title={copy.search}
             >
-              {copy.search}
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
             </Link>
             <Suspense
               fallback={
-                <span className="text-sm font-medium text-accent-deep">
-                  {copy.switchTo}
-                </span>
+                <span
+                  className="inline-flex h-9 w-9 rounded-full border border-navy/20 bg-paper"
+                  aria-hidden="true"
+                />
               }
             >
               <LanguageSwitch locale={locale} />

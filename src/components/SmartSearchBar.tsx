@@ -132,13 +132,27 @@ export function SmartSearchBar({
             onFocus={() => q.trim() && setOpen(true)}
             placeholder={placeholder}
             autoComplete="off"
-            className="min-w-0 flex-1 bg-transparent px-4 py-2.5 text-sm outline-none placeholder:text-ink-soft"
+            className="min-w-0 flex-1 bg-transparent px-3.5 py-2.5 text-sm outline-none placeholder:text-ink-soft sm:px-4"
           />
           <button
             type="submit"
-            className="shrink-0 bg-navy px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.12em] text-paper transition hover:bg-accent-deep"
+            aria-label={label}
+            title={label}
+            className="inline-flex shrink-0 items-center justify-center bg-navy px-3.5 text-paper transition hover:bg-accent-deep sm:px-4"
           >
-            {label}
+            <svg
+              viewBox="0 0 24 24"
+              className="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
           </button>
         </div>
       </form>
@@ -172,7 +186,7 @@ export function SmartSearchBar({
           <li>
             <button
               type="button"
-              className="w-full px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-[0.1em] text-accent-deep hover:bg-paper-deep/70"
+              className="flex w-full items-center gap-2 px-4 py-2.5 text-left text-xs font-semibold uppercase tracking-[0.1em] text-accent-deep hover:bg-paper-deep/70"
               onClick={() => {
                 router.push(
                   `/${locale}/search?q=${encodeURIComponent(q.trim() || predicted || "")}`,
@@ -180,7 +194,20 @@ export function SmartSearchBar({
                 setOpen(false);
               }}
             >
-              {label} →
+              <svg
+                viewBox="0 0 24 24"
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
+              →
             </button>
           </li>
         </ul>

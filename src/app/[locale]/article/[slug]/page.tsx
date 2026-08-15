@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ArticleList } from "@/components/ArticleList";
 import { CoverPhoto } from "@/components/CoverPhoto";
+import { LocaleFlag } from "@/components/LocaleFlag";
 import {
   coverAlt,
   getArticleBySlug,
@@ -171,12 +172,18 @@ export default async function ArticlePage({ params }: Props) {
             </span>
             <a
               href={`/${sister}/article/${article.slug}`}
-              className="text-accent-deep hover:text-accent font-medium"
+              className="inline-flex items-center gap-2 text-accent-deep hover:text-accent font-medium"
               hrefLang={sister}
               lang={sister}
               data-locale-switch={sister}
+              aria-label={copy.switchTo}
+              title={copy.switchTo}
             >
-              {copy.switchTo}
+              <LocaleFlag
+                locale={sister}
+                className="h-3.5 w-[1.15rem] rounded-[1px] shadow-sm ring-1 ring-black/10"
+              />
+              <span className="hidden sm:inline">{copy.switchTo}</span>
             </a>
           </div>
 

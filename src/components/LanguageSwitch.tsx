@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
+import { LocaleFlag } from "@/components/LocaleFlag";
 import { otherLocale, t, type Locale } from "@/lib/i18n";
 
 /** Hard navigation so locale changes always reload article content. */
@@ -18,12 +19,14 @@ export function LanguageSwitch({ locale }: { locale: Locale }) {
   return (
     <a
       href={href}
-      className="text-sm font-medium text-accent-deep hover:text-accent transition-colors"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/20 bg-paper text-accent-deep transition-colors hover:border-accent hover:bg-paper-deep/60"
       hrefLang={switchLocale}
       lang={switchLocale}
       data-locale-switch={switchLocale}
+      aria-label={copy.switchTo}
+      title={copy.switchTo}
     >
-      {copy.switchTo}
+      <LocaleFlag locale={switchLocale} className="h-3.5 w-[1.15rem] rounded-[1px] shadow-sm ring-1 ring-black/10" />
     </a>
   );
 }
