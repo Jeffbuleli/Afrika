@@ -53,6 +53,49 @@ function moreLabel(label: string, locale: Locale) {
   return locale === "en" ? `More in ${label}` : `Plus : ${label}`;
 }
 
+/** Secondary list row: small cover left + title (matches Top stories rail). */
+function ThumbRow({
+  article,
+  locale,
+  showExcerpt = false,
+  showDate = true,
+}: {
+  article: ArticleCardData;
+  locale: Locale;
+  showExcerpt?: boolean;
+  showDate?: boolean;
+}) {
+  return (
+    <Link
+      href={`/${locale}/article/${article.slug}`}
+      className="group grid grid-cols-[88px_1fr] gap-3 py-3.5 sm:grid-cols-[100px_1fr] sm:gap-3.5"
+    >
+      <CoverPhoto
+        src={article.coverImageUrl || FALLBACK}
+        alt={altFor(article, locale)}
+        fit="cover"
+        className="story-media aspect-[4/3]"
+        sizes="100px"
+      />
+      <div className="min-w-0 self-center">
+        <h4 className="text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug line-clamp-2 text-navy group-hover:text-accent-deep transition-colors">
+          {article.title}
+        </h4>
+        {showExcerpt ? (
+          <p className="mt-1 line-clamp-2 text-sm text-ink-soft">
+            {formatExcerpt(article.excerpt, 120)}
+          </p>
+        ) : null}
+        {showDate && article.publishedAt ? (
+          <p className="mt-1 text-[0.7rem] text-ink-soft">
+            {formatDate(article.publishedAt, locale)}
+          </p>
+        ) : null}
+      </div>
+    </Link>
+  );
+}
+
 function SectionHeader({
   category,
   locale,
@@ -119,22 +162,10 @@ function FeatureWide({
         </p>
       </Link>
       {rest.length > 0 ? (
-        <ul className="mt-8 grid gap-x-10 gap-y-5 border-t border-line pt-6 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-x-8 gap-y-1 border-t border-line pt-4 sm:grid-cols-2">
           {rest.map((article) => (
             <li key={article.slug}>
-              <Link
-                href={`/${locale}/article/${article.slug}`}
-                className="group block"
-              >
-                <h4 className="text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug line-clamp-2 text-navy group-hover:text-accent-deep transition-colors">
-                  {article.title}
-                </h4>
-                {article.publishedAt ? (
-                  <p className="mt-1 text-[0.7rem] text-ink-soft">
-                    {formatDate(article.publishedAt, locale)}
-                  </p>
-                ) : null}
-              </Link>
+              <ThumbRow article={article} locale={locale} />
             </li>
           ))}
         </ul>
@@ -175,22 +206,7 @@ function Split({
       <ul className="flex flex-col divide-y divide-line lg:col-span-5">
         {rest.map((article) => (
           <li key={article.slug}>
-            <Link
-              href={`/${locale}/article/${article.slug}`}
-              className="group block py-4 first:pt-0"
-            >
-              <h4 className="text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug line-clamp-2 text-navy group-hover:text-accent-deep transition-colors">
-                {article.title}
-              </h4>
-              <p className="mt-1.5 line-clamp-2 text-sm text-ink-soft">
-                {formatExcerpt(article.excerpt, 120)}
-              </p>
-              {article.publishedAt ? (
-                <p className="mt-1.5 text-[0.7rem] text-ink-soft">
-                  {formatDate(article.publishedAt, locale)}
-                </p>
-              ) : null}
-            </Link>
+            <ThumbRow article={article} locale={locale} showExcerpt />
           </li>
         ))}
       </ul>
@@ -251,19 +267,7 @@ function TextRail({
     <ul className="divide-y divide-line border-t border-line">
       {items.map((article) => (
         <li key={article.slug}>
-          <Link
-            href={`/${locale}/article/${article.slug}`}
-            className="group flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-4"
-          >
-            <h3 className="min-w-0 flex-1 text-base sm:text-lg font-semibold tracking-[-0.02em] leading-snug text-navy group-hover:text-accent-deep transition-colors">
-              {article.title}
-            </h3>
-            {article.publishedAt ? (
-              <time className="shrink-0 text-[0.7rem] uppercase tracking-[0.08em] text-ink-soft">
-                {formatDate(article.publishedAt, locale)}
-              </time>
-            ) : null}
-          </Link>
+          <ThumbRow article={article} locale={locale} />
         </li>
       ))}
     </ul>

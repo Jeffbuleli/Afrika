@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Re-translate FR fields that are still English copies.
+Primary: OpenAI API (McBuleli OPENAI_API_KEY).
 Also normalizes paragraph breaks (\\n → \\n\\n).
 Resumes via content/.translate-fr-progress.json
 """
@@ -8,18 +9,72 @@ Resumes via content/.translate-fr-progress.json
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 import time
 from pathlib import Path
 
-from deep_translator import GoogleTranslator
+import httpx
 
 ROOT = Path(__file__).resolve().parents[1]
 SEED = ROOT / "content" / "seed-all.json"
 PROGRESS = ROOT / "content" / ".translate-fr-progress.json"
+MCBULELI_ENV = Path("/Users/mac/Documents/McBuleliP2P/.env")
+AFRIKA_ENV = ROOT / ".env"
 
-translator = GoogleTranslator(source="en", target="fr")
+# Bulk MT: prefer a fast cheap model. Override with OPENAI_TRANSLATE_MODEL.
+DEFAULT_TRANSLATE_MODEL = "gpt-4o-mini"
+
+SYSTEM_PROMPT = """You are a professional news translator for Africa Insight (African politics, security, economy).
+Translate English into natural journalistic French (France/Belgium/Africa press style).
+Rules:
+- Output valid JSON only with keys: title, excerpt, body_fr
+- Preserve proper nouns, acronyms (FARDC, MONUSCO, AFC/M23, JNIM, RDF, etc.), places, dates, numbers, quotes meaning
+- Keep paragraph breaks (blank lines) in body_fr
+- Use ASCII hyphen "-" only (never em dash — or en dash –)
+- Do not add commentary, notes, or markdown fences
+- Datelines like "Kinshasa, July 6, 2026 - ..." become "Kinshasa, le 6 juillet 2026 - ..."
+"""
+
+
+def load_dotenv(path: Path) -> dict:
+    out: dict = {}
+    if not path.exists():
+        return out
+    for line in path.read_text(errors="ignore").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        out[k.strip()] = v.strip().strip('"').strip("'")
+    return out
+
+
+def resolve_openai_config() -> tuple:
+    env = {}
+    env.update(load_dotenv(AFRIKA_ENV))
+    env.update(load_dotenv(MCBULELI_ENV))  # McBuleli wins for shared credits
+    env.update({k: v for k, v in os.environ.items() if k.startswith("OPENAI_")})
+    api_key = (env.get("OPENAI_API_KEY") or "").strip()
+    base_url = (env.get("OPENAI_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
+    # Speed first for overnight bulk; allow override
+    model = (
+        (env.get("OPENAI_TRANSLATE_MODEL") or "").strip()
+        or DEFAULT_TRANSLATE_MODEL
+        or (env.get("OPENAI_MODEL") or "").strip()
+    )
+    if not api_key:
+        raise SystemExit("OPENAI_API_KEY missing (expected in McBuleli .env)")
+    return api_key, base_url, model
+
+
+API_KEY, BASE_URL, MODEL = resolve_openai_config()
+
+
+def uses_responses_api(model: str) -> bool:
+    m = (model or "").strip().lower()
+    return m.startswith("gpt-5") or m.startswith("o3") or m.startswith("o4")
 
 
 def normalize_paragraphs(text: str) -> str:
@@ -55,47 +110,118 @@ def is_englishish(text: str) -> bool:
     return en >= 8 and fr < 6
 
 
-def translate_text(text: str, retries: int = 6) -> str:
-    text = (text or "").strip()
-    if not text:
-        return text
-    # Prefer paragraph-aware chunks
-    text = normalize_paragraphs(text).strip()
-    if len(text) <= 4500:
-        return normalize_paragraphs(_call(text, retries))
-    paras = re.split(r"(\n{2,})", text)
-    out: list[str] = []
-    buf = ""
-    for part in paras:
-        if len(buf) + len(part) <= 4500:
-            buf += part
-            continue
-        if buf.strip():
-            out.append(_call(buf.strip(), retries))
-        if len(part) <= 4500:
-            buf = part
-        else:
-            for i in range(0, len(part), 4000):
-                piece = part[i : i + 4000].strip()
-                if piece:
-                    out.append(_call(piece, retries))
-            buf = ""
-    if buf.strip():
-        out.append(_call(buf.strip(), retries))
-    return normalize_paragraphs("\n\n".join(out))
+class TranslateFailed(Exception):
+    """Raised when OpenAI translation keeps failing after retries."""
 
 
-def _call(text: str, retries: int) -> str:
+def _extract_text_from_responses(data: dict) -> str:
+    if isinstance(data.get("output_text"), str) and data["output_text"].strip():
+        return data["output_text"]
+    output = data.get("output")
+    chunks: list[str] = []
+    if isinstance(output, list):
+        for item in output:
+            if not isinstance(item, dict):
+                continue
+            content = item.get("content")
+            if isinstance(content, list):
+                for part in content:
+                    if isinstance(part, dict) and part.get("type") == "output_text":
+                        t = part.get("text")
+                        if isinstance(t, str):
+                            chunks.append(t)
+    return "".join(chunks)
+
+
+def _parse_json_payload(raw: str) -> dict:
+    text = (raw or "").strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\s*", "", text)
+        text = re.sub(r"\s*```$", "", text)
+    data = json.loads(text)
+    if not isinstance(data, dict):
+        raise TranslateFailed("OpenAI returned non-object JSON")
+    return data
+
+
+def openai_translate_article(
+    title: str, excerpt: str, body: str, retries: int = 5
+) -> dict:
+    user = json.dumps(
+        {
+            "title": title or "",
+            "excerpt": excerpt or "",
+            "body_en": normalize_paragraphs(body or "").strip(),
+        },
+        ensure_ascii=False,
+    )
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json",
+    }
+    last_exc: Exception | None = None
+
     for attempt in range(retries):
         try:
-            result = translator.translate(text)
-            time.sleep(0.12)
-            return result or text
+            with httpx.Client(timeout=120.0) as client:
+                if uses_responses_api(MODEL):
+                    res = client.post(
+                        f"{BASE_URL}/responses",
+                        headers=headers,
+                        json={
+                            "model": MODEL,
+                            "instructions": SYSTEM_PROMPT,
+                            "input": user,
+                            "temperature": 0.2,
+                            "text": {"format": {"type": "json_object"}},
+                        },
+                    )
+                    if res.status_code >= 400:
+                        raise TranslateFailed(
+                            f"responses {res.status_code}: {res.text[:240]}"
+                        )
+                    raw = _extract_text_from_responses(res.json())
+                else:
+                    res = client.post(
+                        f"{BASE_URL}/chat/completions",
+                        headers=headers,
+                        json={
+                            "model": MODEL,
+                            "temperature": 0.2,
+                            "response_format": {"type": "json_object"},
+                            "messages": [
+                                {"role": "system", "content": SYSTEM_PROMPT},
+                                {"role": "user", "content": user},
+                            ],
+                        },
+                    )
+                    if res.status_code >= 400:
+                        raise TranslateFailed(
+                            f"chat {res.status_code}: {res.text[:240]}"
+                        )
+                    raw = res.json()["choices"][0]["message"]["content"]
+
+            data = _parse_json_payload(raw)
+            title_fr = str(data.get("title") or "").strip()
+            excerpt_fr = str(data.get("excerpt") or "").strip()
+            body_fr = str(data.get("body_fr") or data.get("body") or "").strip()
+            if not title_fr or not body_fr:
+                raise TranslateFailed("missing title/body_fr in OpenAI JSON")
+            return {
+                "title": title_fr.replace("\u2014", "-").replace("\u2013", "-"),
+                "excerpt": excerpt_fr.replace("\u2014", "-").replace("\u2013", "-"),
+                "body_fr": normalize_paragraphs(body_fr),
+            }
         except Exception as exc:  # noqa: BLE001
-            wait = 1.5 * (attempt + 1)
-            print(f"  retry {attempt + 1}: {exc}", flush=True)
+            last_exc = exc
+            wait = min(30.0, 1.5 * (2**attempt))
+            print(
+                f"  retry {attempt + 1}/{retries} (wait {wait:.0f}s): {exc}",
+                flush=True,
+            )
             time.sleep(wait)
-    return text
+
+    raise TranslateFailed(str(last_exc) if last_exc else "openai translate failed")
 
 
 def load_progress() -> dict:
@@ -126,10 +252,11 @@ def main() -> None:
     if len(sys.argv) > 1 and not sys.argv[1].isdigit():
         only_slug = sys.argv[1]
 
+    print(f"backend=openai model={MODEL} base={BASE_URL}", flush=True)
+
     items = json.loads(SEED.read_text())
     done = load_progress()
 
-    # Always normalize EN/FR paragraphs for all items first
     para_fixed = 0
     for item in items:
         for key in ("body_en", "body_fr"):
@@ -152,6 +279,7 @@ def main() -> None:
         flush=True,
     )
 
+    failed = 0
     for i, item in enumerate(remaining, 1):
         slug = item["slug"]
         print(f"[{i}/{len(remaining)}] {slug}", flush=True)
@@ -159,12 +287,32 @@ def main() -> None:
         source_excerpt = item.get("excerpt_en") or item.get("excerpt") or ""
         source_body = item.get("body_en") or item.get("body_fr") or ""
 
-        title_fr = translate_text(source_title)
-        excerpt_fr = translate_text(source_excerpt)
-        body_fr = translate_text(source_body)
+        try:
+            translated = openai_translate_article(
+                source_title, source_excerpt, source_body
+            )
+        except TranslateFailed as exc:
+            failed += 1
+            print(f"  SKIP failed after retries: {exc}", flush=True)
+            time.sleep(3)
+            continue
+
+        body_fr = translated["body_fr"]
+        title_fr = translated["title"]
+        excerpt_fr = translated["excerpt"]
+
+        if source_body.strip() and body_fr.strip() == source_body.strip():
+            failed += 1
+            print("  SKIP still English after translate", flush=True)
+            continue
+        if is_englishish(body_fr) and not has_french_marks(body_fr):
+            failed += 1
+            print("  SKIP still englishish after translate", flush=True)
+            continue
+
         payload = {
-            "title": title_fr.replace("\u2014", "-").replace("\u2013", "-"),
-            "excerpt": excerpt_fr.replace("\u2014", "-").replace("\u2013", "-"),
+            "title": title_fr,
+            "excerpt": excerpt_fr,
             "body_fr": body_fr,
             "coverImageAltFr": f"Illustration - {title_fr}".replace("\u2014", "-"),
         }
@@ -176,6 +324,7 @@ def main() -> None:
             SEED.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n")
             print(f"  checkpoint seed ({i}/{len(remaining)})", flush=True)
 
+    print(f"failed_skipped={failed}", flush=True)
     SEED.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n")
     print("done", flush=True)
 
