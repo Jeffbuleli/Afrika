@@ -16,7 +16,7 @@ COVERS = ROOT / "public" / "covers"
 # Local cover catalog: path relative to site root -> metadata
 # Prefer concrete news photography over maps/architectural drawings.
 CATALOG: list[dict] = [
-    # DRC — people
+    # DRC - people
     {
         "path": "/covers/F_lix_Tshisekedi_in_2021.jpg",
         "country": "DRC",
@@ -32,7 +32,7 @@ CATALOG: list[dict] = [
         "country": "DRC",
         "tags": {"tshisekedi", "president", "diplomacy", "afrique"},
     },
-    # DRC — places / east / resources
+    # DRC - places / east / resources
     {
         "path": "/covers/1280px-La_Gombe__Kinshasa__RDC.jpg",
         "country": "DRC",
@@ -609,8 +609,8 @@ def alt_for(path: str, locale: str, title: str) -> str:
     name = Path(path).stem.replace("_", " ").replace("1280px-", "")
     name = re.sub(r"\s+", " ", name).strip()
     if locale == "fr":
-        return f"Illustration — {name}" if name else title
-    return f"Cover — {name}" if name else title
+        return f"Illustration - {name}" if name else title
+    return f"Cover - {name}" if name else title
 
 
 def main() -> None:

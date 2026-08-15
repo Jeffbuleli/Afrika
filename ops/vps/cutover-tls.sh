@@ -8,7 +8,7 @@ certbot certonly --webroot -w /var/www/html \
   --keep-until-expiring \
   --cert-name africa-insight.org || true
 
-# Certbot may store under www.* on first issue — normalize path for nginx.
+# Certbot may store under www.* on first issue - normalize path for nginx.
 if [[ -d /etc/letsencrypt/live/www.africa-insight.org && ! -e /etc/letsencrypt/live/africa-insight.org/fullchain.pem ]]; then
   ln -sfn /etc/letsencrypt/live/www.africa-insight.org /etc/letsencrypt/live/africa-insight.org
 fi

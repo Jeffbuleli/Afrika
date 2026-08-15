@@ -1,4 +1,4 @@
-# Africa Insight — VPS stack (Next.js + SQLite volume)
+# Africa Insight - VPS stack (Next.js + SQLite volume)
 # Usage (from ops/vps):
 #   cp .env.example .env   # fill secrets
 #   docker compose up -d --build

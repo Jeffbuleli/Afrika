@@ -64,7 +64,7 @@ type SeedArticle = {
 };
 
 async function main() {
-  console.log("Seeding Africa Insight (SHINTA June + July 2026)…");
+  console.log("Seeding Africa Insight (SHINTA through August 2026)...");
 
   await db.delete(articleTranslations);
   await db.delete(articles);
@@ -155,7 +155,7 @@ async function main() {
     console.log(`Admin created: ${email} / ${password}`);
   }
 
-  console.log(`Seed complete - ${n} articles (June + July SHINTA).`);
+  console.log(`Seed complete - ${n} articles (SHINTA through August).`);
 }
 
 main().catch((err) => {

@@ -33,7 +33,7 @@ Modifie-les dans `.env` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`, `AUTH_SECRET`) puis re
 
 ## Contenu
 
-~1700 articles issus des briefings **SHINTA Upwork** (janvier–juillet 2026) :
+~1700 articles issus des briefings **SHINTA Upwork** (janvier-juillet 2026) :
 
 - Pays : DRC, Mali, Djibouti, Rwanda, Sudan, Uganda
 - Rubriques : Politique, Sécurité, Économie, Société, Justice, Culture, Afrique, Opinion

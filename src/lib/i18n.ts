@@ -21,6 +21,8 @@ type Dictionary = {
   search: string;
   searchPlaceholder: string;
   searchResults: string;
+  searchSmart: string;
+  searchPredicting: string;
   noResults: string;
   by: string;
   minRead: string;
@@ -72,8 +74,10 @@ const fr: Dictionary = {
   latest: "Dernières publications",
   categories: "Rubriques",
   search: "Recherche",
-  searchPlaceholder: "Rechercher un article…",
+  searchPlaceholder: "Ebola, Starlink, M23, Tshisekedi…",
   searchResults: "Résultats",
+  searchSmart: "IA prédit",
+  searchPredicting: "Analyse de votre intention…",
   noResults: "Aucun article trouvé.",
   by: "Par",
   minRead: "min de lecture",
@@ -129,8 +133,10 @@ const en: Dictionary = {
   latest: "Latest",
   categories: "Sections",
   search: "Search",
-  searchPlaceholder: "Search articles…",
+  searchPlaceholder: "Ebola, Starlink, M23, Tshisekedi…",
   searchResults: "Results",
+  searchSmart: "AI predicts",
+  searchPredicting: "Reading your intent…",
   noResults: "No articles found.",
   by: "By",
   minRead: "min read",

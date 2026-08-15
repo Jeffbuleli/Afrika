@@ -1,6 +1,6 @@
 # Africa Insight production host
 
-- **VPS:** `153.75.235.176` (dedicated partner media — not McBuleli)
+- **VPS:** `153.75.235.176` (dedicated partner media - not McBuleli)
 - **Path:** `/opt/africa-insight`
 - **Deploy:** `bash /opt/africa-insight/ops/vps/deploy.sh`
 - **App bind:** `127.0.0.1:3002` → nginx → `https://www.africa-insight.org`

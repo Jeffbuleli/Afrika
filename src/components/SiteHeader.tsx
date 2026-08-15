@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import type { Category } from "@/db/schema";
 import { CategoryNav } from "@/components/CategoryNav";
 import { LanguageSwitch } from "@/components/LanguageSwitch";
+import { SmartSearchBar } from "@/components/SmartSearchBar";
 import { t, type Locale } from "@/lib/i18n";
 
 type Props = {
@@ -38,10 +39,20 @@ export function SiteHeader({ locale, categories }: Props) {
             />
           </Link>
 
-          <div className="flex items-center gap-3 sm:gap-5 shrink-0">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+            <div className="hidden md:block">
+              <SmartSearchBar
+                locale={locale}
+                label={copy.search}
+                placeholder={copy.searchPlaceholder}
+                smartLabel={copy.searchSmart}
+                predictingLabel={copy.searchPredicting}
+                variant="header"
+              />
+            </div>
             <Link
               href={`/${locale}/search`}
-              className="text-sm text-ink-soft hover:text-ink transition-colors"
+              className="md:hidden text-sm font-medium text-navy hover:text-accent-deep transition-colors"
             >
               {copy.search}
             </Link>

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Run on the VPS AFTER DNS for www.africa-insight.org points at this origin
-# (Cloudflare orange-cloud OK — ACME HTTP-01 is forwarded).
+# (Cloudflare orange-cloud OK - ACME HTTP-01 is forwarded).
 # Also add apex A/AAAA for africa-insight.org if you want apex on the cert.
 set -euo pipefail
 REPO="${AFRICA_REPO:-/opt/africa-insight}"

@@ -6,7 +6,9 @@ set -euo pipefail
 echo "==> Disabling africa.mcbuleli.org nginx vhosts"
 rm -f /etc/nginx/sites-enabled/africa.mcbuleli.org \
   /etc/nginx/sites-enabled/africa-mcbuleli \
-  /etc/nginx/sites-enabled/africa-insight-legacy 2>/dev/null || true
+  /etc/nginx/sites-enabled/africa-insight-legacy \
+  /etc/nginx/sites-enabled/africa-insight.org \
+  /etc/nginx/sites-enabled/africa-mcbuleli-gone.conf 2>/dev/null || true
 
 # Neutralise available configs if present (do not delete certs yet)
 for f in /etc/nginx/sites-available/africa.mcbuleli.org \
@@ -58,4 +60,4 @@ fi
 
 nginx -t
 systemctl reload nginx
-echo "DELINK_OK — also delete DNS A/AAAA for africa.mcbuleli.org in Cloudflare (mcbuleli.org zone)."
+echo "DELINK_OK - also delete DNS A/AAAA for africa.mcbuleli.org in Cloudflare (mcbuleli.org zone)."
