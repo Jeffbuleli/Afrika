@@ -128,7 +128,7 @@ const seedSlugs = new Set(seed.map((i) => i.slug));
 const staleAug = db
   .prepare(
     `SELECT id, slug FROM articles
-     WHERE country IN ('DRC', 'RWANDA')
+     WHERE country IN ('DRC', 'RWANDA', 'SUDAN')
        AND published_at >= '2026-08-01'
        AND published_at < '2026-08-16'`,
   )
