@@ -92,7 +92,15 @@ export async function getFeaturedArticle(locale: Locale) {
     .innerJoin(authors, eq(authors.id, articles.authorId))
     .where(and(eq(articles.status, "published"), eq(articles.featured, true)))
     .orderBy(
-      sql`case ${articles.country} when 'DRC' then 0 when 'RWANDA' then 1 when 'UGANDA' then 2 else 3 end`,
+      sql`case ${articles.country}
+        when 'DRC' then 0
+        when 'RWANDA' then 1
+        when 'SUDAN' then 2
+        when 'UGANDA' then 3
+        when 'MALI' then 4
+        when 'DJIBOUTI' then 5
+        when 'BURKINA' then 6
+        else 7 end`,
       desc(articles.publishedAt),
     )
     .limit(1);
@@ -100,6 +108,52 @@ export async function getFeaturedArticle(locale: Locale) {
   if (featured[0]) return featured[0];
   const fallback = await getPublishedArticles(locale, 1);
   return fallback[0] ?? null;
+}
+
+export async function getFeaturedArticles(locale: Locale, limit = 20) {
+  return db
+    .select({
+      id: articles.id,
+      slug: articles.slug,
+      country: articles.country,
+      coverImageUrl: articles.coverImageUrl,
+      coverImageAltFr: articles.coverImageAltFr,
+      coverImageAltEn: articles.coverImageAltEn,
+      featured: articles.featured,
+      readingTimeMinutes: articles.readingTimeMinutes,
+      publishedAt: articles.publishedAt,
+      title: articleTranslations.title,
+      excerpt: articleTranslations.excerpt,
+      categorySlug: categories.slug,
+      categoryLabelFr: categories.labelFr,
+      categoryLabelEn: categories.labelEn,
+      authorName: authors.name,
+      authorSlug: authors.slug,
+    })
+    .from(articles)
+    .innerJoin(
+      articleTranslations,
+      and(
+        eq(articleTranslations.articleId, articles.id),
+        eq(articleTranslations.locale, locale),
+      ),
+    )
+    .innerJoin(categories, eq(categories.id, articles.categoryId))
+    .innerJoin(authors, eq(authors.id, articles.authorId))
+    .where(and(eq(articles.status, "published"), eq(articles.featured, true)))
+    .orderBy(
+      sql`case ${articles.country}
+        when 'DRC' then 0
+        when 'RWANDA' then 1
+        when 'SUDAN' then 2
+        when 'UGANDA' then 3
+        when 'MALI' then 4
+        when 'DJIBOUTI' then 5
+        when 'BURKINA' then 6
+        else 7 end`,
+      desc(articles.publishedAt),
+    )
+    .limit(limit);
 }
 
 export async function getArticlesByCategory(
