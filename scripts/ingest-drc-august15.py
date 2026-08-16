@@ -175,7 +175,7 @@ def parse_report(text: str) -> list[dict]:
     i = 0
     while i < len(lines):
         line = lines[i].strip()
-        sec = re.match(r"^1\.\s*(.+)$", line.replace("\t", " ").strip())
+        sec = re.match(r"^\d+\.\s*(.+)$", line.replace("\t", " ").strip())
         if sec:
             label = sec.group(1).strip()
             section = SECTION_CAT.get(label, section)
@@ -189,7 +189,7 @@ def parse_report(text: str) -> list[dict]:
                 nxt = lines[i]
                 raw = nxt.strip()
                 if raw.startswith("*") or re.match(
-                    r"^1\.\s*", raw.replace("\t", " ").strip()
+                    r"^\d+\.\s*", raw.replace("\t", " ").strip()
                 ):
                     break
                 if raw.startswith("DRC, Aug") or raw.startswith("REPORT ON"):

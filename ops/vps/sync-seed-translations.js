@@ -122,11 +122,36 @@ const tx = db.transaction((items) => {
 });
 
 tx(seed);
+
+// Drop superseded DRC Aug 1-15 batch articles no longer in seed
+const seedSlugs = new Set(seed.map((i) => i.slug));
+const drcAug = db
+  .prepare(
+    `SELECT id, slug FROM articles
+     WHERE country = 'DRC'
+       AND published_at >= '2026-08-01'
+       AND published_at < '2026-08-16'`,
+  )
+  .all();
+const delTr = db.prepare(`DELETE FROM article_translations WHERE article_id = ?`);
+const delArt = db.prepare(`DELETE FROM articles WHERE id = ?`);
+let pruned = 0;
+const pruneTx = db.transaction((rows) => {
+  for (const row of rows) {
+    if (seedSlugs.has(row.slug)) continue;
+    delTr.run(row.id);
+    delArt.run(row.id);
+    pruned += 1;
+  }
+});
+pruneTx(drcAug);
+
 console.log(
   JSON.stringify({
     updated,
     inserted,
     skipped,
+    pruned,
     total: seed.length,
   }),
 );
