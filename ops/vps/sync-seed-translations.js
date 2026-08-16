@@ -123,12 +123,12 @@ const tx = db.transaction((items) => {
 
 tx(seed);
 
-// Drop superseded DRC Aug 1-15 batch articles no longer in seed
+// Drop superseded Aug 1-15 batch articles no longer in seed (DRC / Rwanda)
 const seedSlugs = new Set(seed.map((i) => i.slug));
-const drcAug = db
+const staleAug = db
   .prepare(
     `SELECT id, slug FROM articles
-     WHERE country = 'DRC'
+     WHERE country IN ('DRC', 'RWANDA')
        AND published_at >= '2026-08-01'
        AND published_at < '2026-08-16'`,
   )
@@ -144,7 +144,7 @@ const pruneTx = db.transaction((rows) => {
     pruned += 1;
   }
 });
-pruneTx(drcAug);
+pruneTx(staleAug);
 
 console.log(
   JSON.stringify({

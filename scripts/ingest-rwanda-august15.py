@@ -176,12 +176,21 @@ def parse_report(text: str) -> list[dict]:
     section = "politique"
     articles: list[dict] = []
     i = 0
+    def detect_section(raw: str) -> str | None:
+        cleaned = raw.replace("\t", " ").strip()
+        cleaned = re.sub(r"^\d+\.\s*", "", cleaned).strip()
+        for label, cat in SECTION_CAT.items():
+            if cleaned == label or cleaned.startswith(label):
+                return cat
+        return None
+
     while i < len(lines):
         line = lines[i].strip()
-        for label, cat in SECTION_CAT.items():
-            if line == label or line.startswith(label):
-                section = cat
-                break
+        detected = detect_section(line)
+        if detected:
+            section = detected
+            i += 1
+            continue
         if line.startswith("*"):
             raw_title = line.lstrip("*").strip()
             i += 1
@@ -189,7 +198,7 @@ def parse_report(text: str) -> list[dict]:
             while i < len(lines):
                 nxt = lines[i]
                 raw = nxt.strip()
-                if raw.startswith("*") or raw in SECTION_CAT or any(raw.startswith(k) for k in SECTION_CAT):
+                if raw.startswith("*") or detect_section(raw):
                     break
                 if raw.startswith("Rwanda, Aug") or raw.startswith("REPORT ON") or raw.startswith("By Jeff"):
                     i += 1
