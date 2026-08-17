@@ -13,6 +13,7 @@ import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
 import { JsonLd, articleJsonLd } from "@/components/JsonLd";
 import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
 import { formatExcerpt } from "@/lib/excerpt";
+import { pageAlternates } from "@/lib/seo";
 import { articleKeywords } from "@/lib/seo-keywords";
 import { renderArticleMarkdown } from "@/lib/markdown";
 
@@ -61,13 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         "max-snippet": -1,
       },
     },
-    alternates: {
-      canonical: url,
-      languages: {
-        fr: `${siteUrl()}/fr/article/${article.slug}`,
-        en: `${siteUrl()}/en/article/${article.slug}`,
-      },
-    },
+    alternates: pageAlternates(locale, `/article/${article.slug}`),
     openGraph: {
       type: "article",
       siteName: SITE_NAME,

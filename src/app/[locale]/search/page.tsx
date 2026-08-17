@@ -1,8 +1,26 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ArticleList } from "@/components/ArticleList";
 import { SmartSearchBar } from "@/components/SmartSearchBar";
 import { searchArticles } from "@/lib/articles";
 import { isLocale, t, type Locale } from "@/lib/i18n";
+import { pageAlternates } from "@/lib/seo";
+
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale: raw } = await params;
+  if (!isLocale(raw)) return {};
+  const locale = raw as Locale;
+  return {
+    title: t(locale).search,
+    robots: { index: false, follow: false },
+    alternates: pageAlternates(locale, "/search"),
+  };
+}
 
 export default async function SearchPage({
   params,

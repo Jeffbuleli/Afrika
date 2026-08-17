@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { JsonLd, organizationJsonLd } from "@/components/JsonLd";
@@ -71,14 +72,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: {
-    canonical: base,
-    languages: {
-      fr: `${base}/fr`,
-      en: `${base}/en`,
-      "x-default": `${base}/fr`,
-    },
-  },
   // Google Search favicon: square PNG, multiple of 48px (globe = missing/invalid favicon).
   icons: {
     icon: [
@@ -98,7 +91,6 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: siteDescription("fr"),
-    url: base,
     locale: "fr_FR",
     alternateLocale: ["en_GB"],
     images: [
@@ -118,13 +110,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const localeHeader = (await headers()).get("x-locale");
+  const lang = localeHeader === "en" ? "en" : "fr";
   return (
-    <html lang="fr" className={`${poppins.variable} h-full`}>
+    <html lang={lang} className={`${poppins.variable} h-full`}>
       <body className="min-h-full flex flex-col antialiased font-sans bg-paper text-ink">
         <JsonLd data={organizationJsonLd()} />
         {children}

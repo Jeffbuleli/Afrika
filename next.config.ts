@@ -92,6 +92,24 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: "/sitemap.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600" },
+        ],
+      },
+      {
+        source: "/sitemap/:id.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600" },
+        ],
+      },
+      {
+        source: "/news-sitemap.xml",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=900" },
+        ],
+      },
     ];
   },
 };

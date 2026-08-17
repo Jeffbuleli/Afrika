@@ -14,6 +14,7 @@ import {
 } from "@/lib/articles";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
+import { pageAlternates } from "@/lib/seo";
 import { homeKeywords } from "@/lib/seo-keywords";
 
 /** Homepage country importance: DRC first, then Rwanda, Sudan, Uganda, Mali, Djibouti, Burkina. */
@@ -51,10 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: SITE_NAME,
     description,
     keywords: homeKeywords(locale),
-    alternates: {
-      canonical: url,
-      languages: { fr: `${siteUrl()}/fr`, en: `${siteUrl()}/en` },
-    },
+    alternates: pageAlternates(locale, "/"),
     openGraph: {
       type: "website",
       siteName: SITE_NAME,

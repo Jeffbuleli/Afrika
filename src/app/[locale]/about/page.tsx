@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, t, type Locale } from "@/lib/i18n";
-import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
+import { SITE_NAME, siteDescription } from "@/lib/site";
+import { pageAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -36,13 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: siteDescription(locale),
-    alternates: {
-      canonical: `${siteUrl()}/${locale}/about`,
-      languages: {
-        fr: `${siteUrl()}/fr/about`,
-        en: `${siteUrl()}/en/about`,
-      },
-    },
+    alternates: pageAlternates(locale, "/about"),
   };
 }
 

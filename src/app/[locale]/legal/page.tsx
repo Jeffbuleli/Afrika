@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, t, type Locale } from "@/lib/i18n";
-import { SITE_NAME, siteUrl } from "@/lib/site";
+import { SITE_NAME } from "@/lib/site";
+import { pageAlternates } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -12,13 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = raw as Locale;
   return {
     title: locale === "fr" ? "Mentions légales" : "Legal notice",
-    alternates: {
-      canonical: `${siteUrl()}/${locale}/legal`,
-      languages: {
-        fr: `${siteUrl()}/fr/legal`,
-        en: `${siteUrl()}/en/legal`,
-      },
-    },
+    alternates: pageAlternates(locale, "/legal"),
   };
 }
 
