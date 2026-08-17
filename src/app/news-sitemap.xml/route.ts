@@ -18,7 +18,7 @@ function xmlEscape(value: string) {
 
 export async function GET() {
   const base = siteUrl();
-  const cutoff = new Date(Date.now() - 1000 * 60 * 60 * 48);
+  const cutoff = new Date(Date.now() - 1000 * 60 * 60 * 72);
   let rows: {
     slug: string;
     locale: string;
