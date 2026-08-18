@@ -15,6 +15,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/admin", "/api/", "/fr/search", "/en/search"],
       },
+      {
+        userAgent: ["facebookexternalhit", "Twitterbot", "WhatsApp", "TelegramBot"],
+        allow: "/",
+      },
     ],
     sitemap: [`${base}/sitemap.xml`, `${base}/news-sitemap.xml`],
     host: base,

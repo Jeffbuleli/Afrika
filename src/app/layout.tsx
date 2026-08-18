@@ -9,6 +9,7 @@ import {
   siteDescription,
   siteUrl,
 } from "@/lib/site";
+import { pageShareImageUrl, shareImages } from "@/lib/seo";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -93,20 +94,13 @@ export const metadata: Metadata = {
     description: siteDescription("fr"),
     locale: "fr_FR",
     alternateLocale: ["en_GB"],
-    images: [
-      {
-        url: "/og-default.jpg",
-        width: 1200,
-        height: 630,
-        alt: SITE_NAME,
-      },
-    ],
+    images: shareImages(pageShareImageUrl(), SITE_NAME),
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
     description: siteDescription("fr"),
-    images: ["/og-default.jpg"],
+    images: [pageShareImageUrl()],
   },
 };
 

@@ -11,9 +11,9 @@ import {
 } from "@/lib/articles";
 import { formatDate, isLocale, otherLocale, t, type Locale } from "@/lib/i18n";
 import { JsonLd, articleJsonLd } from "@/components/JsonLd";
-import { SITE_NAME, absoluteUrl, siteUrl } from "@/lib/site";
+import { SITE_NAME, siteUrl } from "@/lib/site";
 import { formatExcerpt } from "@/lib/excerpt";
-import { pageAlternates } from "@/lib/seo";
+import { articleShareImageUrl, pageAlternates, shareImages } from "@/lib/seo";
 import { articleKeywords } from "@/lib/seo-keywords";
 import { renderArticleMarkdown } from "@/lib/markdown";
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     article.seoDescription || article.excerpt || "",
   );
   const url = `${siteUrl()}/${locale}/article/${article.slug}`;
-  const image = absoluteUrl(article.coverImageUrl);
+  const image = articleShareImageUrl(locale, article.slug);
   const imageAlt = coverAlt(article, locale) || title;
   const keywords = articleKeywords({
     title: article.title,
@@ -74,14 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: article.authorName ? [article.authorName] : undefined,
       section: categoryLabel,
       tags: keywords.slice(0, 12),
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: imageAlt,
-        },
-      ],
+      images: shareImages(image, imageAlt),
     },
     twitter: {
       card: "summary_large_image",

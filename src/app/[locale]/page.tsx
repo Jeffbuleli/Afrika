@@ -14,7 +14,7 @@ import {
 } from "@/lib/articles";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { SITE_NAME, siteDescription, siteUrl } from "@/lib/site";
-import { pageAlternates } from "@/lib/seo";
+import { pageAlternates, pageShareImageUrl, shareImages } from "@/lib/seo";
 import { homeKeywords } from "@/lib/seo-keywords";
 
 /** Homepage country importance: DRC first, then Rwanda, Sudan, Uganda, Mali, Djibouti, Burkina. */
@@ -60,15 +60,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url,
       locale: locale === "en" ? "en_GB" : "fr_FR",
-      images: [
-        { url: "/og-default.jpg", width: 1200, height: 630, alt: SITE_NAME },
-      ],
+      images: shareImages(pageShareImageUrl(locale), SITE_NAME),
     },
     twitter: {
       card: "summary_large_image",
       title: SITE_NAME,
       description,
-      images: ["/og-default.jpg"],
+      images: [pageShareImageUrl(locale)],
     },
   };
 }

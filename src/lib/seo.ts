@@ -1,6 +1,30 @@
 import type { Metadata } from "next";
 import { siteUrl } from "@/lib/site";
 
+type OgImages = NonNullable<NonNullable<Metadata["openGraph"]>["images"]>;
+
+/** 1200x630 PNG generated on-domain - WhatsApp / Facebook / Telegram crawlers. */
+export function shareImages(imageUrl: string, alt: string): OgImages {
+  return [
+    {
+      url: imageUrl,
+      secureUrl: imageUrl,
+      width: 1200,
+      height: 630,
+      type: "image/png",
+      alt,
+    },
+  ];
+}
+
+export function articleShareImageUrl(locale: "fr" | "en", slug: string): string {
+  return `${siteUrl()}/${locale}/article/${encodeURIComponent(slug)}/opengraph-image`;
+}
+
+export function pageShareImageUrl(locale?: "fr" | "en"): string {
+  return locale ? `${siteUrl()}/${locale}/opengraph-image` : `${siteUrl()}/opengraph-image`;
+}
+
 export function localeLanguages(pathWithoutLocale: string) {
   const base = siteUrl();
   const suffix =
