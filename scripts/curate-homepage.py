@@ -14,7 +14,7 @@ OUT = ROOT / "content" / "homepage-curation.json"
 MCBULELI_ENV = Path("/Users/mac/Documents/McBuleliP2P/.env")
 
 HERO_SLUG = (
-    "constitutional-referendum-dispute-widens-as-opposition-plans-national-ma-7144cc"
+    "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels"
 )
 HERO_IMAGE = "/covers/F_lix_Tshisekedi_in_2021.jpg"
 

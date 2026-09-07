@@ -33,7 +33,7 @@ const HOME_PRIORITY = new Set<string>(COUNTRY_PRIORITY);
 const TOP_FEED = 48;
 const PER_CATEGORY = 10;
 const HERO_SLUG =
-  "constitutional-referendum-dispute-widens-as-opposition-plans-national-ma-7144cc";
+  "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels";
 
 type Props = {
   params: Promise<{ locale: string }>;

@@ -202,8 +202,8 @@
   {
     "slug": "fama-destroy-alleged-terrorist-field-hospital-at-boulkessi",
     "category": "securite",
-    "featured": true,
-    "rank": 7,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-07-14T11:00:00.000Z",
     "image": "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg",
     "title": "Les FAMa détruisent un hôpital de campagne terroriste présumé à Boulkessi\n",
@@ -217,8 +217,7 @@
     "coverImageAltFr": "Illustration - Les FAMa détruisent un hôpital de campagne terroriste présumé à Boulkessi\n",
     "coverImageAltEn": "Cover - Djinguereber Mosque Timbuktu Mali",
     "country": "MALI",
-    "source": "Mali_July_31.txt",
-    "homeSlot": 7
+    "source": "Mali_July_31.txt"
   },
   {
     "slug": "parliament-calls-for-review-of-university-district-quota-sponsorship-sch",
@@ -1723,8 +1722,8 @@
   {
     "slug": "djibouti-s-yellow-kiosks-drive-digital-services-and-economic-inclusion",
     "category": "politique",
-    "featured": true,
-    "rank": 8,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-07-08T12:00:00.000Z",
     "image": "/covers/Djibouti_City.jpg",
     "title": "Les kiosques jaunes de Djibouti stimulent les services numériques et l'inclusion économique\n",
@@ -1738,8 +1737,7 @@
     "coverImageAltFr": "Illustration - Les kiosques jaunes de Djibouti stimulent les services numériques et l'inclusion économique\n",
     "coverImageAltEn": "Cover - Djibouti City",
     "country": "DJIBOUTI",
-    "source": "Djibouti_July_14.txt",
-    "homeSlot": 8
+    "source": "Djibouti_July_14.txt"
   },
   {
     "slug": "new-road-taxes-turn-manono-nyunzu-kalemie-corridor-into-economic-challen",
@@ -38644,7 +38642,7 @@
   {
     "slug": "jnim-claims-deadly-attack-on-selguin-military-post-e7986c",
     "category": "securite",
-    "featured": true,
+    "featured": false,
     "publishedAt": "2025-12-20T12:52:00.000Z",
     "image": "/covers/1280px-180504-N-FD185-7900_PORT_OF_DJIBOUTI__Djibouti__42035449301_.jpg",
     "title": "JNIM revendique une attaque mortelle contre le poste militaire de Selguin",
@@ -38659,8 +38657,7 @@
     "coverImageAltEn": "Cover - 180504-N-FD185-7900 PORT OF DJIBOUTI Djibouti 42035449301",
     "country": "BURKINA",
     "source": "Burkina_Dec_21.txt",
-    "rank": 12,
-    "homeSlot": 12
+    "rank": 50
   },
   {
     "slug": "uvira-uncertainty-persists-over-afc-m23-withdrawal-ea88a3",
@@ -63786,7 +63783,7 @@
     "slug": "constitutional-referendum-dispute-widens-as-opposition-plans-national-ma-7144cc",
     "category": "politique",
     "featured": false,
-    "rank": 1,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/Félix_Tshisekedi_visit_to_Israel__October_2021__October_2021__GPOHA1_7562_.jpg",
     "title": "L'Affaire du Référendum Constitutionnel S'intensifie Alors Que l'Opposition Prévoyait une Marche Nationale",
@@ -63800,8 +63797,7 @@
     "country": "DRC",
     "source": "DRC_August_15_REPORT.txt",
     "coverImageAltFr": "L'Affaire du Référendum Constitutionnel S'intensifie Alors Que l'Opposition Prévoyait une Marche Nationale",
-    "coverImageAltEn": "Constitutional Referendum Dispute Widens As Opposition Plans National March",
-    "homeSlot": 1
+    "coverImageAltEn": "Constitutional Referendum Dispute Widens As Opposition Plans National March"
   },
   {
     "slug": "drc-updates-sadc-on-fdlr-disarmament-under-washington-peace-track",
@@ -63987,7 +63983,7 @@
     "slug": "tshisekedi-sends-referendum-law-back-to-parliament-amid-civil-society-pu-00140e",
     "category": "politique",
     "featured": false,
-    "rank": 13,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/F_lix_Tshisekedi__september_2018_.jpg",
     "title": "Tshisekedi renvoie la loi sur le référendum au Parlement face à la résistance de la société civile",
@@ -64001,8 +63997,7 @@
     "country": "DRC",
     "source": "DRC_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - F lix Tshisekedi september 2018",
-    "coverImageAltEn": "Cover - F lix Tshisekedi september 2018",
-    "homeSlot": 13
+    "coverImageAltEn": "Cover - F lix Tshisekedi september 2018"
   },
   {
     "slug": "artisanal-mining-resumes-at-tulizembe-after-six-month-flood-shutdown",
@@ -64068,7 +64063,7 @@
     "slug": "central-bank-governor-defends-drc-eurobond-strategy-amid-debt-cost-debat-f08bc8",
     "category": "economie",
     "featured": false,
-    "rank": 5,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/Kinshasa_train_station__21237028852_.jpg",
     "title": "Le gouverneur de la Banque centrale défend la stratégie d'Eurobond de la RDC au milieu du débat sur le coût de la dette",
@@ -64082,8 +64077,7 @@
     "country": "DRC",
     "source": "DRC_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Kinshasa train station 21237028852",
-    "coverImageAltEn": "Cover - Kinshasa train station 21237028852",
-    "homeSlot": 5
+    "coverImageAltEn": "Cover - Kinshasa train station 21237028852"
   },
   {
     "slug": "central-bank-governor-defends-franc-strength-and-outlines-april-2027-dol-cf286e",
@@ -64529,7 +64523,7 @@
     "slug": "civilian-killing-highlights-fragile-security-in-masisi-after-afc-m23-waz-d991b9",
     "category": "securite",
     "featured": false,
-    "rank": 9,
+    "rank": 50,
     "publishedAt": "2026-08-14T12:00:00.000Z",
     "image": "/covers/Chuduku_in_Goma.jpg",
     "title": "Le meurtre d'un civil met en lumière la sécurité fragile à Masisi après les combats entre AFC/M23 et Wazalendo",
@@ -64543,8 +64537,7 @@
     "country": "DRC",
     "source": "DRC_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Chuduku in Goma",
-    "coverImageAltEn": "Cover - Chuduku in Goma",
-    "homeSlot": 9
+    "coverImageAltEn": "Cover - Chuduku in Goma"
   },
   {
     "slug": "drc-urges-un-response-to-adf-violence",
@@ -64830,7 +64823,7 @@
     "slug": "drc-and-rwanda-advance-washington-accords-monitoring-in-geneva",
     "category": "politique",
     "featured": false,
-    "rank": 2,
+    "rank": 50,
     "publishedAt": "2026-08-13T11:00:00.000Z",
     "image": "/covers/1280px-Paul_Kagame_MSC_2017.jpg",
     "title": "La RDC et le Rwanda avancent dans le suivi des Accords de Washington à Genève",
@@ -64844,8 +64837,7 @@
     "country": "RWANDA",
     "source": "RWANDA_August_15_REPORT.txt",
     "coverImageAltFr": "Horizon de Kigali",
-    "coverImageAltEn": "Kigali skyline",
-    "homeSlot": 2
+    "coverImageAltEn": "Kigali skyline"
   },
   {
     "slug": "outgoing-rwanda-envoy-to-poland-credited-with-deepening-bilateral-ties",
@@ -65071,7 +65063,7 @@
     "slug": "rwanda-backs-electric-motorcycles-with-rwf4-5-billion-financing-deal",
     "category": "economie",
     "featured": false,
-    "rank": 6,
+    "rank": 50,
     "publishedAt": "2026-08-14T12:00:00.000Z",
     "image": "/covers/1280px-Paul_Kagame_MSC_2017.jpg",
     "title": "Le Rwanda soutient les motos électriques avec un accord de financement de 4,5 milliards de Rwf",
@@ -65085,8 +65077,7 @@
     "country": "RWANDA",
     "source": "RWANDA_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Kigali skyline",
-    "coverImageAltEn": "Cover - Kigali skyline",
-    "homeSlot": 6
+    "coverImageAltEn": "Cover - Kigali skyline"
   },
   {
     "slug": "rwanda-frames-conservation-as-green-economy-asset",
@@ -65492,7 +65483,7 @@
     "slug": "burhan-dialogue-plan-faces-opposition-rejection",
     "category": "politique",
     "featured": false,
-    "rank": 3,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg",
     "title": "Le plan de dialogue de Burhan fait face à un rejet de l'opposition",
@@ -65506,8 +65497,7 @@
     "country": "SUDAN",
     "source": "SUDAN_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Chairman of the Sovereignty Council of Sudan Abdel Fa 55de66e285",
-    "coverImageAltEn": "Cover - Chairman of the Sovereignty Council of Sudan Abdel Fa 55de66e285",
-    "homeSlot": 3
+    "coverImageAltEn": "Cover - Chairman of the Sovereignty Council of Sudan Abdel Fa 55de66e285"
   },
   {
     "slug": "burhan-launches-domestic-dialogue-track-with-temporary-immunity-guarante-54806b",
@@ -65953,7 +65943,7 @@
     "slug": "unido-launches-initiative-to-rehabilitate-sudan-s-war-damaged-industry",
     "category": "economie",
     "featured": false,
-    "rank": 10,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
     "title": "L'ONUDI lance une initiative pour réhabiliter l'industrie soudanaise endommagée par la guerre",
@@ -65967,8 +65957,7 @@
     "country": "SUDAN",
     "source": "SUDAN_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Headquarters of the United Nations New York City 20231001 1103 1006",
-    "coverImageAltEn": "Cover - Headquarters of the United Nations New York City 20231001 1103 1006",
-    "homeSlot": 10
+    "coverImageAltEn": "Cover - Headquarters of the United Nations New York City 20231001 1103 1006"
   },
   {
     "slug": "weak-rainfall-threatens-sudan-farming-season",
@@ -67234,7 +67223,7 @@
     "slug": "court-ruling-affirms-refugees-right-to-work",
     "category": "justice",
     "featured": false,
-    "rank": 14,
+    "rank": 50,
     "publishedAt": "2026-08-13T11:00:00.000Z",
     "image": "/covers/1280px-Skyline_of_Kampala.jpg",
     "title": "Un jugement judiciaire affirme le droit des réfugiés au travail",
@@ -67248,8 +67237,7 @@
     "country": "UGANDA",
     "source": "UGANDA_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Skyline of Kampala",
-    "coverImageAltEn": "Cover - Skyline of Kampala",
-    "homeSlot": 14
+    "coverImageAltEn": "Cover - Skyline of Kampala"
   },
   {
     "slug": "gen-katumba-testifies-in-high-profile-ambush-trial",
@@ -67315,7 +67303,7 @@
     "slug": "lands-minister-suspends-special-land-titles",
     "category": "justice",
     "featured": false,
-    "rank": 11,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/1280px-Kampala-Gaddafi_Mosque.jpg",
     "title": "Le ministre des Terres suspend les titres fonciers spéciaux",
@@ -67329,8 +67317,7 @@
     "country": "UGANDA",
     "source": "UGANDA_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Kampala-Gaddafi Mosque",
-    "coverImageAltEn": "Cover - Kampala-Gaddafi Mosque",
-    "homeSlot": 11
+    "coverImageAltEn": "Cover - Kampala-Gaddafi Mosque"
   },
   {
     "slug": "law-society-warns-abductions-and-electoral-abuses-are-eroding-rule-of-la-6d8209",
@@ -67496,7 +67483,7 @@
     "slug": "muhoozi-reshuffles-senior-updf-commanders",
     "category": "securite",
     "featured": false,
-    "rank": 4,
+    "rank": 50,
     "publishedAt": "2026-08-15T13:00:00.000Z",
     "image": "/covers/1280px-Lake_Victoria-_Kampala-Uganda_1.jpg",
     "title": "Muhoozi remanie des commandants supérieurs de l'UPDF",
@@ -67510,8 +67497,7 @@
     "country": "UGANDA",
     "source": "UGANDA_August_15_REPORT.txt",
     "coverImageAltFr": "Illustration - Lake Victoria- Kampala-Uganda 1",
-    "coverImageAltEn": "Cover - Lake Victoria- Kampala-Uganda 1",
-    "homeSlot": 4
+    "coverImageAltEn": "Cover - Lake Victoria- Kampala-Uganda 1"
   },
   {
     "slug": "parliament-approves-updf-deployment-to-gaza-peace-mission",
@@ -67597,9 +67583,9 @@
     "slug": "tanzania-backs-drc-sovereignty-as-tshisekedi-and-samia-deepen-security-c-90021a",
     "category": "politique",
     "featured": true,
-    "rank": 10,
+    "rank": 13,
     "publishedAt": "2026-08-18T16:00:00.000Z",
-    "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
+    "image": "/covers/1280px-Virunga_Mountains.jpg",
     "title": "La Tanzanie soutient la souveraineté de la RDC alors que Tshisekedi et Samia approfondissent la coopération en matière de sécurité",
     "excerpt": "Kinshasa, le 18 août 2026 - Le Président Félix Tshisekedi et la Présidente tanzanienne Samia Suluhu Hassan ont réaffirmé leur soutien à l'intégrité territoriale de la RDC lors de pourparlers les 17 et 18 août, renforçant la pression diplomatique de Kinshasa pour le retrait des forces étrangères et la fin des hostilités à l'est.",
     "title_en": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation",
@@ -67611,7 +67597,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La Tanzanie soutient la souveraineté de la RDC alors que Tshisekedi et Samia approfondissent la coopération en matière de sécurité",
-    "coverImageAltEn": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation"
+    "coverImageAltEn": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation",
+    "homeSlot": 13
   },
   {
     "slug": "afc-m23-tightens-media-controls-in-rebel-held-south-kivu",
@@ -67696,8 +67683,8 @@
   {
     "slug": "united-states-welcomes-progress-in-doha-framework-talks",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-22T10:00:00.000Z",
     "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
     "title": "Les États-Unis saluent les progrès des pourparlers dans le cadre de Doha",
@@ -67717,9 +67704,9 @@
     "slug": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
     "category": "politique",
     "featured": true,
-    "rank": 10,
+    "rank": 1,
     "publishedAt": "2026-08-27T15:00:00.000Z",
-    "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
+    "image": "/covers/F_lix_Tshisekedi_in_2021.jpg",
     "title": "Tshisekedi ouvre un dialogue national mais exclut les rebelles AFC/M23",
     "excerpt": "Kinshasa, le 27 août 2026 - Le président Félix Tshisekedi a lancé un dialogue national inclusif, Abanye-Congo, tout en écartant la participation des groupes armés accusés de lutter contre l'ordre constitutionnel ou de servir des intérêts étrangers.",
     "title_en": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels",
@@ -67731,7 +67718,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "Tshisekedi ouvre un dialogue national mais exclut les rebelles AFC/M23",
-    "coverImageAltEn": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels"
+    "coverImageAltEn": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels",
+    "homeSlot": 1
   },
   {
     "slug": "kabund-rejects-tshisekedi-consultation-plan-amid-reform-debate",
@@ -67756,8 +67744,8 @@
   {
     "slug": "african-union-warns-peace-deals-have-not-halted-eastern-drc-fighting",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-30T08:00:00.000Z",
     "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
     "title": "L'Union Africaine avertit que les accords de paix n'ont pas arrêté les combats dans l'est de la RDC",
@@ -67816,8 +67804,8 @@
   {
     "slug": "kinshasa-orders-faster-disbursement-of-external-project-finance",
     "category": "economie",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-17T15:00:00.000Z",
     "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
     "title": "Kinshasa ordonne un déblocage plus rapide des financements externes de projets",
@@ -67876,8 +67864,8 @@
   {
     "slug": "government-updates-ebola-toll-and-rules-out-kinshasa-cases",
     "category": "societe",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-18T16:00:00.000Z",
     "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
     "title": "Le gouvernement met à jour le bilan de l'Ebola et exclut les cas à Kinshasa",
@@ -67896,8 +67884,8 @@
   {
     "slug": "butembo-hospital-burned-after-confirmed-ebola-case",
     "category": "societe",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-19T17:00:00.000Z",
     "image": "/covers/1280px-La_Gombe__Kinshasa__RDC.jpg",
     "title": "Hôpital de Butembo incendié après un cas d'Ebola confirmé",
@@ -67937,9 +67925,9 @@
     "slug": "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
     "category": "societe",
     "featured": true,
-    "rank": 10,
+    "rank": 5,
     "publishedAt": "2026-08-28T16:00:00.000Z",
-    "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
+    "image": "/covers/Ebola_virus_virion.jpg",
     "title": "La crise Ebola s'aggrave alors que l'ONU et l'OMS cherchent à accéder aux zones de conflit",
     "excerpt": "Kinshasa, le 28 août 2026 - L'épidémie d'Ebola en RDC a atteint 5 945 cas confirmés dans six provinces et 60 zones de santé, soulignant la pression croissante sur le système de santé national et les opérations humanitaires dans l'est touché par le conflit.",
     "title_en": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
@@ -67951,7 +67939,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La crise Ebola s'aggrave alors que l'ONU et l'OMS cherchent à accéder aux zones de conflit",
-    "coverImageAltEn": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones"
+    "coverImageAltEn": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
+    "homeSlot": 5
   },
   {
     "slug": "kinshasa-police-chief-orders-crackdown-on-abuse-and-corruption",
@@ -68236,8 +68225,8 @@
   {
     "slug": "afc-m23-captures-three-villages-in-masisi-as-civilians-flee",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-21T09:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "AFC/M23 Saisit Trois Villages à Masisi Alors que les Civils Fuitent",
@@ -68277,9 +68266,9 @@
     "slug": "ceasefire-verification-mission-deploys-to-minembwe",
     "category": "securite",
     "featured": true,
-    "rank": 10,
+    "rank": 9,
     "publishedAt": "2026-08-24T12:00:00.000Z",
-    "image": "/covers/1280px-La_Gombe__Kinshasa__RDC.jpg",
+    "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg",
     "title": "La mission de vérification du cessez-le-feu se déploie à Minembwe",
     "excerpt": "Minembwe, le 24 août 2026 - La première mission de vérification du cessez-le-feu EJVM+ s'est déployée à Minembwe dans le Sud-Kivu, testant si le cadre de cessez-le-feu de Doha peut passer des engagements diplomatiques à la mise en œuvre sur le terrain.",
     "title_en": "Ceasefire Verification Mission Deploys To Minembwe",
@@ -68291,7 +68280,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La mission de vérification du cessez-le-feu se déploie à Minembwe",
-    "coverImageAltEn": "Ceasefire Verification Mission Deploys To Minembwe"
+    "coverImageAltEn": "Ceasefire Verification Mission Deploys To Minembwe",
+    "homeSlot": 9
   },
   {
     "slug": "medicine-plane-allegedly-shot-down-in-minembwe-amid-wider-kivu-fighting",
@@ -68457,7 +68447,7 @@
     "slug": "kagame-says-fdlr-threat-keeps-rwanda-engaged-in-eastern-congo-crisis",
     "category": "politique",
     "featured": true,
-    "rank": 12,
+    "rank": 2,
     "publishedAt": "2026-08-25T13:00:00.000Z",
     "image": "/covers/1280px-Paul_Kagame__2018-06-13_.jpg",
     "title": "Kagame déclare que la menace FDLR maintient le Rwanda engagé dans la crise de l'Est du Congo",
@@ -68471,7 +68461,8 @@
     "country": "RWANDA",
     "source": "RWANDA_August_31_REPORT.txt",
     "coverImageAltFr": "Kagame déclare que la menace FDLR maintient le Rwanda engagé dans la crise de l'Est du Congo",
-    "coverImageAltEn": "Kagame Says FDLR Threat Keeps Rwanda Engaged In Eastern Congo Crisis"
+    "coverImageAltEn": "Kagame Says FDLR Threat Keeps Rwanda Engaged In Eastern Congo Crisis",
+    "homeSlot": 2
   },
   {
     "slug": "kagame-says-he-stopped-personal-football-funding-over-discipline-concern-d7f7f4",
@@ -68716,8 +68707,8 @@
   {
     "slug": "tshisekedi-launches-congo-dialogue-while-excluding-afc-m23",
     "category": "politique",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-28T16:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "Tshisekedi lance le dialogue congolais en excluant l'AFC/M23",
@@ -68776,8 +68767,8 @@
   {
     "slug": "bank-of-kigali-courts-chinese-investors-with-yuan-banking-plan",
     "category": "economie",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-24T12:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "La Banque de Kigali séduit les investisseurs chinois avec un plan bancaire en yuan",
@@ -68876,8 +68867,8 @@
   {
     "slug": "parliament-approves-rwf279-billion-financing-for-job-creation-programme",
     "category": "economie",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-20T08:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "Le Parlement approuve un financement de 279 milliards de Rwf pour un programme de création d'emplois",
@@ -68937,9 +68928,9 @@
     "slug": "rwandair-adds-airbus-a330-200-to-support-long-haul-expansion",
     "category": "economie",
     "featured": true,
-    "rank": 12,
+    "rank": 10,
     "publishedAt": "2026-08-24T12:00:00.000Z",
-    "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
+    "image": "/covers/An_aerial_view_of_new_look_of_Rwanda_Parliament_Building_in_Kimihurura__Kigali_on_May_16__.jpg",
     "title": "RwandAir ajoute un Airbus A330-200 pour soutenir son expansion long-courrier",
     "excerpt": "Kigali, le 24 août 2026 - RwandAir a réceptionné un Airbus A330-200 supplémentaire, renforçant la capacité long-courrier du transporteur national alors que le Rwanda cherche à accroître le rôle de Kigali en tant que hub régional de l'aviation.",
     "title_en": "RwandAir Adds Airbus A330-200 To Support Long-Haul Expansion",
@@ -68951,7 +68942,8 @@
     "country": "RWANDA",
     "source": "RWANDA_August_31_REPORT.txt",
     "coverImageAltFr": "RwandAir ajoute un Airbus A330-200 pour soutenir son expansion long-courrier",
-    "coverImageAltEn": "RwandAir Adds Airbus A330-200 To Support Long-Haul Expansion"
+    "coverImageAltEn": "RwandAir Adds Airbus A330-200 To Support Long-Haul Expansion",
+    "homeSlot": 10
   },
   {
     "slug": "rwanda-mining-officials-face-case-over-alleged-illegal-tungsten-extracti-7cdafe",
@@ -68976,8 +68968,8 @@
   {
     "slug": "rwanda-plans-frw330-billion-irrigation-drive-in-nyagatare",
     "category": "economie",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-27T15:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "Le Rwanda prévoit un projet d'irrigation de 330 milliards de Frw à Nyagatare",
@@ -68997,9 +68989,9 @@
     "slug": "rwanda-raises-policy-rate-to-8-75-percent-as-inflation-stays-elevated",
     "category": "economie",
     "featured": true,
-    "rank": 12,
+    "rank": 6,
     "publishedAt": "2026-08-27T15:00:00.000Z",
-    "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
+    "image": "/covers/1280px-Kigali_skyline.jpg",
     "title": "Le Rwanda augmente son taux directeur à 8,75 % alors que l'inflation reste élevée",
     "excerpt": "Kigali, le 27 août 2026 - La Banque nationale du Rwanda a relevé son taux directeur de 50 points de base à 8,75 %, le niveau le plus élevé depuis 2009, alors que les décideurs politiques s'efforcent de contenir une pression inflationniste persistante.",
     "title_en": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated",
@@ -69011,7 +69003,8 @@
     "country": "RWANDA",
     "source": "RWANDA_August_31_REPORT.txt",
     "coverImageAltFr": "Le Rwanda augmente son taux directeur à 8,75 % alors que l'inflation reste élevée",
-    "coverImageAltEn": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated"
+    "coverImageAltEn": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated",
+    "homeSlot": 6
   },
   {
     "slug": "rwanda-reclaims-undeveloped-industrial-plots-to-improve-land-use",
@@ -69096,8 +69089,8 @@
   {
     "slug": "drc-ebola-outbreak-surpasses-5-300-cases-as-death-toll-nears-2-560",
     "category": "societe",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-23T11:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "La flambée d'Ebola en RDC dépasse 5 300 cas alors que le bilan approche 2 560",
@@ -69236,8 +69229,8 @@
   {
     "slug": "genocide-convict-wenceslas-twagirayezu-held-in-denmark-after-rwanda-tria-af7032",
     "category": "justice",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-26T14:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "Le condamné pour génocide Wenceslas Twagirayezu détenu au Danemark après son procès au Rwanda",
@@ -69336,8 +69329,8 @@
   {
     "slug": "afc-m23-and-drc-agree-roadmap-to-advance-doha-peace-process",
     "category": "securite",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-23T11:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "AFC/M23 et RDC s'accordent sur une feuille de route pour faire avancer le processus de paix de Doha",
@@ -69396,8 +69389,8 @@
   {
     "slug": "joint-verification-team-deploys-to-minembwe-to-monitor-ceasefire",
     "category": "securite",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-24T12:00:00.000Z",
     "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg",
     "title": "Une mission de vérification conjointe déployée à Minembwe pour surveiller le cessez-le-feu",
@@ -69476,8 +69469,8 @@
   {
     "slug": "rwanda-receives-406-returnees-from-eastern-drc",
     "category": "securite",
-    "featured": true,
-    "rank": 12,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-26T14:00:00.000Z",
     "image": "/covers/Beni__Nord-Kivu__11_novembre_2014_-_La_MONUSCO_sensibilisant_les_représentants_de_la_socié.jpg",
     "title": "Le Rwanda reçoit 406 rapatriés de l'est de la RDC",
@@ -69556,8 +69549,8 @@
   {
     "slug": "local-government-ministry-moves-to-interdict-110-staff-in-corruption-pro-2bfdb7",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-18T16:00:00.000Z",
     "image": "/covers/1280px-Source_of_the_Nile__Jinja_Uganda.jpg",
     "title": "Le Ministère du Gouvernement Local Se Prépare à Interdire 110 Agents Dans une Enquête sur la Corruption",
@@ -69616,8 +69609,8 @@
   {
     "slug": "otunnu-pushes-un-reform-as-uganda-backed-bid-faces-global-hurdles",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-21T09:00:00.000Z",
     "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
     "title": "Otunnu appelle à la réforme de l'ONU alors que sa candidature soutenue par l'Ouganda fait face à des obstacles mondiaux",
@@ -69636,8 +69629,8 @@
   {
     "slug": "otunnu-gains-ground-in-race-for-top-un-post",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-22T10:00:00.000Z",
     "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
     "title": "Otunnu progresse dans la course pour un poste important aux Nations Unies",
@@ -69676,8 +69669,8 @@
   {
     "slug": "otunnu-steps-up-diplomatic-campaign-for-un-leadership-bid",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-24T12:00:00.000Z",
     "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
     "title": "Otunnu Intensifie Sa Campagne Diplomatique Pour La Candidature Au Poste De Secrétaire Général De L'ONU",
@@ -69716,8 +69709,8 @@
   {
     "slug": "parliament-seeks-cancellation-of-entebbe-expressway-toll-contract",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-25T13:00:00.000Z",
     "image": "/covers/1280px-Nile_near_Jinja_PICT0170.JPG",
     "title": "Le Parlement demande l'annulation du contrat de péage de l'autoroute d'Entebbe",
@@ -69756,8 +69749,8 @@
   {
     "slug": "government-suspends-special-land-titles-amid-fraud-concerns",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-18T16:00:00.000Z",
     "image": "/covers/KampalaSkyline.jpg",
     "title": "Le gouvernement suspend les titres fonciers spéciaux en raison de préoccupations liées à la fraude",
@@ -69777,9 +69770,9 @@
     "slug": "bobi-wine-backs-olara-otunnu-for-un-secretary-general-bid",
     "category": "politique",
     "featured": true,
-    "rank": 11,
+    "rank": 12,
     "publishedAt": "2026-08-27T15:00:00.000Z",
-    "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
+    "image": "/covers/KampalaSkyline.jpg",
     "title": "Bobi Wine soutient Olara Otunnu pour le poste de secrétaire général de l'ONU",
     "excerpt": "Kampala, le 27 août 2026 - Le leader de l'opposition Bobi Wine a soutenu Olara Otunnu pour le poste le plus élevé des Nations unies, présentant la candidature du diplomate ougandais comme une rare opportunité internationale pour le pays.",
     "title_en": "Bobi Wine Backs Olara Otunnu For UN Secretary-General Bid",
@@ -69790,8 +69783,9 @@
     "author": "amina-kabasele",
     "country": "UGANDA",
     "source": "UGANDA_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Headquarters of the United Nations New York City 20231001 1103 1006",
-    "coverImageAltEn": "Cover - Headquarters of the United Nations New York City 20231001 1103 1006"
+    "coverImageAltFr": "Bobi Wine soutient Olara Otunnu pour le poste de secrétaire général de l'ONU",
+    "coverImageAltEn": "Bobi Wine Backs Olara Otunnu For UN Secretary-General Bid",
+    "homeSlot": 12
   },
   {
     "slug": "museveni-defends-ministers-anti-corruption-inspection-tours",
@@ -69816,8 +69810,8 @@
   {
     "slug": "tooro-palace-access-restricted-after-king-oyo-s-death",
     "category": "politique",
-    "featured": true,
-    "rank": 11,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-28T16:00:00.000Z",
     "image": "/covers/Yoweri_Museveni_September_2015.jpg",
     "title": "Accès au palais royal de Tooro restreint après la mort du roi Oyo",
@@ -69836,8 +69830,8 @@
   {
     "slug": "museveni-orders-official-burial-for-tooro-king-oyo",
     "category": "politique",
-    "featured": true,
-    "rank": 11,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-29T17:00:00.000Z",
     "image": "/covers/Hamis_Kiggundu_presenting_to_Yoweri_Museveni.jpg",
     "title": "Museveni ordonne des funérailles officielles pour le roi Oyo de Tooro",
@@ -69856,8 +69850,8 @@
   {
     "slug": "tooro-kingdom-begins-mourning-rites-for-king-oyo",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-29T17:00:00.000Z",
     "image": "/covers/Yoweri_Museveni_September_2015.jpg",
     "title": "Le Royaume de Tooro Commence les Rites de Deuil Pour le Roi Oyo",
@@ -70076,8 +70070,8 @@
   {
     "slug": "parliament-summons-uganda-airlines-executives-over-shs1-9-trillion-audit-70093e",
     "category": "economie",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-24T12:00:00.000Z",
     "image": "/covers/1280px-Nile_Bridge_in_Jinja_City_Along_Kampala-Jinja_Highway.jpg",
     "title": "Le Parlement convoque des cadres d'Ouganda Airlines au sujet de requêtes d'audit de 1,9 trillion de Shs",
@@ -70257,9 +70251,9 @@
     "slug": "museveni-opens-125-million-roofings-steel-plant-in-namanve",
     "category": "economie",
     "featured": true,
-    "rank": 11,
+    "rank": 4,
     "publishedAt": "2026-08-26T14:00:00.000Z",
-    "image": "/covers/Hamis_Kiggundu_presenting_to_Yoweri_Museveni.jpg",
+    "image": "/covers/Yoweri_Museveni_September_2015.jpg",
     "title": "Museveni inaugure une usine d'acier Roofings de 125 millions de dollars à Namanve",
     "excerpt": "Namanve, le 26 août 2026 - Le président Yoweri Museveni a inauguré une usine d'acier Roofings de 125 millions de dollars à Namanve, soulignant la volonté de l'Ouganda d'approfondir sa capacité industrielle nationale et d'attirer des investissements dans le secteur manufacturier à grande échelle.",
     "title_en": "Museveni Opens $125 Million Roofings Steel Plant In Namanve",
@@ -70270,8 +70264,9 @@
     "author": "jean-marc-okito",
     "country": "UGANDA",
     "source": "UGANDA_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Hamis Kiggundu presenting to Yoweri Museveni",
-    "coverImageAltEn": "Cover - Hamis Kiggundu presenting to Yoweri Museveni"
+    "coverImageAltFr": "Museveni inaugure une usine d'acier Roofings de 125 millions de dollars à Namanve",
+    "coverImageAltEn": "Museveni Opens $125 Million Roofings Steel Plant In Namanve",
+    "homeSlot": 4
   },
   {
     "slug": "uganda-urged-to-tighten-methane-rules-before-first-oil",
@@ -70297,9 +70292,9 @@
     "slug": "eacop-nears-completion-as-oil-developers-emphasize-environmental-restora-325f81",
     "category": "economie",
     "featured": true,
-    "rank": 11,
+    "rank": 8,
     "publishedAt": "2026-08-27T15:00:00.000Z",
-    "image": "/covers/1280px-Source_of_the_Nile__Jinja_Uganda.jpg",
+    "image": "/covers/1280px-Lake_Victoria-_Kampala-Uganda_1.jpg",
     "title": "L'EACOP Approche de l'Achèvement Alors Que les Développeurs Pétroliers Insistent sur la Restauration Environnementale",
     "excerpt": "Hoima, le 27 août 2026 - Les ambitions pétrolières longtemps retardées de l'Ouganda se rapprochent de la réalisation alors que le pipeline de pétrole brut d'Afrique de l'Est a dépassé 90 % d'achèvement et que les responsables du projet ont intensifié les travaux de restauration environnementale.",
     "title_en": "EACOP Nears Completion As Oil Developers Emphasize Environmental Restoration",
@@ -70310,8 +70305,9 @@
     "author": "jean-marc-okito",
     "country": "UGANDA",
     "source": "UGANDA_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Source of the Nile Jinja Uganda",
-    "coverImageAltEn": "Cover - Source of the Nile Jinja Uganda"
+    "coverImageAltFr": "L'EACOP Approche de l'Achèvement Alors Que les Développeurs Pétroliers Insistent sur la Restauration Environnementale",
+    "coverImageAltEn": "EACOP Nears Completion As Oil Developers Emphasize Environmental Restoration",
+    "homeSlot": 8
   },
   {
     "slug": "parliament-delays-scrutiny-of-digital-number-plate-rollout",
@@ -70636,8 +70632,8 @@
   {
     "slug": "state-witness-alleges-drone-plot-in-besigye-treason-trial",
     "category": "justice",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-19T17:00:00.000Z",
     "image": "/covers/Hamis_Kiggundu_presenting_to_Yoweri_Museveni.jpg",
     "title": "Témoin de l'État allègue un complot de drone dans le procès en trahison de Besigye",
@@ -70896,8 +70892,8 @@
   {
     "slug": "updf-command-changes-signal-generational-shift-in-security-establishment",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-20T08:00:00.000Z",
     "image": "/covers/Yoweri_Museveni_September_2015.jpg",
     "title": "Les changements de commandement de l'UPDF signalent un changement générationnel dans l'établissement de la sécurité",
@@ -70977,7 +70973,7 @@
     "slug": "african-union-backs-sudan-dialogue-plan-as-civilian-blocs-object",
     "category": "politique",
     "featured": true,
-    "rank": 10,
+    "rank": 14,
     "publishedAt": "2026-08-31T09:00:00.000Z",
     "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg",
     "title": "L'Union africaine soutient le plan de dialogue soudanais alors que des blocs civils s'y opposent",
@@ -70990,8 +70986,9 @@
     "author": "amina-kabasele",
     "country": "SUDAN",
     "source": "SUDAN_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Chairman of the Sovereignty Council of Sudan Abdel Fa 55de66e285",
-    "coverImageAltEn": "Cover - Chairman of the Sovereignty Council of Sudan Abdel Fa 55de66e285"
+    "coverImageAltFr": "L'Union africaine soutient le plan de dialogue soudanais alors que des blocs civils s'y opposent",
+    "coverImageAltEn": "African Union Backs Sudan Dialogue Plan As Civilian Blocs Object",
+    "homeSlot": 14
   },
   {
     "slug": "arman-faction-rejects-burhan-dialogue-plan-without-ceasefire",
@@ -71036,8 +71033,8 @@
   {
     "slug": "hamdok-urges-unified-civilian-front-to-end-sudan-war",
     "category": "politique",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-23T11:00:00.000Z",
     "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg",
     "title": "Hamdok appelle à un front civil unifié pour mettre fin à la guerre au Soudan",
@@ -71157,9 +71154,9 @@
     "slug": "us-pushes-un-to-expand-sudan-arms-embargo-to-drones",
     "category": "politique",
     "featured": true,
-    "rank": 10,
+    "rank": 7,
     "publishedAt": "2026-08-24T12:00:00.000Z",
-    "image": "/covers/1280px-Sudan_Development_Corporation_Khartoum_Sudan_Designed_95b81ced0d.jpg",
+    "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg",
     "title": "Les États-Unis pressent l'ONU d'étendre l'embargo sur les armes au Soudan aux drones",
     "excerpt": "New York, le 24 août 2026 - Les États-Unis ont introduit un projet de résolution du Conseil de sécurité de l'ONU pour étendre l'embargo sur les armes au Soudan à l'échelle nationale et inclure explicitement les véhicules aériens sans pilote, une mesure visant à réduire le soutien militaire extérieur qui intensifie la guerre.",
     "title_en": "US Pushes UN To Expand Sudan Arms Embargo To Drones",
@@ -71170,8 +71167,9 @@
     "author": "amina-kabasele",
     "country": "SUDAN",
     "source": "SUDAN_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Sudan Development Corporation Khartoum Sudan Designed 95b81ced0d",
-    "coverImageAltEn": "Cover - Sudan Development Corporation Khartoum Sudan Designed 95b81ced0d"
+    "coverImageAltFr": "Les États-Unis pressent l'ONU d'étendre l'embargo sur les armes au Soudan aux drones",
+    "coverImageAltEn": "US Pushes UN To Expand Sudan Arms Embargo To Drones",
+    "homeSlot": 7
   },
   {
     "slug": "umma-party-factions-seek-neutral-venue-for-national-dialogue",
@@ -71316,8 +71314,8 @@
   {
     "slug": "darfur-gold-smuggling-network-fuels-sudan-war-economy",
     "category": "economie",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-31T09:00:00.000Z",
     "image": "/covers/1280px-Sudan_Development_Corporation_Khartoum_Sudan_Designed_ea4a3fe4cc.jpg",
     "title": "Le réseau de contrebande d'or au Darfour alimente l'économie de guerre du Soudan",
@@ -71397,7 +71395,7 @@
     "slug": "sudan-forms-crisis-cell-as-pound-hits-record-low",
     "category": "economie",
     "featured": true,
-    "rank": 10,
+    "rank": 3,
     "publishedAt": "2026-08-31T09:00:00.000Z",
     "image": "/covers/1280px-Al_Taif__Khartoum__Sudan_-_panoramio.jpg",
     "title": "Le Soudan forme une cellule de crise alors que la livre atteint un niveau record",
@@ -71410,8 +71408,9 @@
     "author": "jean-marc-okito",
     "country": "SUDAN",
     "source": "SUDAN_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Al Taif Khartoum Sudan - panoramio",
-    "coverImageAltEn": "Cover - Al Taif Khartoum Sudan - panoramio"
+    "coverImageAltFr": "Le Soudan forme une cellule de crise alors que la livre atteint un niveau record",
+    "coverImageAltEn": "Sudan Forms Crisis Cell As Pound Hits Record Low",
+    "homeSlot": 3
   },
   {
     "slug": "sudan-moves-to-formalize-gulf-remittances-through-digital-payments",
@@ -71556,8 +71555,8 @@
   {
     "slug": "sudanese-plaintiffs-prepare-us-civil-case-against-uae-over-rsf-support-a-985f6a",
     "category": "justice",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-29T17:00:00.000Z",
     "image": "/covers/1280px-Sudan_Development_Corporation_Khartoum_Sudan_Designed_ea4a3fe4cc.jpg",
     "title": "Des plaignants soudanais préparent une action civile aux États-Unis contre les Émirats arabes unis pour des allégations de soutien aux RSF",
@@ -71596,8 +71595,8 @@
   {
     "slug": "army-says-it-downed-rsf-drones-in-north-kordofan",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-17T15:00:00.000Z",
     "image": "/covers/1280px-A_boat_on_the_Blue_Nile.jpg",
     "title": "L'armée annonce avoir abattu des drones RSF dans le Kordofan Nord",
@@ -71676,8 +71675,8 @@
   {
     "slug": "chad-accuses-sudanese-forces-of-drone-strike-inside-its-territory",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-23T11:00:00.000Z",
     "image": "/covers/Khartoum.jpg",
     "title": "Le Tchad accuse les forces soudanaises de frappes de drones sur son territoire",
@@ -71716,8 +71715,8 @@
   {
     "slug": "darfur-aid-cuts-deepen-humanitarian-breakdown",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-30T08:00:00.000Z",
     "image": "/covers/1280px-A_boat_on_the_Blue_Nile.jpg",
     "title": "Les coupes d'aide au Darfour aggravent la crise humanitaire",
@@ -71796,8 +71795,8 @@
   {
     "slug": "kordofan-fighting-drives-displacement-above-200-000-as-power-and-water-s-4392ad",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-19T17:00:00.000Z",
     "image": "/covers/The_Nile_Khartoum_Bahri.jpg",
     "title": "Les combats au Kordofan provoquent un déplacement de plus de 200 000 personnes alors que les systèmes d'électricité et d'eau échouent",
@@ -71857,7 +71856,7 @@
     "slug": "rsf-claims-capture-of-key-army-bases-in-blue-nile",
     "category": "securite",
     "featured": true,
-    "rank": 10,
+    "rank": 11,
     "publishedAt": "2026-08-28T16:00:00.000Z",
     "image": "/covers/1280px-Sudan._Khartoum._Bridge_across_Blue_Nile_from_Khartou_551d47473a.jpg",
     "title": "Les RSF revendiquent la capture de bases militaires clés dans le Nil bleu",
@@ -71870,8 +71869,9 @@
     "author": "amina-kabasele",
     "country": "SUDAN",
     "source": "SUDAN_August_31_REPORT.txt",
-    "coverImageAltFr": "Illustration - Sudan. Khartoum. Bridge across Blue Nile from Khartou 551d47473a",
-    "coverImageAltEn": "Cover - Sudan. Khartoum. Bridge across Blue Nile from Khartou 551d47473a"
+    "coverImageAltFr": "Les RSF revendiquent la capture de bases militaires clés dans le Nil bleu",
+    "coverImageAltEn": "RSF Claims Capture Of Key Army Bases In Blue Nile",
+    "homeSlot": 11
   },
   {
     "slug": "rsf-closes-markets-and-satellite-internet-in-al-nuhud",
@@ -71996,8 +71996,8 @@
   {
     "slug": "splm-n-retakes-kauda-after-internal-mutiny-in-south-kordofan",
     "category": "securite",
-    "featured": true,
-    "rank": 10,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-20T08:00:00.000Z",
     "image": "/covers/1280px-A_boat_on_the_Blue_Nile.jpg",
     "title": "Le SPLM-N reprend Kauda après une mutinerie interne au Kordofan du Sud",

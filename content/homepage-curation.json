@@ -1,117 +1,118 @@
 {
-  "hero": "constitutional-referendum-dispute-widens-as-opposition-plans-national-ma-7144cc",
+  "hero": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
   "ordered": [
     {
       "slot": 1,
-      "slug": "constitutional-referendum-dispute-widens-as-opposition-plans-national-ma-7144cc",
+      "slug": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
       "country": "DRC",
       "category": "politique",
-      "title_en": "Constitutional Referendum Dispute Widens As Opposition Plans National March",
-      "image": "/covers/Félix_Tshisekedi_visit_to_Israel__October_2021__October_2021__GPOHA1_7562_.jpg"
+      "title_en": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels",
+      "image": "/covers/F_lix_Tshisekedi_in_2021.jpg"
     },
     {
       "slot": 2,
-      "slug": "drc-and-rwanda-advance-washington-accords-monitoring-in-geneva",
+      "slug": "kagame-says-fdlr-threat-keeps-rwanda-engaged-in-eastern-congo-crisis",
       "country": "RWANDA",
       "category": "politique",
-      "title_en": "DRC And Rwanda Advance Washington Accords Monitoring In Geneva",
-      "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg"
+      "title_en": "Kagame Says FDLR Threat Keeps Rwanda Engaged In Eastern Congo Crisis",
+      "image": "/covers/1280px-Paul_Kagame__2018-06-13_.jpg"
     },
     {
       "slot": 3,
-      "slug": "burhan-dialogue-plan-faces-opposition-rejection",
+      "slug": "sudan-forms-crisis-cell-as-pound-hits-record-low",
       "country": "SUDAN",
-      "category": "politique",
-      "title_en": "Burhan Dialogue Plan Faces Opposition Rejection",
-      "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg"
+      "category": "economie",
+      "title_en": "Sudan Forms Crisis Cell As Pound Hits Record Low",
+      "image": "/covers/1280px-Al_Taif__Khartoum__Sudan_-_panoramio.jpg"
     },
     {
       "slot": 4,
-      "slug": "muhoozi-reshuffles-senior-updf-commanders",
+      "slug": "museveni-opens-125-million-roofings-steel-plant-in-namanve",
       "country": "UGANDA",
-      "category": "securite",
-      "title_en": "Muhoozi Reshuffles Senior UPDF Commanders",
-      "image": "/covers/1280px-Lake_Victoria-_Kampala-Uganda_1.jpg"
+      "category": "economie",
+      "title_en": "Museveni Opens $125 Million Roofings Steel Plant In Namanve",
+      "image": "/covers/Yoweri_Museveni_September_2015.jpg"
     },
     {
       "slot": 5,
-      "slug": "central-bank-governor-defends-drc-eurobond-strategy-amid-debt-cost-debat-f08bc8",
+      "slug": "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
       "country": "DRC",
-      "category": "economie",
-      "title_en": "Central Bank Governor Defends DRC Eurobond Strategy Amid Debt Cost Debate",
-      "image": "/covers/Kinshasa_train_station__21237028852_.jpg"
+      "category": "societe",
+      "title_en": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
+      "image": "/covers/Ebola_virus_virion.jpg"
     },
     {
       "slot": 6,
-      "slug": "rwanda-backs-electric-motorcycles-with-rwf4-5-billion-financing-deal",
+      "slug": "rwanda-raises-policy-rate-to-8-75-percent-as-inflation-stays-elevated",
       "country": "RWANDA",
       "category": "economie",
-      "title_en": "Rwanda Backs Electric Motorcycles With Rwf4.5 Billion Financing Deal",
+      "title_en": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated",
       "image": "/covers/1280px-Kigali_skyline.jpg"
     },
     {
       "slot": 7,
-      "slug": "fama-destroy-alleged-terrorist-field-hospital-at-boulkessi",
-      "country": "MALI",
-      "category": "securite",
-      "title_en": "FAMa Destroy Alleged Terrorist Field Hospital at Boulkessi",
-      "image": "/covers/Djinguereber_Mosque__Timbuktu__Mali.jpg"
-    },
-    {
-      "slot": 8,
-      "slug": "djibouti-s-yellow-kiosks-drive-digital-services-and-economic-inclusion",
-      "country": "DJIBOUTI",
-      "category": "politique",
-      "title_en": "Djibouti's Yellow Kiosks Drive Digital Services and Economic Inclusion",
-      "image": "/covers/Djibouti_City.jpg"
-    },
-    {
-      "slot": 9,
-      "slug": "civilian-killing-highlights-fragile-security-in-masisi-after-afc-m23-waz-d991b9",
-      "country": "DRC",
-      "category": "securite",
-      "title_en": "Civilian Killing Highlights Fragile Security In Masisi After AFC/M23-Wazalendo Fighting",
-      "image": "/covers/Chuduku_in_Goma.jpg"
-    },
-    {
-      "slot": 10,
-      "slug": "unido-launches-initiative-to-rehabilitate-sudan-s-war-damaged-industry",
+      "slug": "us-pushes-un-to-expand-sudan-arms-embargo-to-drones",
       "country": "SUDAN",
-      "category": "economie",
-      "title_en": "UNIDO Launches Initiative To Rehabilitate Sudan's War-Damaged Industry",
+      "category": "politique",
+      "title_en": "US Pushes UN To Expand Sudan Arms Embargo To Drones",
       "image": "/covers/1280px-Headquarters_of_the_United_Nations__New_York_City__20231001_1103_1006.jpg"
     },
     {
-      "slot": 11,
-      "slug": "lands-minister-suspends-special-land-titles",
+      "slot": 8,
+      "slug": "eacop-nears-completion-as-oil-developers-emphasize-environmental-restora-325f81",
       "country": "UGANDA",
-      "category": "justice",
-      "title_en": "Lands Minister Suspends Special Land Titles",
-      "image": "/covers/1280px-Kampala-Gaddafi_Mosque.jpg"
+      "category": "economie",
+      "title_en": "EACOP Nears Completion As Oil Developers Emphasize Environmental Restoration",
+      "image": "/covers/1280px-Lake_Victoria-_Kampala-Uganda_1.jpg"
+    },
+    {
+      "slot": 9,
+      "slug": "ceasefire-verification-mission-deploys-to-minembwe",
+      "country": "DRC",
+      "category": "securite",
+      "title_en": "Ceasefire Verification Mission Deploys To Minembwe",
+      "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
+    },
+    {
+      "slot": 10,
+      "slug": "rwandair-adds-airbus-a330-200-to-support-long-haul-expansion",
+      "country": "RWANDA",
+      "category": "economie",
+      "title_en": "RwandAir Adds Airbus A330-200 To Support Long-Haul Expansion",
+      "image": "/covers/An_aerial_view_of_new_look_of_Rwanda_Parliament_Building_in_Kimihurura__Kigali_on_May_16__.jpg"
+    },
+    {
+      "slot": 11,
+      "slug": "rsf-claims-capture-of-key-army-bases-in-blue-nile",
+      "country": "SUDAN",
+      "category": "securite",
+      "title_en": "RSF Claims Capture Of Key Army Bases In Blue Nile",
+      "image": "/covers/1280px-Sudan._Khartoum._Bridge_across_Blue_Nile_from_Khartou_551d47473a.jpg"
     },
     {
       "slot": 12,
-      "slug": "jnim-claims-deadly-attack-on-selguin-military-post-e7986c",
-      "country": "BURKINA",
-      "category": "securite",
-      "title_en": "JNIM Claims Deadly Attack on Selguin Military Post",
-      "image": "/covers/1280px-180504-N-FD185-7900_PORT_OF_DJIBOUTI__Djibouti__42035449301_.jpg"
+      "slug": "bobi-wine-backs-olara-otunnu-for-un-secretary-general-bid",
+      "country": "UGANDA",
+      "category": "politique",
+      "title_en": "Bobi Wine Backs Olara Otunnu For UN Secretary-General Bid",
+      "image": "/covers/KampalaSkyline.jpg"
     },
     {
       "slot": 13,
-      "slug": "tshisekedi-sends-referendum-law-back-to-parliament-amid-civil-society-pu-00140e",
+      "slug": "tanzania-backs-drc-sovereignty-as-tshisekedi-and-samia-deepen-security-c-90021a",
       "country": "DRC",
       "category": "politique",
-      "title_en": "Tshisekedi Sends Referendum Law Back To Parliament Amid Civil Society Pushback",
-      "image": "/covers/F_lix_Tshisekedi__september_2018_.jpg"
+      "title_en": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation",
+      "image": "/covers/1280px-Virunga_Mountains.jpg"
     },
     {
       "slot": 14,
-      "slug": "court-ruling-affirms-refugees-right-to-work",
-      "country": "UGANDA",
-      "category": "justice",
-      "title_en": "Court Ruling Affirms Refugees’ Right To Work",
-      "image": "/covers/1280px-Skyline_of_Kampala.jpg"
+      "slug": "african-union-backs-sudan-dialogue-plan-as-civilian-blocs-object",
+      "country": "SUDAN",
+      "category": "politique",
+      "title_en": "African Union Backs Sudan Dialogue Plan As Civilian Blocs Object",
+      "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg"
     }
-  ]
+  ],
+  "note": "Aug 16-31 country-balanced HD curation"
 }
