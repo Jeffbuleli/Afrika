@@ -17,10 +17,35 @@ const csp = [
   "upgrade-insecure-requests",
 ].join("; ");
 
+const CATEGORY_SLUGS = [
+  "politique",
+  "securite",
+  "economie",
+  "societe",
+  "justice",
+  "culture",
+  "afrique",
+  "opinion",
+] as const;
+
 const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   serverExternalPackages: ["better-sqlite3"],
+  async redirects() {
+    return [
+      {
+        source: "/article/:slug",
+        destination: "/fr/article/:slug",
+        permanent: true,
+      },
+      ...CATEGORY_SLUGS.map((slug) => ({
+        source: `/${slug}`,
+        destination: `/fr/${slug}`,
+        permanent: true,
+      })),
+    ];
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200],
