@@ -12,10 +12,10 @@ COVERS = ROOT / "public" / "covers"
 
 # Slot order: country rotation by importance, high editorial quality, unique HD images.
 SLOTS = [
-    # 1 hero DRC
+    # 1 hero DRC — EJVM+ Minembwe (peacekeeper cover)
     (
-        "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
-        "/covers/F_lix_Tshisekedi_in_2021.jpg",
+        "ceasefire-verification-mission-deploys-to-minembwe",
+        "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg",
     ),
     # 2 Rwanda
     (
@@ -32,15 +32,15 @@ SLOTS = [
         "museveni-opens-125-million-roofings-steel-plant-in-namanve",
         "/covers/Yoweri_Museveni_September_2015.jpg",
     ),
-    # 5 DRC
+    # 5 DRC — Walikale displacement (Kivu landscape)
     (
-        "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
-        "/covers/Ebola_virus_virion.jpg",
+        "walikale-villages-empty-as-fighting-spreads-in-eastern-drc",
+        "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     ),
-    # 6 Rwanda
+    # 6 Rwanda — convention centre aerial (rotate away from skyline-only)
     (
         "rwanda-raises-policy-rate-to-8-75-percent-as-inflation-stays-elevated",
-        "/covers/1280px-Kigali_skyline.jpg",
+        "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
     ),
     # 7 Sudan
     (
@@ -52,10 +52,10 @@ SLOTS = [
         "eacop-nears-completion-as-oil-developers-emphasize-environmental-restora-325f81",
         "/covers/1280px-Lake_Victoria-_Kampala-Uganda_1.jpg",
     ),
-    # 9 DRC
+    # 9 DRC — Great Lakes diplomacy (Goma streetscape)
     (
-        "ceasefire-verification-mission-deploys-to-minembwe",
-        "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg",
+        "angolan-president-warns-eastern-drc-conflict-could-spill-across-great-la-3567a4",
+        "/covers/1280px-Chuduku_in_Goma.jpg",
     ),
     # 10 Rwanda
     (
@@ -72,10 +72,10 @@ SLOTS = [
         "bobi-wine-backs-olara-otunnu-for-un-secretary-general-bid",
         "/covers/KampalaSkyline.jpg",
     ),
-    # 13 DRC
+    # 13 DRC — health / Ebola (distinct visual)
     (
-        "tanzania-backs-drc-sovereignty-as-tshisekedi-and-samia-deepen-security-c-90021a",
-        "/covers/1280px-Virunga_Mountains.jpg",
+        "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
+        "/covers/Ebola_virus_virion.jpg",
     ),
     # 14 Sudan
     (
@@ -118,9 +118,8 @@ def main() -> None:
         a["featured"] = True
         a["rank"] = i + 1
         a["homeSlot"] = i + 1
+        # Homepage cover only — do not change title, excerpt, or body fields.
         a["image"] = image
-        a["coverImageAltEn"] = a.get("title_en") or a.get("title") or ""
-        a["coverImageAltFr"] = a.get("title") or a.get("title_en") or ""
         report_ordered.append(
             {
                 "slot": i + 1,
@@ -132,7 +131,11 @@ def main() -> None:
             }
         )
 
-    report = {"hero": HERO_SLUG, "ordered": report_ordered, "note": "Aug 16-31 country-balanced HD curation"}
+    report = {
+        "hero": HERO_SLUG,
+        "ordered": report_ordered,
+        "note": "Oct 2026 refresh: Minembwe hero, diversified DRC rail (Walikale, Lourenco, Ebola), unique HD covers",
+    }
     OUT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     SEED.write_text(json.dumps(seed, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

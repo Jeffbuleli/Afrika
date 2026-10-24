@@ -67582,8 +67582,8 @@
   {
     "slug": "tanzania-backs-drc-sovereignty-as-tshisekedi-and-samia-deepen-security-c-90021a",
     "category": "politique",
-    "featured": true,
-    "rank": 13,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-18T16:00:00.000Z",
     "image": "/covers/1280px-Virunga_Mountains.jpg",
     "title": "La Tanzanie soutient la souveraineté de la RDC alors que Tshisekedi et Samia approfondissent la coopération en matière de sécurité",
@@ -67597,8 +67597,7 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La Tanzanie soutient la souveraineté de la RDC alors que Tshisekedi et Samia approfondissent la coopération en matière de sécurité",
-    "coverImageAltEn": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation",
-    "homeSlot": 13
+    "coverImageAltEn": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation"
   },
   {
     "slug": "afc-m23-tightens-media-controls-in-rebel-held-south-kivu",
@@ -67703,8 +67702,8 @@
   {
     "slug": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
     "category": "politique",
-    "featured": true,
-    "rank": 1,
+    "featured": false,
+    "rank": 50,
     "publishedAt": "2026-08-27T15:00:00.000Z",
     "image": "/covers/F_lix_Tshisekedi_in_2021.jpg",
     "title": "Tshisekedi ouvre un dialogue national mais exclut les rebelles AFC/M23",
@@ -67718,8 +67717,7 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "Tshisekedi ouvre un dialogue national mais exclut les rebelles AFC/M23",
-    "coverImageAltEn": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels",
-    "homeSlot": 1
+    "coverImageAltEn": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels"
   },
   {
     "slug": "kabund-rejects-tshisekedi-consultation-plan-amid-reform-debate",
@@ -67784,10 +67782,10 @@
   {
     "slug": "angolan-president-warns-eastern-drc-conflict-could-spill-across-great-la-3567a4",
     "category": "politique",
-    "featured": false,
-    "rank": 50,
+    "featured": true,
+    "rank": 9,
     "publishedAt": "2026-08-31T09:00:00.000Z",
-    "image": "/covers/La_Gombe__Kinshasa__RDC.jpg",
+    "image": "/covers/1280px-Chuduku_in_Goma.jpg",
     "title": "Le Président angolais met en garde contre le risque d'un conflit dans l'est de la RDC s'étendant à la région des Grands Lacs",
     "excerpt": "Kinshasa, le 31 août 2026 - Le Président angolais Joao Lourenco a averti que le conflit de longue date dans l'est de la RDC pourrait avoir des répercussions dans la région des Grands Lacs, ajoutant un poids diplomatique aux appels en faveur de mécanismes de prévention des conflits plus solides.",
     "title_en": "Angolan President Warns Eastern DRC Conflict Could Spill Across Great Lakes",
@@ -67799,7 +67797,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "Le Président angolais met en garde contre le risque d'un conflit dans l'est de la RDC s'étendant à la région des Grands Lacs",
-    "coverImageAltEn": "Angolan President Warns Eastern DRC Conflict Could Spill Across Great Lakes"
+    "coverImageAltEn": "Angolan President Warns Eastern DRC Conflict Could Spill Across Great Lakes",
+    "homeSlot": 9
   },
   {
     "slug": "kinshasa-orders-faster-disbursement-of-external-project-finance",
@@ -67925,7 +67924,7 @@
     "slug": "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
     "category": "societe",
     "featured": true,
-    "rank": 5,
+    "rank": 13,
     "publishedAt": "2026-08-28T16:00:00.000Z",
     "image": "/covers/Ebola_virus_virion.jpg",
     "title": "La crise Ebola s'aggrave alors que l'ONU et l'OMS cherchent à accéder aux zones de conflit",
@@ -67940,7 +67939,7 @@
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La crise Ebola s'aggrave alors que l'ONU et l'OMS cherchent à accéder aux zones de conflit",
     "coverImageAltEn": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
-    "homeSlot": 5
+    "homeSlot": 13
   },
   {
     "slug": "kinshasa-police-chief-orders-crackdown-on-abuse-and-corruption",
@@ -68266,7 +68265,7 @@
     "slug": "ceasefire-verification-mission-deploys-to-minembwe",
     "category": "securite",
     "featured": true,
-    "rank": 9,
+    "rank": 1,
     "publishedAt": "2026-08-24T12:00:00.000Z",
     "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg",
     "title": "La mission de vérification du cessez-le-feu se déploie à Minembwe",
@@ -68281,7 +68280,7 @@
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "La mission de vérification du cessez-le-feu se déploie à Minembwe",
     "coverImageAltEn": "Ceasefire Verification Mission Deploys To Minembwe",
-    "homeSlot": 9
+    "homeSlot": 1
   },
   {
     "slug": "medicine-plane-allegedly-shot-down-in-minembwe-amid-wider-kivu-fighting",
@@ -68346,8 +68345,8 @@
   {
     "slug": "walikale-villages-empty-as-fighting-spreads-in-eastern-drc",
     "category": "securite",
-    "featured": false,
-    "rank": 50,
+    "featured": true,
+    "rank": 5,
     "publishedAt": "2026-08-31T09:00:00.000Z",
     "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg",
     "title": "Des villages de Walikale vidés alors que les combats se propagent dans l'est de la RDC",
@@ -68361,7 +68360,8 @@
     "country": "DRC",
     "source": "DRC_August_31_REPORT.txt",
     "coverImageAltFr": "Des villages de Walikale vidés alors que les combats se propagent dans l'est de la RDC",
-    "coverImageAltEn": "Walikale Villages Empty As Fighting Spreads In Eastern DRC"
+    "coverImageAltEn": "Walikale Villages Empty As Fighting Spreads In Eastern DRC",
+    "homeSlot": 5
   },
   {
     "slug": "government-says-army-is-blocking-afc-m23-expansion-in-kivu",
@@ -68991,7 +68991,7 @@
     "featured": true,
     "rank": 6,
     "publishedAt": "2026-08-27T15:00:00.000Z",
-    "image": "/covers/1280px-Kigali_skyline.jpg",
+    "image": "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg",
     "title": "Le Rwanda augmente son taux directeur à 8,75 % alors que l'inflation reste élevée",
     "excerpt": "Kigali, le 27 août 2026 - La Banque nationale du Rwanda a relevé son taux directeur de 50 points de base à 8,75 %, le niveau le plus élevé depuis 2009, alors que les décideurs politiques s'efforcent de contenir une pression inflationniste persistante.",
     "title_en": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated",

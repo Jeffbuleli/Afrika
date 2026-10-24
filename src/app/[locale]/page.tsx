@@ -32,8 +32,7 @@ const HOME_PRIORITY = new Set<string>(COUNTRY_PRIORITY);
 /** Cap home payload - was loading ALL published articles (~3k) into HTML. */
 const TOP_FEED = 48;
 const PER_CATEGORY = 10;
-const HERO_SLUG =
-  "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels";
+const HERO_SLUG = "ceasefire-verification-mission-deploys-to-minembwe";
 
 type Props = {
   params: Promise<{ locale: string }>;

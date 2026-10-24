@@ -13,10 +13,10 @@ SEED = ROOT / "content" / "seed-all.json"
 OUT = ROOT / "content" / "homepage-curation.json"
 MCBULELI_ENV = Path("/Users/mac/Documents/McBuleliP2P/.env")
 
-HERO_SLUG = (
-    "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels"
+HERO_SLUG = "ceasefire-verification-mission-deploys-to-minembwe"
+HERO_IMAGE = (
+    "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
 )
-HERO_IMAGE = "/covers/F_lix_Tshisekedi_in_2021.jpg"
 
 # Country importance order for homepage
 COUNTRY_ORDER = ["DRC", "RWANDA", "SUDAN", "UGANDA", "MALI", "DJIBOUTI", "BURKINA"]

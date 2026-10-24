@@ -1,13 +1,13 @@
 {
-  "hero": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
+  "hero": "ceasefire-verification-mission-deploys-to-minembwe",
   "ordered": [
     {
       "slot": 1,
-      "slug": "tshisekedi-opens-national-dialogue-but-excludes-afc-m23-rebels",
+      "slug": "ceasefire-verification-mission-deploys-to-minembwe",
       "country": "DRC",
-      "category": "politique",
-      "title_en": "Tshisekedi Opens National Dialogue But Excludes AFC/M23 Rebels",
-      "image": "/covers/F_lix_Tshisekedi_in_2021.jpg"
+      "category": "securite",
+      "title_en": "Ceasefire Verification Mission Deploys To Minembwe",
+      "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
     },
     {
       "slot": 2,
@@ -35,11 +35,11 @@
     },
     {
       "slot": 5,
-      "slug": "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
+      "slug": "walikale-villages-empty-as-fighting-spreads-in-eastern-drc",
       "country": "DRC",
-      "category": "societe",
-      "title_en": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
-      "image": "/covers/Ebola_virus_virion.jpg"
+      "category": "securite",
+      "title_en": "Walikale Villages Empty As Fighting Spreads In Eastern DRC",
+      "image": "/covers/Kivu_Goma_and_Rubavu_On_Rwanda_Side.jpg"
     },
     {
       "slot": 6,
@@ -47,7 +47,7 @@
       "country": "RWANDA",
       "category": "economie",
       "title_en": "Rwanda Raises Policy Rate To 8.75 Percent As Inflation Stays Elevated",
-      "image": "/covers/1280px-Kigali_skyline.jpg"
+      "image": "/covers/1280px-An_aerial_of_Kigali_Convention_Center_on_June_19__201_8a0e5f11cc.jpg"
     },
     {
       "slot": 7,
@@ -67,11 +67,11 @@
     },
     {
       "slot": 9,
-      "slug": "ceasefire-verification-mission-deploys-to-minembwe",
+      "slug": "angolan-president-warns-eastern-drc-conflict-could-spill-across-great-la-3567a4",
       "country": "DRC",
-      "category": "securite",
-      "title_en": "Ceasefire Verification Mission Deploys To Minembwe",
-      "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
+      "category": "politique",
+      "title_en": "Angolan President Warns Eastern DRC Conflict Could Spill Across Great Lakes",
+      "image": "/covers/1280px-Chuduku_in_Goma.jpg"
     },
     {
       "slot": 10,
@@ -99,11 +99,11 @@
     },
     {
       "slot": 13,
-      "slug": "tanzania-backs-drc-sovereignty-as-tshisekedi-and-samia-deepen-security-c-90021a",
+      "slug": "ebola-crisis-deepens-as-un-and-who-seek-access-to-conflict-zones",
       "country": "DRC",
-      "category": "politique",
-      "title_en": "Tanzania Backs DRC Sovereignty As Tshisekedi And Samia Deepen Security Cooperation",
-      "image": "/covers/1280px-Virunga_Mountains.jpg"
+      "category": "societe",
+      "title_en": "Ebola Crisis Deepens As UN And WHO Seek Access To Conflict Zones",
+      "image": "/covers/Ebola_virus_virion.jpg"
     },
     {
       "slot": 14,
@@ -114,5 +114,5 @@
       "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg"
     }
   ],
-  "note": "Aug 16-31 country-balanced HD curation"
+  "note": "Oct 2026 refresh: Minembwe hero, diversified DRC rail (Walikale, Lourenco, Ebola), unique HD covers"
 }
