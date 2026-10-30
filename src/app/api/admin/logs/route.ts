@@ -10,6 +10,7 @@ import {
   getAuthStats,
   getVisitStats,
   LOG_RETENTION,
+  AUDIENCE_RETENTION_DAYS,
 } from "@/lib/analytics";
 
 export async function GET(request: Request) {
@@ -37,7 +38,7 @@ export async function GET(request: Request) {
       retention: LOG_RETENTION,
       visits: getVisitStats(),
       auth: getAuthStats(),
-      audience: getAudienceReport(30),
+      audience: getAudienceReport(AUDIENCE_RETENTION_DAYS),
     });
   }
 
@@ -65,6 +66,6 @@ export async function GET(request: Request) {
     rows,
     retention: LOG_RETENTION,
     stats: getVisitStats(),
-    audience: getAudienceReport(30),
+    audience: getAudienceReport(AUDIENCE_RETENTION_DAYS),
   });
 }

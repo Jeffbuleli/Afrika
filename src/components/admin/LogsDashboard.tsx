@@ -1,7 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
-import type { AudienceReport, AuthStats, VisitStats } from "@/lib/analytics";
+import type {
+  AudienceDayRow,
+  AudienceReport,
+  AuthStats,
+  VisitStats,
+} from "@/lib/analytics";
 
 type VisitRow = {
   id: number;
@@ -37,6 +42,128 @@ type AuthRow = {
 type SortDir = "asc" | "desc";
 
 const LOG_LIMIT = 150;
+
+type AudienceGranularity = "D" | "W" | "M";
+
+type AudienceAggRow = {
+  key: string;
+  label: string;
+  pageviews: number;
+  uniques: number;
+  refGoogle: number;
+  refInternal: number;
+  refDirect: number;
+  refOther: number;
+  pwaStandalone: number;
+  pwaInstalls: number;
+};
+
+function isoWeekKey(dayStr: string): string {
+  const [y, m, d] = dayStr.split("-").map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  const dow = date.getUTCDay() || 7;
+  date.setUTCDate(date.getUTCDate() + 4 - dow);
+  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil(
+    ((date.getTime() - yearStart.getTime()) / 86400000 + 1) / 7,
+  );
+  return `${date.getUTCFullYear()}-W${String(weekNo).padStart(2, "0")}`;
+}
+
+function audiencePeriodLabel(
+  mode: AudienceGranularity,
+  key: string,
+  dayStr?: string,
+): string {
+  if (mode === "D" && dayStr) {
+    try {
+      return new Intl.DateTimeFormat("fr-FR", {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+      }).format(new Date(`${dayStr}T12:00:00Z`));
+    } catch {
+      return key;
+    }
+  }
+  if (mode === "W") {
+    return key.replace("-W", " · sem. ");
+  }
+  try {
+    const [ys, ms] = key.split("-");
+    return new Intl.DateTimeFormat("fr-FR", {
+      month: "long",
+      year: "numeric",
+      timeZone: "UTC",
+    }).format(new Date(Date.UTC(Number(ys), Number(ms) - 1, 1)));
+  } catch {
+    return key;
+  }
+}
+
+function aggregateAudienceDays(
+  days: AudienceDayRow[],
+  mode: AudienceGranularity,
+): AudienceAggRow[] {
+  const map = new Map<string, AudienceAggRow>();
+  for (const row of days) {
+    const key =
+      mode === "D"
+        ? row.day
+        : mode === "W"
+          ? isoWeekKey(row.day)
+          : row.day.slice(0, 7);
+    const existing = map.get(key);
+    const base: AudienceAggRow = existing || {
+      key,
+      label: audiencePeriodLabel(mode, key, mode === "D" ? row.day : undefined),
+      pageviews: 0,
+      uniques: 0,
+      refGoogle: 0,
+      refInternal: 0,
+      refDirect: 0,
+      refOther: 0,
+      pwaStandalone: 0,
+      pwaInstalls: 0,
+    };
+    base.pageviews += row.pageviews;
+    base.uniques += row.uniques;
+    base.refGoogle += row.refGoogle;
+    base.refInternal += row.refInternal;
+    base.refDirect += row.refDirect;
+    base.refOther += row.refOther;
+    base.pwaStandalone += row.pwaStandalone;
+    base.pwaInstalls += row.pwaInstalls;
+    map.set(key, base);
+  }
+  return [...map.values()];
+}
+
+function sumAudienceRows(rows: AudienceAggRow[]) {
+  return rows.reduce(
+    (acc, r) => ({
+      pageviews: acc.pageviews + r.pageviews,
+      uniques: acc.uniques + r.uniques,
+      refGoogle: acc.refGoogle + r.refGoogle,
+      refInternal: acc.refInternal + r.refInternal,
+      refDirect: acc.refDirect + r.refDirect,
+      refOther: acc.refOther + r.refOther,
+      pwaStandalone: acc.pwaStandalone + r.pwaStandalone,
+      pwaInstalls: acc.pwaInstalls + r.pwaInstalls,
+    }),
+    {
+      pageviews: 0,
+      uniques: 0,
+      refGoogle: 0,
+      refInternal: 0,
+      refDirect: 0,
+      refOther: 0,
+      pwaStandalone: 0,
+      pwaInstalls: 0,
+    },
+  );
+}
 
 function whereOf(row: {
   city: string | null;
@@ -235,6 +362,8 @@ export function LogsDashboard() {
   const [visitStats, setVisitStats] = useState<VisitStats | null>(null);
   const [authStats, setAuthStats] = useState<AuthStats | null>(null);
   const [audience, setAudience] = useState<AudienceReport | null>(null);
+  const [audienceMode, setAudienceMode] = useState<AudienceGranularity>("D");
+  const [audienceSort, setAudienceSort] = useState<SortDir>("desc");
   const [live, setLive] = useState(true);
   const [updatedAt, setUpdatedAt] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -301,6 +430,25 @@ export function LogsDashboard() {
     return sortRows(auth, authSortKey, authSortDir);
   }, [auth, authSortDir, authSortKey]);
 
+  const audienceRows = useMemo(() => {
+    if (!audience?.days.length) return [];
+    const agg = aggregateAudienceDays(audience.days, audienceMode);
+    return sortRows(agg, "key", audienceSort);
+  }, [audience, audienceMode, audienceSort]);
+
+  const audienceTotals = useMemo(
+    () => sumAudienceRows(audienceRows),
+    [audienceRows],
+  );
+
+  const audienceDistinctHint = useMemo(() => {
+    if (!audience) return "";
+    if (audienceMode === "D") {
+      return `30 j distincts (serveur) : ${audience.last30.uniquesDistinct}`;
+    }
+    return "Uniques = somme des jours sur chaque ligne";
+  }, [audience, audienceMode]);
+
   function toggleVisitSort(key: keyof VisitRow) {
     if (visitSortKey === key) {
       setVisitSortDir((dir) => (dir === "asc" ? "desc" : "asc"));
@@ -357,94 +505,117 @@ export function LogsDashboard() {
 
       {tab === "visits" && audience ? (
         <section className="mt-6 border border-line bg-white p-4">
-          <h2 className="text-sm font-semibold text-ink">
-            Audience long terme
-          </h2>
-          <p className="mt-1 text-xs text-ink-soft">
-            Agrégats journaliers ({audience.retentionDays} j max, fuseau{" "}
-            {audience.timezone}). Les IP uniques sur 7 / 30 j comptent une
-            même visiteuse une seule fois sur la période (hash, pas nom réel).
-          </p>
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h2 className="text-sm font-semibold text-ink">Audience</h2>
+              <p className="mt-1 max-w-xl text-xs text-ink-soft">
+                Jusqu’à {audience.retentionDays} j ({audience.timezone}). Choisis
+                la granularité ; le tableau et les totaux suivent D / W / M.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <div
+                className="inline-flex border border-line text-xs"
+                role="group"
+                aria-label="Granularité"
+              >
+                {(
+                  [
+                    ["D", "Jour"],
+                    ["W", "Semaine"],
+                    ["M", "Mois"],
+                  ] as const
+                ).map(([mode, label]) => (
+                  <button
+                    key={mode}
+                    type="button"
+                    onClick={() => setAudienceMode(mode)}
+                    className={`px-3 py-1.5 font-medium uppercase tracking-wide ${
+                      audienceMode === mode
+                        ? "bg-navy text-white"
+                        : "bg-paper-deep/40 text-ink-soft hover:text-ink"
+                    }`}
+                  >
+                    {mode} · {label}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={() =>
+                  setAudienceSort((d) => (d === "desc" ? "asc" : "desc"))
+                }
+                className="border border-line px-3 py-1.5 text-xs font-medium text-navy hover:border-navy"
+              >
+                Tri : {audienceSort === "desc" ? "récent → ancien" : "ancien → récent"}
+              </button>
+            </div>
+          </div>
+
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <StatTile
-              label="Pages vues · 7 j"
-              value={audience.last7.pageviews}
+              label="Pages vues (période affichée)"
+              value={audienceTotals.pageviews}
               accent="bg-navy"
             />
             <StatTile
-              label="Visiteurs uniques · 7 j"
-              value={audience.last7.uniquesDistinct}
-              hint="distinct sur la période"
+              label="Uniques (somme lignes)"
+              value={audienceTotals.uniques}
+              hint={audienceDistinctHint}
               accent="bg-emerald-700"
             />
             <StatTile
-              label="Pages vues · 30 j"
-              value={audience.last30.pageviews}
+              label="Google · interne · direct"
+              value={`${audienceTotals.refGoogle} / ${audienceTotals.refInternal} / ${audienceTotals.refDirect}`}
+              hint={`Autres : ${audienceTotals.refOther}`}
               accent="bg-amber-600"
             />
             <StatTile
-              label="Visiteurs uniques · 30 j"
-              value={audience.last30.uniquesDistinct}
-              hint={`PWA ouvertures standalone 30 j : ${audience.last30.pwaStandalone} · installs : ${audience.last30.pwaInstalls}`}
+              label="PWA"
+              value={`${audienceTotals.pwaStandalone} vues`}
+              hint={`${audienceTotals.pwaInstalls} installs`}
               accent="bg-slate-700"
             />
           </div>
-          <div className="mt-4 grid gap-3 lg:grid-cols-2">
-            <BucketBars
-              title="Sources (30 j · pages vues)"
-              buckets={[
-                {
-                  label: "Google / recherche",
-                  value: audience.last30.refGoogle,
-                },
-                {
-                  label: "Navigation interne",
-                  value: audience.last30.refInternal,
-                },
-                { label: "Direct / vide", value: audience.last30.refDirect },
-                { label: "Autres sites", value: audience.last30.refOther },
-              ]}
-            />
-            <div className="border border-line bg-paper-deep/30 p-4">
-              <h3 className="text-sm font-semibold text-ink">
-                Détail par jour (30 derniers)
-              </h3>
-              {audience.days.length === 0 ? (
-                <p className="mt-3 text-sm text-ink-soft">
-                  Pas encore de données agrégées — les visites du site alimentent
-                  ce tableau après déploiement.
-                </p>
-              ) : (
-                <div className="mt-3 max-h-64 overflow-auto">
-                  <table className="min-w-full text-left text-xs">
-                    <thead className="sticky top-0 bg-paper-deep text-ink-soft">
-                      <tr>
-                        <th className="px-2 py-1">Jour</th>
-                        <th className="px-2 py-1">Vues</th>
-                        <th className="px-2 py-1">Uniques</th>
-                        <th className="px-2 py-1">Google</th>
-                        <th className="px-2 py-1">Interne</th>
-                        <th className="px-2 py-1">Direct</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-line">
-                      {audience.days.map((row) => (
-                        <tr key={row.day}>
-                          <td className="whitespace-nowrap px-2 py-1 font-medium">
-                            {row.day}
-                          </td>
-                          <td className="px-2 py-1">{row.pageviews}</td>
-                          <td className="px-2 py-1">{row.uniques}</td>
-                          <td className="px-2 py-1">{row.refGoogle}</td>
-                          <td className="px-2 py-1">{row.refInternal}</td>
-                          <td className="px-2 py-1">{row.refDirect}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
+
+          <div className="mt-4 overflow-x-auto border border-line">
+            <table className="min-w-full text-left text-sm">
+              <thead className="bg-paper-deep text-xs uppercase tracking-[0.08em] text-ink-soft">
+                <tr>
+                  <th className="px-3 py-2">Période</th>
+                  <th className="px-3 py-2">Vues</th>
+                  <th className="px-3 py-2">Uniques</th>
+                  <th className="px-3 py-2">Google</th>
+                  <th className="px-3 py-2">Interne</th>
+                  <th className="px-3 py-2">Direct</th>
+                  <th className="px-3 py-2">Autres</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-line">
+                {audienceRows.length === 0 ? (
+                  <tr>
+                    <td colSpan={7} className="px-3 py-8 text-ink-soft">
+                      Pas encore de données — le trafic du site alimente ce
+                      tableau après déploiement.
+                    </td>
+                  </tr>
+                ) : (
+                  audienceRows.map((row) => (
+                    <tr key={row.key} className="hover:bg-paper-deep/40">
+                      <td className="whitespace-nowrap px-3 py-2 font-medium">
+                        {row.label}
+                      </td>
+                      <td className="px-3 py-2">{row.pageviews}</td>
+                      <td className="px-3 py-2">{row.uniques}</td>
+                      <td className="px-3 py-2">{row.refGoogle}</td>
+                      <td className="px-3 py-2">{row.refInternal}</td>
+                      <td className="px-3 py-2">{row.refDirect}</td>
+                      <td className="px-3 py-2">{row.refOther}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
           </div>
         </section>
       ) : null}

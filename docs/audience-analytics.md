@@ -9,7 +9,7 @@ Africa Insight enregistre deux niveaux de métriques :
 
 ## Où voir
 
-Admin → **Logs & visites** → section **Audience long terme** (onglet visites site).
+Admin → **Logs & visites** → section **Audience** : bascule **D / W / M**, tri récent ou ancien, un seul tableau + totaux de la période affichée.
 
 ## Définitions
 
