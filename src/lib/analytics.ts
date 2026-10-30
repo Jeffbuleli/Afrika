@@ -7,8 +7,9 @@ import {
   lookupGeo,
   parseUserAgent,
 } from "@/lib/client-info";
+import { LOG_RETENTION } from "@/lib/log-retention";
 
-export const LOG_RETENTION = 150;
+export { LOG_RETENTION };
 /** Daily rollups kept for long-term audience (admin 7 / 30 day views). */
 export const AUDIENCE_RETENTION_DAYS = 90;
 

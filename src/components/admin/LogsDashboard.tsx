@@ -7,6 +7,7 @@ import type {
   AuthStats,
   VisitStats,
 } from "@/lib/analytics";
+import { LOG_RETENTION } from "@/lib/log-retention";
 
 type VisitRow = {
   id: number;
@@ -41,7 +42,7 @@ type AuthRow = {
 
 type SortDir = "asc" | "desc";
 
-const LOG_LIMIT = 150;
+const LOG_LIMIT = LOG_RETENTION;
 
 type AudienceGranularity = "D" | "W" | "M";
 

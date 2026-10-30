@@ -4,7 +4,7 @@ Africa Insight enregistre deux niveaux de métriques :
 
 | Niveau | Rétention | Usage |
 |--------|-----------|--------|
-| **Logs bruts** (`visit_logs`) | 150 dernières lignes | Debug live, IP, référent exact |
+| **Logs bruts** (`visit_logs`) | 2500 dernières lignes | Debug live, IP, référent exact |
 | **Agrégats journaliers** | 90 jours | Tendances 7 / 30 jours, partenaires |
 
 ## Où voir
