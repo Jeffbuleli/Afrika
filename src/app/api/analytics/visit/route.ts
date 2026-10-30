@@ -2,7 +2,12 @@ import { NextResponse } from "next/server";
 import { recordVisit } from "@/lib/analytics";
 
 export async function POST(request: Request) {
-  let body: { path?: string; locale?: string; referrer?: string } | null = null;
+  let body: {
+    path?: string;
+    locale?: string;
+    referrer?: string;
+    displayMode?: string;
+  } | null = null;
   const contentType = request.headers.get("content-type") || "";
   try {
     if (contentType.includes("application/json")) {
@@ -21,12 +26,18 @@ export async function POST(request: Request) {
     ? String(body.referrer)
     : request.headers.get("referer");
 
+  const displayModeRaw = body?.displayMode ? String(body.displayMode) : null;
+  const displayMode =
+    displayModeRaw === "standalone" || displayModeRaw === "browser"
+      ? displayModeRaw
+      : null;
+
   if (!path) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
   try {
-    await recordVisit({ request, path, locale, referrer });
+    await recordVisit({ request, path, locale, referrer, displayMode });
   } catch (err) {
     console.error("visit log failed", err);
   }

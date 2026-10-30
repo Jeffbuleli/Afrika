@@ -8,10 +8,18 @@ export function VisitBeacon({ locale }: { locale: string }) {
 
   useEffect(() => {
     if (!pathname) return;
+    const standalone =
+      typeof window !== "undefined" &&
+      (window.matchMedia("(display-mode: standalone)").matches ||
+        ("standalone" in navigator &&
+          Boolean(
+            (navigator as Navigator & { standalone?: boolean }).standalone,
+          )));
     const payload = JSON.stringify({
       path: pathname,
       locale,
       referrer: document.referrer || null,
+      displayMode: standalone ? "standalone" : "browser",
     });
 
     const send = () => {

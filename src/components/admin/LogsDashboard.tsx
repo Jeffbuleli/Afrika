@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
-import type { AuthStats, VisitStats } from "@/lib/analytics";
+import type { AudienceReport, AuthStats, VisitStats } from "@/lib/analytics";
 
 type VisitRow = {
   id: number;
@@ -234,6 +234,7 @@ export function LogsDashboard() {
   const [auth, setAuth] = useState<AuthRow[]>([]);
   const [visitStats, setVisitStats] = useState<VisitStats | null>(null);
   const [authStats, setAuthStats] = useState<AuthStats | null>(null);
+  const [audience, setAudience] = useState<AudienceReport | null>(null);
   const [live, setLive] = useState(true);
   const [updatedAt, setUpdatedAt] = useState<string>("");
   const [error, setError] = useState<string>("");
@@ -262,6 +263,7 @@ export function LogsDashboard() {
       setAuth(aJson.rows || []);
       setVisitStats(vJson.stats || null);
       setAuthStats(aJson.stats || null);
+      setAudience(vJson.audience || null);
       setUpdatedAt(new Date().toLocaleTimeString("fr-FR"));
       setError("");
     } catch {
@@ -352,6 +354,100 @@ export function LogsDashboard() {
       </div>
 
       {error ? <p className="mt-4 text-sm text-red-700">{error}</p> : null}
+
+      {tab === "visits" && audience ? (
+        <section className="mt-6 border border-line bg-white p-4">
+          <h2 className="text-sm font-semibold text-ink">
+            Audience long terme
+          </h2>
+          <p className="mt-1 text-xs text-ink-soft">
+            Agrégats journaliers ({audience.retentionDays} j max, fuseau{" "}
+            {audience.timezone}). Les IP uniques sur 7 / 30 j comptent une
+            même visiteuse une seule fois sur la période (hash, pas nom réel).
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <StatTile
+              label="Pages vues · 7 j"
+              value={audience.last7.pageviews}
+              accent="bg-navy"
+            />
+            <StatTile
+              label="Visiteurs uniques · 7 j"
+              value={audience.last7.uniquesDistinct}
+              hint="distinct sur la période"
+              accent="bg-emerald-700"
+            />
+            <StatTile
+              label="Pages vues · 30 j"
+              value={audience.last30.pageviews}
+              accent="bg-amber-600"
+            />
+            <StatTile
+              label="Visiteurs uniques · 30 j"
+              value={audience.last30.uniquesDistinct}
+              hint={`PWA ouvertures standalone 30 j : ${audience.last30.pwaStandalone} · installs : ${audience.last30.pwaInstalls}`}
+              accent="bg-slate-700"
+            />
+          </div>
+          <div className="mt-4 grid gap-3 lg:grid-cols-2">
+            <BucketBars
+              title="Sources (30 j · pages vues)"
+              buckets={[
+                {
+                  label: "Google / recherche",
+                  value: audience.last30.refGoogle,
+                },
+                {
+                  label: "Navigation interne",
+                  value: audience.last30.refInternal,
+                },
+                { label: "Direct / vide", value: audience.last30.refDirect },
+                { label: "Autres sites", value: audience.last30.refOther },
+              ]}
+            />
+            <div className="border border-line bg-paper-deep/30 p-4">
+              <h3 className="text-sm font-semibold text-ink">
+                Détail par jour (30 derniers)
+              </h3>
+              {audience.days.length === 0 ? (
+                <p className="mt-3 text-sm text-ink-soft">
+                  Pas encore de données agrégées — les visites du site alimentent
+                  ce tableau après déploiement.
+                </p>
+              ) : (
+                <div className="mt-3 max-h-64 overflow-auto">
+                  <table className="min-w-full text-left text-xs">
+                    <thead className="sticky top-0 bg-paper-deep text-ink-soft">
+                      <tr>
+                        <th className="px-2 py-1">Jour</th>
+                        <th className="px-2 py-1">Vues</th>
+                        <th className="px-2 py-1">Uniques</th>
+                        <th className="px-2 py-1">Google</th>
+                        <th className="px-2 py-1">Interne</th>
+                        <th className="px-2 py-1">Direct</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-line">
+                      {audience.days.map((row) => (
+                        <tr key={row.day}>
+                          <td className="whitespace-nowrap px-2 py-1 font-medium">
+                            {row.day}
+                          </td>
+                          <td className="px-2 py-1">{row.pageviews}</td>
+                          <td className="px-2 py-1">{row.uniques}</td>
+                          <td className="px-2 py-1">{row.refGoogle}</td>
+                          <td className="px-2 py-1">{row.refInternal}</td>
+                          <td className="px-2 py-1">{row.refDirect}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {tab === "visits" && visitStats ? (
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

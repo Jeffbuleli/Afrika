@@ -6,6 +6,7 @@ import { getSession } from "@/lib/auth";
 import {
   ensureAnalyticsSchema,
   enforceLogRetention,
+  getAudienceReport,
   getAuthStats,
   getVisitStats,
   LOG_RETENTION,
@@ -36,6 +37,7 @@ export async function GET(request: Request) {
       retention: LOG_RETENTION,
       visits: getVisitStats(),
       auth: getAuthStats(),
+      audience: getAudienceReport(30),
     });
   }
 
@@ -63,5 +65,6 @@ export async function GET(request: Request) {
     rows,
     retention: LOG_RETENTION,
     stats: getVisitStats(),
+    audience: getAudienceReport(30),
   });
 }

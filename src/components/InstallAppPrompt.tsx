@@ -89,6 +89,15 @@ export function InstallAppPrompt({ locale }: { locale: Locale }) {
       setVisible(false);
       setDeferred(null);
       dismiss();
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon("/api/analytics/install", "");
+        } else {
+          void fetch("/api/analytics/install", { method: "POST", keepalive: true });
+        }
+      } catch {
+        // ignore
+      }
     };
     window.addEventListener("appinstalled", onInstalled);
 
