@@ -13,8 +13,9 @@ SEED = ROOT / "content" / "seed-all.json"
 OUT = ROOT / "content" / "homepage-curation.json"
 MCBULELI_ENV = Path("/Users/mac/Documents/McBuleliP2P/.env")
 
-HERO_SLUG = "ceasefire-verification-mission-deploys-to-minembwe"
-HERO_IMAGE = (
+HERO_SLUG = "drc-cobalt-copper-operational-copperbelt-oct-2026"
+# Legacy Minembwe portrait — only used when HERO_SLUG matches that story.
+HERO_IMAGE_LEGACY = (
     "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
 )
 
@@ -235,10 +236,10 @@ def main() -> None:
         a["featured"] = True
         a["rank"] = 1 + i  # 1 = hero
         a["homeSlot"] = i + 1
-        if slug == HERO_SLUG:
-            # HD portrait for immersive hero
-            if (ROOT / "public" / HERO_IMAGE.lstrip("/")).exists():
-                a["image"] = HERO_IMAGE
+        if slug == HERO_SLUG and HERO_SLUG == "ceasefire-verification-mission-deploys-to-minembwe":
+            legacy = ROOT / "public" / HERO_IMAGE_LEGACY.lstrip("/")
+            if legacy.exists():
+                a["image"] = HERO_IMAGE_LEGACY
                 a["coverImageAltEn"] = a.get("title_en") or a.get("title") or "Félix Tshisekedi"
                 a["coverImageAltFr"] = a.get("title") or a.get("title_en") or "Félix Tshisekedi"
 

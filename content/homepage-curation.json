@@ -1,13 +1,13 @@
 {
-  "hero": "ceasefire-verification-mission-deploys-to-minembwe",
+  "hero": "drc-cobalt-copper-operational-copperbelt-oct-2026",
   "ordered": [
     {
       "slot": 1,
-      "slug": "ceasefire-verification-mission-deploys-to-minembwe",
+      "slug": "drc-cobalt-copper-operational-copperbelt-oct-2026",
       "country": "DRC",
-      "category": "securite",
-      "title_en": "Ceasefire Verification Mission Deploys To Minembwe",
-      "image": "/covers/An_Indian_peacekeeper_at_his_lookout_post_in_Walikale__North_Kivu_province__DR_Congo__1362.jpg"
+      "category": "economie",
+      "title_en": "DRC cobalt and copper: what is operational on the copperbelt - and what remains announced ",
+      "image": "/covers/Kamoto_Mine_panoramio_goodhope_pilot.jpg"
     },
     {
       "slot": 2,
@@ -114,5 +114,5 @@
       "image": "/covers/1280px-Chairman_of_the_Sovereignty_Council_of_Sudan_Abdel_Fa_55de66e285.jpg"
     }
   ],
-  "note": "Oct 2026 refresh: Minembwe hero, diversified DRC rail (Walikale, Lourenco, Ebola), unique HD covers"
+  "note": "Nov 2026: GoodHope DRC copperbelt pilot hero (replaces Minembwe ceasefire verification)."
 }

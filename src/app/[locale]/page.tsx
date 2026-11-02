@@ -32,7 +32,7 @@ const HOME_PRIORITY = new Set<string>(COUNTRY_PRIORITY);
 /** Cap home payload - was loading ALL published articles (~3k) into HTML. */
 const TOP_FEED = 48;
 const PER_CATEGORY = 10;
-const HERO_SLUG = "ceasefire-verification-mission-deploys-to-minembwe";
+const HERO_SLUG = "drc-cobalt-copper-operational-copperbelt-oct-2026";
 
 type Props = {
   params: Promise<{ locale: string }>;
