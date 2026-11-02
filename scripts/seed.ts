@@ -42,6 +42,12 @@ const authorSeed = [
     bioFr: "Journaliste société et Afrique.",
     bioEn: "Society and Africa reporter.",
   },
+  {
+    name: "Jeff Buleli",
+    slug: "jeff-buleli",
+    bioFr: "Rédacteur en chef, Africa Insight.",
+    bioEn: "Editor-in-Chief, Africa Insight.",
+  },
 ];
 
 type SeedArticle = {
