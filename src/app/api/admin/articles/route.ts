@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { articleTranslations, articles } from "@/db/schema";
 import { getSession } from "@/lib/auth";
 import { estimateReadingTime } from "@/lib/articles";
+import { notifySearchEnginesArticlePublished } from "@/lib/search-engine-notify";
 
 function slugify(input: string) {
   return input
@@ -100,6 +101,10 @@ export async function POST(request: Request) {
     }
     if (translations.length) {
       await db.insert(articleTranslations).values(translations);
+    }
+
+    if (status === "published") {
+      notifySearchEnginesArticlePublished(slug);
     }
 
     return NextResponse.json(created, { status: 201 });
@@ -211,6 +216,11 @@ export async function PUT(request: Request) {
     String(body.excerptEn || ""),
     String(body.bodyEn || ""),
   );
+
+  const slug = String(body.slug || existing.slug);
+  if (status === "published") {
+    notifySearchEnginesArticlePublished(slug);
+  }
 
   return NextResponse.json({ ok: true });
 }

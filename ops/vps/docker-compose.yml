@@ -15,6 +15,7 @@ services:
         ADMIN_EMAIL: ${ADMIN_EMAIL:-editor@africa-insight.org}
         ADMIN_PASSWORD: ${ADMIN_PASSWORD:?set ADMIN_PASSWORD}
         AUTH_SECRET: ${AUTH_SECRET:?set AUTH_SECRET}
+        INDEXNOW_KEY: ${INDEXNOW_KEY:-}
     restart: unless-stopped
     env_file:
       - .env

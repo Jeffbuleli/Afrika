@@ -15,9 +15,11 @@ ENV NEXT_PUBLIC_APP_URL=$NEXT_PUBLIC_APP_URL
 ARG ADMIN_EMAIL=editor@africa-insight.org
 ARG ADMIN_PASSWORD=change-me-on-first-boot
 ARG AUTH_SECRET=change-me-build-only
+ARG INDEXNOW_KEY=
 ENV ADMIN_EMAIL=$ADMIN_EMAIL
 ENV ADMIN_PASSWORD=$ADMIN_PASSWORD
 ENV AUTH_SECRET=$AUTH_SECRET
+ENV INDEXNOW_KEY=$INDEXNOW_KEY
 ENV DATABASE_URL=file:./data/africa-insight.db
 
 RUN npm run build \
@@ -44,6 +46,7 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
+COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
 COPY --from=builder /app/data/africa-insight.db ./docker-seed/africa-insight.db
 COPY ops/vps/docker-entrypoint.sh /app/docker-entrypoint.sh
 

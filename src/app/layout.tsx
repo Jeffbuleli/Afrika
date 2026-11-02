@@ -21,6 +21,18 @@ const poppins = Poppins({
 
 const base = siteUrl();
 
+function siteVerificationMetadata(): Metadata["verification"] {
+  const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  const bing = process.env.BING_SITE_VERIFICATION?.trim();
+  if (!google && !bing) return undefined;
+  const other: Record<string, string | string[]> = {};
+  if (bing) other["msvalidate.01"] = bing;
+  return {
+    ...(google ? { google } : {}),
+    ...(Object.keys(other).length ? { other } : {}),
+  };
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(base),
   title: {
@@ -102,6 +114,7 @@ export const metadata: Metadata = {
     description: siteDescription("fr"),
     images: [pageShareImageUrl()],
   },
+  verification: siteVerificationMetadata(),
 };
 
 export default async function RootLayout({

@@ -32,6 +32,16 @@ const nextConfig: NextConfig = {
   output: "standalone",
   poweredByHeader: false,
   serverExternalPackages: ["better-sqlite3"],
+  async rewrites() {
+    const key = process.env.INDEXNOW_KEY?.trim();
+    if (!key || !/^[a-zA-Z0-9-]{8,128}$/.test(key)) return [];
+    return [
+      {
+        source: `/${key}.txt`,
+        destination: "/api/indexnow/key-file",
+      },
+    ];
+  },
   async redirects() {
     return [
       {
