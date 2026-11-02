@@ -100,6 +100,8 @@ export default async function ArticlePage({ params }: Props) {
   const bodyHtml = await renderArticleMarkdown(article.body);
   const sister = otherLocale(locale);
   const related = await getRelatedArticles(locale, article.categorySlug, slug);
+  const centeredHead =
+    slug === "drc-cobalt-copper-operational-copperbelt-oct-2026";
   const image =
     article.coverImageUrl ||
     "https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=1600&q=80";
@@ -135,7 +137,9 @@ export default async function ArticlePage({ params }: Props) {
       />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mx-auto max-w-[68ch] -mt-16 relative bg-paper px-4 sm:px-8 py-8 sm:py-10 border border-line">
+        <div
+          className={`mx-auto max-w-[68ch] -mt-16 relative bg-paper px-4 sm:px-8 py-8 sm:py-10 border border-line${centeredHead ? " text-center" : ""}`}
+        >
           <p className="text-xs uppercase tracking-[0.18em] text-ink-soft">
             <Link
               href={`/${locale}/${article.categorySlug}`}
@@ -150,7 +154,9 @@ export default async function ArticlePage({ params }: Props) {
           <h1 className="mt-4 text-3xl sm:text-5xl font-semibold tracking-[-0.035em] leading-[1.12]">
             {article.title}
           </h1>
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-soft border-t border-b site-rule py-4">
+          <div
+            className={`mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-ink-soft border-t border-b site-rule py-4${centeredHead ? " justify-center" : ""}`}
+          >
             <span>
               {copy.by}{" "}
               <span className="text-ink font-medium">{article.authorName}</span>
@@ -176,7 +182,7 @@ export default async function ArticlePage({ params }: Props) {
           </div>
 
           <div
-            className="prose-article mt-8"
+            className={`prose-article mt-8 text-left${centeredHead ? " prose-article--goodhope-pilot" : ""}`}
             dangerouslySetInnerHTML={{ __html: bodyHtml }}
           />
         </div>

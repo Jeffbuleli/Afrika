@@ -26,6 +26,21 @@ export function normalizeArticleParagraphs(source: string): string {
     .trim();
 }
 
+const GUEST_LENS_RE = /\[guest-lens-start\]([\s\S]*?)\[guest-lens-end\]/;
+
 export async function renderArticleMarkdown(source: string): Promise<string> {
-  return marked.parse(normalizeArticleParagraphs(source));
+  const normalized = normalizeArticleParagraphs(source);
+  const guestMatch = normalized.match(GUEST_LENS_RE);
+  let main = normalized;
+  let guestMd = "";
+  if (guestMatch) {
+    main = normalized.replace(guestMatch[0], "").trim();
+    guestMd = guestMatch[1].trim();
+  }
+  let html = await marked.parse(main);
+  if (guestMd) {
+    const guestHtml = await marked.parse(guestMd);
+    html += `<aside class="guest-policy-lens" aria-label="Guest policy lens"><div class="guest-policy-lens-inner">${guestHtml}</div></aside>`;
+  }
+  return html;
 }
