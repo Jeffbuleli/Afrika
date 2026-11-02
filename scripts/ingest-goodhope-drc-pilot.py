@@ -12,7 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SEED = ROOT / "content" / "seed-all.json"
 COVERS = ROOT / "public" / "covers"
-BODY = ROOT / "content" / "goodhope-drc-pilot-body-en.md"
+BODY_EN = ROOT / "content" / "goodhope-drc-pilot-body-en.md"
+BODY_FR = ROOT / "content" / "goodhope-drc-pilot-body-fr.md"
 
 SLUG = "drc-cobalt-copper-operational-copperbelt-oct-2026"
 WIKI_FILE = "Kamoto_Mine_-_panoramio.jpg"
@@ -59,30 +60,15 @@ def download_cover() -> str:
     return f"/covers/{dest_name}"
 
 
-def french_body_synopsis() -> str:
-    return (
-        "Kolwezi et Lubumbashi, le 2 novembre 2026 - Sur le Copperbelt congolais, "
-        "gouvernements et investisseurs mettent en avant la transformation locale, "
-        "le cobalt artisanal traçable et la nouvelle énergie d'Inga. La question "
-        "pratique est plus étroite : quels actifs produisent du métal et des "
-        "électrons ce trimestre, et quels projets restent autorisés sur le papier, "
-        "en chantier derrière une clôture ou annoncés dans les capitales.\n\n"
-        "Cette enquête pilote Africa Insight (corps en anglais, alignée sur la "
-        "revue mutuelle du 30 octobre 2026) couvre la formalisation artisanale, "
-        "les tensions d'octobre (Musompo, SAEMAPE, KCC/DGI), l'électricité et "
-        "les contrats d'État. Le cadre invité GoodHope Africa-China Lens "
-        "figure en fin d'article en version anglaise.\n\n"
-        "Pour le texte intégral et le cadre invité, basculer sur la version "
-        "anglaise (EN) via le drapeau en tête d'article."
-    )
-
-
 def main() -> None:
-    if not BODY.exists():
-        raise SystemExit(f"Missing body: {BODY}")
-    body_en = BODY.read_text(encoding="utf-8").strip()
+    if not BODY_EN.exists():
+        raise SystemExit(f"Missing body: {BODY_EN}")
+    if not BODY_FR.exists():
+        raise SystemExit(f"Missing body: {BODY_FR}")
+    body_en = BODY_EN.read_text(encoding="utf-8").strip()
+    body_fr = BODY_FR.read_text(encoding="utf-8").strip()
     cover = download_cover()
-    words = len(body_en.split())
+    words = max(len(body_en.split()), len(body_fr.split()))
     reading = max(5, round(words / 200))
 
     seed = json.loads(SEED.read_text(encoding="utf-8"))
@@ -105,7 +91,7 @@ def main() -> None:
         "title_en": TITLE_EN,
         "excerpt_en": EXCERPT_EN,
         "body_en": body_en,
-        "body_fr": french_body_synopsis(),
+        "body_fr": body_fr,
         "readingTimeMinutes": reading,
         "author": "jeff-buleli",
         "coverImageAltFr": "Mine Kamoto, Kolwezi - CC BY-SA 3.0, Martin Tuchscherer (Wikimedia Commons)",
