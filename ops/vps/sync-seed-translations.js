@@ -29,20 +29,6 @@ for (const a of [
 ]) {
   insertAuthor.run(a.slug, a.name, a.bioFr, a.bioEn);
 }
-const insertAuthor = db.prepare(`
-  INSERT OR IGNORE INTO authors (slug, name, bio_fr, bio_en)
-  VALUES (?, ?, ?, ?)
-`);
-for (const a of [
-  {
-    slug: "jeff-buleli",
-    name: "Jeff Buleli",
-    bioFr: "Rédacteur en chef, Africa Insight.",
-    bioEn: "Editor-in-Chief, Africa Insight.",
-  },
-]) {
-  insertAuthor.run(a.slug, a.name, a.bioFr, a.bioEn);
-}
 
 const upd = db.prepare(`
   UPDATE article_translations
