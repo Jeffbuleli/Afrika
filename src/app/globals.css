@@ -105,15 +105,23 @@ body {
   font-style: italic;
 }
 
+.prose-article--goodhope-pilot {
+  text-align: justify;
+  hyphens: auto;
+}
+
 .prose-article--goodhope-pilot > p:first-child {
-  text-align: center;
   font-style: italic;
   color: var(--ink-soft);
   font-size: 1rem;
 }
 
+.prose-article--goodhope-pilot h2,
+.prose-article--goodhope-pilot h3 {
+  text-align: left;
+}
+
 .prose-article--goodhope-pilot h2 {
-  text-align: center;
   margin-top: 2.5rem;
 }
 
@@ -145,11 +153,12 @@ body {
 
 .guest-policy-lens-inner {
   padding: 1.5rem 1.35rem 1.35rem;
-  text-align: left;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .guest-policy-lens-inner h2 {
-  text-align: center;
+  text-align: left;
   margin-top: 0;
   font-size: 1.2rem;
   letter-spacing: 0.06em;
@@ -158,7 +167,6 @@ body {
 }
 
 .guest-policy-lens-inner > p:first-of-type {
-  text-align: center;
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--ink-soft);
@@ -166,13 +174,14 @@ body {
 
 .guest-policy-lens-inner p strong {
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 1.05rem;
   color: var(--ink);
   margin-top: 1rem;
 }
 
 .guest-policy-lens-inner h3 {
+  text-align: left;
   font-size: 1.05rem;
   margin-top: 1.35rem;
 }
